@@ -1,0 +1,15 @@
+{
+  "name": "gatecommit",
+  "version": "1.0.2",
+  "description": "Local commit gate for derived projects",
+  "license": "MIT",
+  "bin": {
+    "gatecommit": "scripts/blueprint-gate.mjs"
+  },
+  "files": [
+    "scripts/blueprint-gate.mjs"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}
