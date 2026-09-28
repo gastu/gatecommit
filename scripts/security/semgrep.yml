@@ -1,0 +1,21 @@
+rules:
+  - id: blueprint.javascript-eval
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: Avoid eval; it executes dynamically constructed code.
+    pattern: eval($SOURCE)
+  - id: blueprint.python-eval
+    languages: [python]
+    severity: ERROR
+    message: Avoid eval; it executes dynamically constructed code.
+    pattern: eval($SOURCE)
+  - id: blueprint.javascript-child-process-shell
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: Avoid shell execution with untrusted or dynamic input.
+    patterns:
+      - pattern-either:
+          - pattern: "exec($CMD, ..., {shell: true}, ...)"
+          - pattern: "execSync($CMD, ..., {shell: true}, ...)"
+          - pattern: "spawn($CMD, ..., {shell: true}, ...)"
+          - pattern: "spawnSync($CMD, ..., {shell: true}, ...)"

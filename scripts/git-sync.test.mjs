@@ -81,21 +81,26 @@ test("explicit commit message is used verbatim", () => {
   assert.equal(git(remote, ["log", "-1", "--format=%s"]), "docs: explain sync behavior");
 });
 
-test("push uses the configured upstream without force options", () => {
+test("Git lifecycle never resets, cleans, checks out, rewrites remotes/upstreams or force pushes", () => {
   const { root } = createProject();
   writeFileSync(join(root, "README.md"), "change\n");
   const shim = mkdtempSync(join(tmpdir(), "gatecommit-git-shim-"));
   roots.push(shim);
-  const argsFile = join(shim, "push-args.txt");
-  writeFileSync(join(shim, "git"), `#!/bin/sh\nif [ "$1" = "push" ]; then printf '%s\\n' "$@" > '${argsFile}'; fi\nexec /usr/bin/git "$@"\n`);
+  const argsFile = join(shim, "git-args.txt");
+  const pushFile = join(shim, "push-args.txt");
+  writeFileSync(join(shim, "git"), `#!/bin/sh\nprintf '%s\\n' "$*" >> '${argsFile}'\nif [ "$1" = "push" ]; then printf '%s\\n' "$@" > '${pushFile}'; fi\nexec /usr/bin/git "$@"\n`);
   chmodSync(join(shim, "git"), 0o755);
   const env = { ...process.env, CI: "true", PATH: `${shim}${delimiter}${process.env.PATH ?? ""}` };
 
   const result = runGate(root, undefined, env);
 
   assert.equal(result.status, 0, result.stdout + result.stderr);
-  assert.equal(readFileSync(argsFile, "utf8"), "push\norigin\nHEAD:refs/heads/main\n");
-  assert.doesNotMatch(readFileSync(argsFile, "utf8"), /force/u);
+  assert.equal(readFileSync(pushFile, "utf8"), "push\norigin\nHEAD:refs/heads/main\n");
+  const invocations = readFileSync(argsFile, "utf8");
+  assert.doesNotMatch(invocations, /^(?:reset|clean|checkout)(?:\s|$)/mu);
+  assert.doesNotMatch(invocations, /^remote\s+(?:set-url|add)(?:\s|$)/mu);
+  assert.doesNotMatch(invocations, /^branch\s+--set-upstream-to(?:\s|$)/mu);
+  assert.doesNotMatch(invocations, /^push\s+.*(?:^|\s)(?:-f|--force)(?:\s|$)/mu);
 });
 
 test("gate failure leaves changes uncommitted and unpublished", () => {
@@ -105,7 +110,7 @@ test("gate failure leaves changes uncommitted and unpublished", () => {
   const result = runGate(root);
 
   assert.notEqual(result.status, 0);
-  assert.match(result.stdout, /TOTAL FAIL/u);
+  assert.match(result.stdout, /TOTAL BLOCKED/u);
   assert.doesNotMatch(result.stdout, /GIT_STAGED|COMMIT [0-9a-f]|PUSH origin/u);
   assert.equal(git(root, ["log", "-1", "--format=%s"]), "baseline");
   assert.equal(git(remote, ["log", "-1", "--format=%s"]), "baseline");
@@ -306,7 +311,7 @@ test("push rejection keeps the validated local commit", () => {
   const result = runGate(root);
 
   assert.notEqual(result.status, 0);
-  assert.match(result.stdout + result.stderr, /PUSH origin\/main FAIL/u);
+  assert.match(result.stdout + result.stderr, /PUSH origin\/main BLOCKED/u);
   assert.match(result.stdout + result.stderr, /el commit local se conserva/u);
   assert.equal(git(root, ["log", "-1", "--format=%s"]), "chore: sync validated changes");
   assert.equal(git(remote, ["log", "-1", "--format=%s"]), "baseline");
@@ -327,7 +332,8 @@ test("documentation profile uses the same commit and push flow", () => {
   const result = spawnSync(process.execPath, [gate, "--profile=documentation"], { cwd: root, encoding: "utf8", env, timeout: 30000 });
 
   assert.equal(result.status, 0, result.stdout + result.stderr);
-  assert.match(result.stdout, /TOTAL PASS checks=7/u);
+  assert.match(result.stdout, /CHECK markdown-links PASS/u);
+  assert.match(result.stdout, /TOTAL PASS/u);
   assert.match(result.stdout, /PUSH origin\/main PASS/u);
   assert.equal(git(remote, ["log", "-1", "--format=%s"]), "chore: sync validated changes");
 });
@@ -355,25 +361,23 @@ function createProject({ failSemgrep = false, mutateDuringGate = false, rejectPu
   execFileSync("git", ["init", "--bare", "-q", "-b", "main", remote]);
   writeFileSync(join(root, "README.md"), "# Baseline\n");
   if (!documentation) {
-    const semgrep = mutateDuringGate
+    const lint = mutateDuringGate
       ? `node -e 'require("node:fs").writeFileSync("README.md", "changed by gate check\\n")'`
       : failSemgrep ? "node -e 'process.exit(1)'" : "node -e 'process.exit(0)'";
     writeFileSync(join(root, "package.json"), JSON.stringify({
       name: "gatecommit-sync-test",
       version: "1.0.0",
       scripts: {
-        "contract:validate": "node -e 'process.exit(0)'",
-        "security:semgrep": semgrep,
-        "security:semgrep:test": "node -e 'process.exit(0)'",
+        build: "node -e 'process.exit(0)'",
+        lint,
+        "test:unit": "node -e 'process.exit(0)'",
       },
     }, null, 2));
   } else {
     writeFileSync(join(root, "package.json"), JSON.stringify({ name: "gatecommit-sync-docs", type: "module" }));
     mkdirSync(join(root, "scripts"));
     writeFileSync(join(root, "scripts", "validate-dependency-policy.mjs"), "export function validateDependencyPolicy() { return []; }\n");
-    for (const name of ["gate-metrics", "validate-dependency-policy", "validate-derived-contract"]) {
-      writeFileSync(join(root, "scripts", `${name}.test.mjs`), "import test from 'node:test'; test('fixture', () => {});\n");
-    }
+    rmSync(join(root, "scripts"), { recursive: true, force: true });
   }
   git(root, ["init", "-q", "-b", "main"]);
   git(root, ["config", "user.email", "gatecommit-test@example.invalid"]);

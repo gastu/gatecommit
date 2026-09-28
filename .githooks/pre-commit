@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ "${GATECOMMIT_INTERNAL_COMMIT:-}" = "1" ]; then
+  echo "GATECOMMIT pre-commit hook: parent validation passed"
+  exit 0
+fi
+if node -e 'const p=require("./package.json"); process.exit(typeof p.scripts?.["gate:commit"] === "string" ? 0 : 1)'; then
+  npm run gate:commit
+else
+  echo "BLOCKED package.json must declare scripts.gate:commit" >&2
+  exit 1
+fi
