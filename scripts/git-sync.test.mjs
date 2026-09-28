@@ -23,9 +23,51 @@ test("valid gate commits changed files and pushes to the configured upstream", (
   assert.match(result.stdout, /COMMIT [0-9a-f]+ PASS/u);
   assert.match(result.stdout, /PUSH origin\/main PASS/u);
   assert.match(result.stdout, /SYNC PASS/u);
+  assert.match(result.stdout, /GIT_CHANGES files=1\nM  README\.md/u);
   assert.equal(git(root, ["log", "-1", "--format=%s"]), "chore: sync validated changes");
   assert.equal(git(remote, ["log", "-1", "--format=%s"]), "chore: sync validated changes");
   assert.equal(git(root, ["status", "--porcelain"]), "");
+});
+
+test("change list reports tracked modifications and untracked files that are committed", () => {
+  const { root } = createProject();
+  writeFileSync(join(root, "README.md"), "tracked update\n");
+  writeFileSync(join(root, "new-file.txt"), "new file\n");
+
+  const result = runGate(root);
+
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+  assert.match(result.stdout, /GIT_CHANGES files=2\n(?:M  README\.md\n\?\?  new-file\.txt|\?\?  new-file\.txt\nM  README\.md)/u);
+  assert.deepEqual(git(root, ["diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD"]).split("\n").sort(), ["README.md", "new-file.txt"]);
+});
+
+test("change list reports deleted paths", () => {
+  const { root } = createProject();
+  git(root, ["rm", "README.md"]);
+
+  const result = runGate(root);
+
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+  assert.match(result.stdout, /GIT_CHANGES files=1\nD  README\.md/u);
+});
+
+test("change list reports Git detected renames", () => {
+  const { root } = createProject();
+  git(root, ["mv", "README.md", "RENAMED.md"]);
+
+  const result = runGate(root);
+
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+  assert.match(result.stdout, /GIT_CHANGES files=1\nR  RENAMED\.md <- README\.md/u);
+});
+
+test("clean working tree has no change list", () => {
+  const { root } = createProject();
+
+  const result = runGate(root);
+
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+  assert.doesNotMatch(result.stdout, /GIT_CHANGES/u);
 });
 
 test("explicit commit message is used verbatim", () => {

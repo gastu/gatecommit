@@ -119,6 +119,15 @@ export function syncValidatedChanges(root, initialState, initialSnapshot, commit
     const identity = checkIdentity(root);
     if (!identity.ok) return syncFailure(identity.reason);
 
+    const changes = git(root, ["status", "--porcelain=v1", "-z", "--untracked-files=all"], { encoding: "buffer" });
+    if (!changes.ok) return syncFailure(`no se pudieron enumerar los cambios para staging: ${changes.reason}`);
+    const listedChanges = parsePorcelainChanges(changes.stdout);
+    if (!listedChanges) return syncFailure("Git devolvió una lista de cambios inválida");
+    console.log(`GIT_CHANGES files=${listedChanges.length}`);
+    for (const change of listedChanges) {
+      console.log(`${change.status} ${displayGitPath(change.path)}${change.originalPath === undefined ? "" : ` <- ${displayGitPath(change.originalPath)}`}`);
+    }
+
     const add = git(root, ["add", "-A", "--"], { stdio: "inherit" });
     if (!add.ok) return syncFailure(`git add -A falló: ${add.reason}`);
 
@@ -200,6 +209,36 @@ export function formatGitState(state) {
 
 export function remoteAheadMessage(state) {
   return `upstream tiene ${state.remoteAhead} commit(s) que no están en la rama local; reconcilia manualmente antes de reintentar`;
+}
+
+function parsePorcelainChanges(buffer) {
+  const records = buffer.toString("utf8").split("\0");
+  if (records.at(-1) === "") records.pop();
+  const changes = [];
+  for (let index = 0; index < records.length; index += 1) {
+    const record = records[index];
+    if (record.length < 4 || record[2] !== " ") return null;
+    const code = record.slice(0, 2);
+    const path = record.slice(3);
+    if (!path) return null;
+    let status = code;
+    let originalPath;
+    if (code === "??") status = "??";
+    else {
+      const kind = [...code].find((value) => "MADRC".includes(value));
+      status = kind === "R" || kind === "C" ? "R " : kind === "A" ? "A " : kind === "D" ? "D " : "M ";
+      if (kind === "R" || kind === "C") {
+        originalPath = records[++index];
+        if (originalPath === undefined || originalPath === "") return null;
+      }
+    }
+    changes.push({ status, path, originalPath });
+  }
+  return changes;
+}
+
+function displayGitPath(path) {
+  return /[\r\n\t\0]/u.test(path) ? JSON.stringify(path) : path;
 }
 
 function inspectLocalState(root) {
