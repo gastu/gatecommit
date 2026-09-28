@@ -48,7 +48,10 @@ test is required only when the project's `package.json` explicitly declares
 `gatecommit.smoke` as the name of a required script. A declared
 `gatecommit.d1Checks` array can name additional required D1 project checks.
 Additional required project-owned checks use the ordered `gatecommit.checks`
-array of npm script names. For example:
+array of npm script names in both application and documentation profiles. This
+is the migration path for required project checks previously run automatically
+by GateCommit 1.0.5, including `test:contract` and
+`validate:derived-contract`. For example:
 
 ```json
 {

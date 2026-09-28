@@ -9,7 +9,7 @@ GateCommit v1.0.5 implements a partial, script-name-dependent gate that conflict
 - Define observable capability detection and a stable `PASS`, `BLOCKED`, `REVIEW`, `N/A` result model.
 - Centralize Semgrep, Gitleaks, license policy, npm audit, and dependency policy, including their applicable regression checks.
 - Make Actionlint capability-aware: run for workflow YAML files and report `N/A` when none exist.
-- Define stable contracts for project-owned unit tests and an ordered `gatecommit.checks` list for additional integration, domain, data, HTTP, deploy, and explicitly required smoke checks.
+- Define stable contracts for project-owned unit tests and an ordered `gatecommit.checks` list for additional integration, domain, data, HTTP, deploy, and explicitly required smoke checks, shared by application and documentation profiles.
 - Document the mandatory application lint/unit migration checks and the complete 1.x-to-2.0.0 project review path.
 - Specify GateCommit's own implementation-test contract separately from derived application capability checks, without exempting it from global controls.
 - Preserve a single `.githooks` integration, the internal-commit anti-recursion guard, and the existing safe Git lifecycle.

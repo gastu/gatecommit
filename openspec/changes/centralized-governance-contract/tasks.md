@@ -41,3 +41,9 @@
 - [x] 7.2 Implement and document the ordered `gatecommit.checks` contract; verify ordering, all-check execution after failure, missing/failing script blocks, empty-list `N/A`, and 1.0.5 check migration coverage.
 - [x] 7.3 Keep application lint/unit requirements mandatory with actionable migration failures; document the 1.x-to-2.0.0 checklist without changing derived repositories.
 - [x] 7.4 Restrict npm package contents to runtime and required regression artifacts; verify with `npm pack --dry-run`.
+
+## 8. Apply project-owned checks to every profile
+
+- [x] 8.1 Run the shared `gatecommit.checks` implementation after profile-specific checks for application and documentation profiles.
+- [x] 8.2 Add documentation-profile regression fixtures for absent, passing, ordered multiple, missing, and failing checks, including a migrated `test:contract` or `validate:derived-contract` script.
+- [x] 8.3 Update the 1.0.5 migration guidance and verify the full test suite, maintainer self-test, OpenSpec, package contents, and Graphify for both profiles.

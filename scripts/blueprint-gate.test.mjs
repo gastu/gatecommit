@@ -78,6 +78,50 @@ test("documentation profile runs its dedicated checks and shares subprocess envi
   assert.match(result.stdout, /CHECK gitleaks N\/A/u);
 });
 
+test("documentation profile enforces the shared gatecommit.checks contract", () => {
+  const absent = createDocumentationProject();
+  const absentResult = runGate(absent, withoutCI(), "--profile=documentation");
+  assert.equal(absentResult.status, 0, absentResult.stdout + absentResult.stderr);
+  assert.match(absentResult.stdout, /CHECK project-owned-checks N\/A/u);
+
+  const passing = createDocumentationProject({
+    contract: { checks: ["test:contract"] },
+    scripts: { "test:contract": "node -e 'console.log(\"DOC_CONTRACT_RAN\")'" },
+  });
+  const passingResult = runGate(passing, withoutCI(), "--profile=documentation");
+  assert.equal(passingResult.status, 0, passingResult.stdout + passingResult.stderr);
+  assert.match(passingResult.stdout, /DOC_CONTRACT_RAN/u);
+  assert.match(passingResult.stdout, /CHECK project-owned-checks PASS/u);
+
+  const ordered = createDocumentationProject({
+    contract: { checks: ["first", "second", "third"] },
+    scripts: Object.fromEntries(["first", "second", "third"].map((name, index) => [name, `node -e 'console.log("DOC_ORDER_${index + 1}")'`])),
+  });
+  const orderedResult = runGate(ordered, withoutCI(), "--profile=documentation");
+  assert.equal(orderedResult.status, 0, orderedResult.stdout + orderedResult.stderr);
+  let previous = -1;
+  for (let index = 1; index <= 3; index += 1) {
+    const position = orderedResult.stdout.indexOf(`DOC_ORDER_${index}`);
+    assert.ok(position > previous, `documentation check ${index} did not execute in order`);
+    previous = position;
+  }
+
+  const missing = createDocumentationProject({ contract: { checks: ["validate:derived-contract"] } });
+  const missingResult = runGate(missing, withoutCI(), "--profile=documentation");
+  assert.notEqual(missingResult.status, 0, missingResult.stdout);
+  assert.match(missingResult.stdout, /declares missing npm script 'validate:derived-contract'/u);
+  assert.match(missingResult.stdout, /CHECK project-owned-checks BLOCKED/u);
+
+  const failing = createDocumentationProject({
+    contract: { checks: ["test:contract"] },
+    scripts: { "test:contract": "node -e 'process.exit(9)'" },
+  });
+  const failingResult = runGate(failing, withoutCI(), "--profile=documentation");
+  assert.notEqual(failingResult.status, 0, failingResult.stdout);
+  assert.match(failingResult.stdout, /CHECK project-check-1 BLOCKED/u);
+  assert.match(failingResult.stdout, /CHECK project-owned-checks BLOCKED/u);
+});
+
 test("slowest-check summary is capped at three and does not change failure status", () => {
   const root = createProject({ failLint: true });
   const result = runGate(root, withoutCI());
@@ -106,9 +150,10 @@ function createProject({ git = true, captureEnvironment = false, failLint = fals
   return root;
 }
 
-function createDocumentationProject() {
+function createDocumentationProject({ scripts = {}, contract } = {}) {
   const root = createDirectory("gatecommit-documentation-");
-  writeFileSync(join(root, "package.json"), JSON.stringify({ name: "documentation-test", type: "module" }));
+  writeFileSync(join(root, "package.json"), JSON.stringify({ name: "documentation-test", type: "module", scripts,
+    ...(contract ? { gatecommit: contract } : {}) }));
   writeFileSync(join(root, "README.md"), "# Documentation test\n");
   initializeRepository(root);
   return root;

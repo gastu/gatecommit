@@ -50,6 +50,7 @@ runGlobalControls();
 runRuntimeControls();
 if (profile === "documentation") runDocumentationChecks();
 else runProjectChecks();
+runDeclaredProjectChecks();
 if (packageJson.name === "gatecommit") runMaintainerContract();
 
 const summary = summarizeResults(results);
@@ -144,7 +145,6 @@ function runProjectChecks() {
   else if (typeof smoke === "string" && typeof scripts[smoke] === "string") run("project-smoke", "npm", ["run", smoke]);
   else report("project-smoke", "BLOCKED", "gatecommit.smoke must name an existing required project script");
 
-  runDeclaredProjectChecks();
 }
 
 function runDeclaredProjectChecks() {
