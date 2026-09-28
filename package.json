@@ -6,8 +6,12 @@
   "bin": {
     "gatecommit": "scripts/blueprint-gate.mjs"
   },
+  "scripts": {
+    "test": "node --test"
+  },
   "files": [
-    "scripts/blueprint-gate.mjs"
+    "scripts/blueprint-gate.mjs",
+    "scripts/git-delta.mjs"
   ],
   "engines": {
     "node": ">=20"

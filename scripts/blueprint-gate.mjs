@@ -2,9 +2,11 @@
 
 import { existsSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
-import { execFileSync, spawnSync } from "node:child_process";
+import { spawnSync } from "node:child_process";
+import { listVersionedFiles, readGitDelta } from "./git-delta.mjs";
 
-const root = resolve(process.argv[2] ?? process.cwd());
+const rootArgument = process.argv.slice(2).find((argument) => !argument.startsWith("--"));
+const root = resolve(rootArgument ?? process.cwd());
 const packagePath = join(root, "package.json");
 
 if (!existsSync(packagePath)) {
@@ -21,12 +23,21 @@ const directDependencies = {
   ...(packageJson.optionalDependencies ?? {}),
   ...(packageJson.peerDependencies ?? {}),
 };
-const versionedFiles = listVersionedFiles();
-const hasCode = versionedFiles.some((file) => /\.(?:c|cjs|cpp|go|java|js|mjs|py|rb|rs|sh|swift|ts|tsx|vue)$/u.test(file));
-const hasTypeScript = versionedFiles.some((file) => /\.(?:ts|tsx)$/u.test(file));
+const delta = readGitDelta(root);
+const versionedFiles = listVersionedFiles(root);
+const projectFiles = versionedFiles === null || delta === null
+  ? null
+  : [...new Set([...versionedFiles, ...delta.files])];
+const knownProjectFiles = [...(versionedFiles ?? []), ...(delta?.files ?? [])];
+const hasCode = hasCapability(knownProjectFiles, projectFiles, /\.(?:c|cjs|cpp|go|java|js|mjs|py|rb|rs|sh|swift|ts|tsx|vue)$/u);
+const hasTypeScript = hasCapability(knownProjectFiles, projectFiles, /\.(?:ts|tsx)$/u);
 const hasWrangler = existsSync(join(root, "wrangler.jsonc")) || existsSync(join(root, "wrangler.toml"));
 const hasApplication = hasWrangler || Object.keys(dependencies).some((name) => /^(?:hono|react|react-dom|next|express|fastify|@cloudflare\/)/u.test(name)) || typeof scripts.build === "string" || typeof scripts.deploy === "string";
 const results = [];
+
+console.log(delta === null
+  ? "DELTA unknown; using capability-only fallback"
+  : `DELTA known files=${delta.files.length}`);
 
 if (process.argv.includes("--profile=documentation")) {
   runDocumentationProfile();
@@ -74,6 +85,7 @@ const notApplicable = results.filter((result) => result.status === "NOT_APPLICAB
 const finalStatus = blocked.length > 0 ? "FAIL" : "PASS";
 
 console.log(`TOTAL ${finalStatus} checks=${results.length} blocked=${blocked.length} warnings=${warnings.length} not_applicable=${notApplicable.length}`);
+reportSlowestChecks();
 console.log(`GATE_RESULT findings=${blocked.length} review=${warnings.length} expected=0`);
 process.exit(blocked.length > 0 ? 1 : 0);
 
@@ -87,7 +99,7 @@ function runScript(name, candidates) {
 }
 
 function runApplicableScript(name, candidates, applies) {
-  if (!applies) {
+  if (applies === false) {
     report(name, "NOT_APPLICABLE", "la capacidad controlada no existe en el proyecto");
     return;
   }
@@ -138,7 +150,9 @@ function runDependencyPolicy() {
 
 function run(name, command, args, options = {}) {
   const started = performance.now();
-  const result = spawnSync(command, args, { cwd: root, stdio: "inherit", env: { ...process.env, BLUEPRINT_GATE_ORCHESTRATOR: "1" } });
+  const env = { ...process.env, BLUEPRINT_GATE_ORCHESTRATOR: "1" };
+  if (env.CI === undefined) env.CI = "true";
+  const result = spawnSync(command, args, { cwd: root, stdio: "inherit", env });
   const status = result.status === 0 ? "PASS" : options.blockOnNonZero === false ? "WARN" : "BLOCKED";
   report(name, status, result.error?.message, performance.now() - started);
 }
@@ -146,7 +160,19 @@ function run(name, command, args, options = {}) {
 function report(name, status, detail = "", duration = 0) {
   const suffix = detail ? ` detail=${JSON.stringify(detail)}` : "";
   console.log(`CHECK ${name} ${status} duration=${Math.round(duration)}ms${suffix}`);
-  results.push({ name, status });
+  results.push({ name, status, duration });
+}
+
+function reportSlowestChecks() {
+  const slowest = results
+    .filter((result) => result.status !== "NOT_APPLICABLE")
+    .sort((left, right) => right.duration - left.duration)
+    .slice(0, 3);
+
+  console.log("SLOWEST CHECKS");
+  for (const result of slowest) {
+    console.log(`${result.name.padEnd(20)} ${(result.duration / 1000).toFixed(1)}s`);
+  }
 }
 
 function hasVite(allDependencies) {
@@ -161,12 +187,9 @@ function hasNpmDependencies() {
   return Object.keys(directDependencies).length > 0;
 }
 
-function listVersionedFiles() {
-  try {
-    return execFileSync("git", ["ls-files"], { cwd: root, encoding: "utf8" }).split("\n").filter(Boolean);
-  } catch {
-    return [];
-  }
+function hasCapability(observedFiles, completeFiles, pattern) {
+  if (observedFiles.some((file) => pattern.test(file))) return true;
+  return completeFiles === null ? null : false;
 }
 
 function checkGithubActionsSource() {
@@ -183,6 +206,7 @@ function runDocumentationProfile() {
   run("gitleaks", "gitleaks", ["detect", "--source", root, "--no-banner", "--redact"]);
   const blocked = results.filter((result) => result.status === "BLOCKED").length;
   console.log(`TOTAL ${blocked === 0 ? "PASS" : "FAIL"} checks=${results.length} blocked=${blocked}`);
+  reportSlowestChecks();
   console.log(`GATE_RESULT findings=${blocked} review=0 expected=0`);
 }
 
