@@ -10,6 +10,8 @@ Defines how GateCommit determines which shared governance controls apply and how
 
 GateCommit SHALL detect code, TypeScript, application, npm dependencies, Wrangler, D1, KV, R2, Drizzle, and GitHub Actions from versioned and current changed files plus applicable manifest/configuration signals defined by the Blueprint handoff. Detection SHALL be recomputed so newly added capabilities apply before closure. A missing capability SHALL cause its dependent checks to report `N/A` with a reason.
 
+D1 SHALL be present only when Wrangler configuration declares `d1_databases` or an explicitly D1-named project script provides equivalent unambiguous evidence. Generic `database.json`, `databases.json`, or unrelated `d1.json` filenames alone SHALL NOT activate D1.
+
 #### Scenario: Newly changed source adds a capability
 - **WHEN** a supported capability exists only in a current changed file
 - **THEN** GateCommit detects it and runs its required applicable checks in that invocation

@@ -10,6 +10,10 @@ Defines the boundary between shared GateCommit policy and project-owned tests, a
 
 GateCommit SHALL invoke project-owned unit tests using `test:unit` or `test` when the application capability is present. Domain, integration, data, and functional tests SHALL remain owned by the project and MUST be invoked through a documented project contract without GateCommit encoding domain rules. A local smoke test SHALL be required only when the project's documented contract explicitly requires it. A required script missing for an applicable capability SHALL be `BLOCKED`; an optional or inapplicable script SHALL be `N/A` with a reason.
 
+The project contract SHALL provide `gatecommit.checks`, an optional ordered array of additional required npm script names. GateCommit SHALL execute every declared script in order, even if an earlier one fails. Missing or failing declared scripts SHALL produce `BLOCKED`; an absent or empty array SHALL produce reasoned `N/A`. The array MUST NOT repeat canonical lint (`lint:eslint`/`lint`), unit (`test:unit`/`test`), build (`build`), or the separately declared `gatecommit.smoke` check.
+
+When application capability is present, lint and unit checks remain mandatory. Missing scripts SHALL produce an actionable `BLOCKED` result naming the accepted script aliases and required capability; projects SHALL add the missing scripts during migration rather than weakening the gate.
+
 #### Scenario: Application has unit-test contract
 - **WHEN** an application declares `test:unit` or `test`
 - **THEN** GateCommit executes that project-owned test command
@@ -17,6 +21,18 @@ GateCommit SHALL invoke project-owned unit tests using `test:unit` or `test` whe
 #### Scenario: Application lacks required unit-test contract
 - **WHEN** application capability is present and neither canonical unit-test script exists
 - **THEN** GateCommit reports `BLOCKED`
+
+#### Scenario: Additional project checks are declared
+- **WHEN** a project declares multiple script names in `gatecommit.checks`
+- **THEN** GateCommit executes all of them in declaration order and reports `PASS` only if every declared check passes
+
+#### Scenario: A declared additional check is missing or fails
+- **WHEN** any script in `gatecommit.checks` is absent or exits unsuccessfully
+- **THEN** GateCommit reports `BLOCKED` while continuing to execute subsequent declared checks
+
+#### Scenario: No additional project checks are declared
+- **WHEN** `gatecommit.checks` is absent or empty
+- **THEN** GateCommit reports `N/A` with a reason
 
 #### Scenario: Project requires local smoke test
 - **WHEN** the project's documented contract explicitly requires a supported local smoke test

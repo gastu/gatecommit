@@ -67,6 +67,19 @@ test("detects D1 from unambiguous project scripts and Drizzle from configuration
   assert.equal(caps.drizzle.present, true);
 });
 
+test("generic database filenames and unbound TOML mentions do not signal D1", { skip: onlyKind("dependency") }, () => {
+  for (const filename of ["database.json", "databases.json", "d1.json"]) {
+    const root = project();
+    writeFileSync(join(root, filename), JSON.stringify({ unrelated: true }));
+    assert.equal(detectCapabilities(root, [filename], [filename]).d1.present, false, filename);
+  }
+  const root = project();
+  writeFileSync(join(root, "wrangler.toml"), `name = "fixture"\n# [[d1_databases]] is only a comment\n[vars]\nexample = "mentions d1_databases without a binding"\n`);
+  const caps = detectCapabilities(root, ["wrangler.toml"], []);
+  assert.equal(caps.wrangler.present, true);
+  assert.equal(caps.d1.present, false);
+});
+
 test("detects YAML workflows and reports absent workflows as N/A capability", { skip: onlyKind("dependency") }, () => {
   const root = project();
   assert.equal(detectCapabilities(root, [], [])["github-actions"].present, false);

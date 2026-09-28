@@ -47,6 +47,25 @@ integration, data, and functional tests remain in their project. A local smoke
 test is required only when the project's `package.json` explicitly declares
 `gatecommit.smoke` as the name of a required script. A declared
 `gatecommit.d1Checks` array can name additional required D1 project checks.
+Additional required project-owned checks use the ordered `gatecommit.checks`
+array of npm script names. For example:
+
+```json
+{
+  "gatecommit": {
+    "checks": ["test:integration", "test:http:contract", "test:deploy:contract"],
+    "smoke": "test:smoke:local",
+    "d1Checks": ["db:test:from-zero", "db:test:upgrade"]
+  }
+}
+```
+
+GateCommit executes every entry in order, continues after a failure so all
+declared checks run, and blocks if any script is missing or fails. An absent or
+empty list reports `N/A`. Do not repeat `lint:eslint`,
+`lint`, `test:unit`, `test`, `build`, or the separately declared
+`gatecommit.smoke` script in this list. Use it for project-specific integration,
+HTTP, remote/deploy contract, smoke, data, or other required checks.
 Wrangler runtime validation checks D1 binding names, database names and resource
 IDs, KV/R2 binding fields, and the configured D1 migrations directory.
 
@@ -93,3 +112,38 @@ state is ignored; portable graph outputs may be versioned.
 GateCommit does not migrate derived repositories or remove local checks there.
 Keep an existing local shared control until equivalent coverage is verified in
 a compatible GateCommit version.
+
+## Migrating from GateCommit 1.x to 2.0.0
+
+GateCommit 2.0.0 keeps Blueprint's application requirements: every detected
+application must declare a lint script (`lint:eslint` or `lint`) and a unit
+script (`test:unit` or `test`). Rename the former `eslint` script to one of the
+accepted lint names. Missing requirements block with an actionable
+message. Projects must add the correct project-owned scripts before adopting
+2.0.0; GateCommit does not provide project-specific exceptions.
+
+Before updating each project, review and declare:
+
+1. **Application checks:** confirm application detection and required lint and
+   unit scripts. Confirm the `build` script exists when the project produces a
+   build artifact; set `gatecommit.buildRequired` when that artifact is
+   required but GateCommit cannot infer it from the script.
+2. **Previously automatic project checks:** move every required integration,
+   HTTP, remote/deploy contract, data, and other project-owned check into
+   `gatecommit.checks`, preserving order. This includes any existing
+   `contract:validate`, `test:contract`, or `validate:derived-contract` check
+   previously run by GateCommit 1.0.5, unless its retirement or replacement is
+   documented, and any existing
+   `test:http:account`, `test:http:organizations`, `test:http:platform`,
+   `test:remote-contract`, and `test:deploy-contract` checks.
+3. **Smoke and D1 checks:** review prior `test:smoke:harness` and
+   `test:smoke:local` scripts. Declare a required local smoke script in
+   `gatecommit.smoke` or `gatecommit.checks`; declare additional D1 checks in
+   `gatecommit.d1Checks`.
+4. **Shared policies and status consumers:** remove local copies only after
+   equivalent GateCommit coverage is verified. Update consumers of old
+   `FAIL`/`WARN`/`NOT_APPLICABLE`/`SKIP` output to canonical
+   `BLOCKED`/`REVIEW`/`N/A` results.
+5. **Other capabilities:** verify TypeScript typecheck, Wrangler type checks and
+   runtime configuration, Drizzle schema checks, npm lock/dependency policy,
+   and Actionlint when workflows are present.

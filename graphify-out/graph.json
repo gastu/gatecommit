@@ -13,7 +13,7 @@
       "file_type": "code",
       "norm_label": "blockedbeforechecks()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L207"
+      "source_location": "L251"
     },
     {
       "id": "scripts_blueprint_gate_parsearguments",
@@ -25,7 +25,7 @@
       "file_type": "code",
       "norm_label": "parsearguments()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L213"
+      "source_location": "L257"
     },
     {
       "id": "scripts_blueprint_gate_report",
@@ -37,7 +37,7 @@
       "file_type": "code",
       "norm_label": "report()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L190"
+      "source_location": "L234"
     },
     {
       "id": "scripts_blueprint_gate_reportgitpreflightfailure",
@@ -49,7 +49,7 @@
       "file_type": "code",
       "norm_label": "reportgitpreflightfailure()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L196"
+      "source_location": "L240"
     },
     {
       "id": "scripts_blueprint_gate_reportslowestchecks",
@@ -61,7 +61,7 @@
       "file_type": "code",
       "norm_label": "reportslowestchecks()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L202"
+      "source_location": "L246"
     },
     {
       "id": "scripts_blueprint_gate_run",
@@ -73,7 +73,19 @@
       "file_type": "code",
       "norm_label": "run()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L177"
+      "source_location": "L220"
+    },
+    {
+      "id": "scripts_blueprint_gate_rundeclaredprojectchecks",
+      "label": "runDeclaredProjectChecks()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "blueprint-gate.mjs",
+      "file_type": "code",
+      "norm_label": "rundeclaredprojectchecks()",
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L150"
     },
     {
       "id": "scripts_blueprint_gate_rundocumentationchecks",
@@ -85,7 +97,7 @@
       "file_type": "code",
       "norm_label": "rundocumentationchecks()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L148"
+      "source_location": "L187"
     },
     {
       "id": "scripts_blueprint_gate_runglobalcontrols",
@@ -109,7 +121,7 @@
       "file_type": "code",
       "norm_label": "runmaintainercontract()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L162"
+      "source_location": "L201"
     },
     {
       "id": "scripts_blueprint_gate_runpolicyregression",
@@ -121,7 +133,7 @@
       "file_type": "code",
       "norm_label": "runpolicyregression()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L166"
+      "source_location": "L205"
     },
     {
       "id": "scripts_blueprint_gate_runprojectchecks",
@@ -145,7 +157,7 @@
       "file_type": "code",
       "norm_label": "runrequiredscript()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L171"
+      "source_location": "L210"
     },
     {
       "id": "scripts_blueprint_gate_runruntimecontrols",
@@ -169,31 +181,7 @@
       "file_type": "code",
       "norm_label": "result()",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L48"
-    },
-    {
-      "id": "scripts_governance_safeentries",
-      "label": "safeEntries()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "blueprint-gate.mjs",
-      "file_type": "code",
-      "norm_label": "safeentries()",
-      "source_file": "scripts/governance.mjs",
-      "source_location": "L136"
-    },
-    {
-      "id": "scripts_governance_validatewranglerconfig",
-      "label": "validateWranglerConfig()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "blueprint-gate.mjs",
-      "file_type": "code",
-      "norm_label": "validatewranglerconfig()",
-      "source_file": "scripts/governance.mjs",
-      "source_location": "L66"
+      "source_location": "L49"
     },
     {
       "id": "scripts_git_delta_readgitdelta",
@@ -436,143 +424,11 @@
       "source_location": "L103"
     },
     {
-      "id": "scripts_git_delta_listversionedfiles",
-      "label": "listVersionedFiles()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "listversionedfiles()",
-      "source_file": "scripts/git-delta.mjs",
-      "source_location": "L13"
-    },
-    {
-      "id": "scripts_git_delta_parsegitstatus",
-      "label": "parseGitStatus()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "parsegitstatus()",
-      "source_file": "scripts/git-delta.mjs",
-      "source_location": "L19"
-    },
-    {
-      "id": "scripts_git_delta_test_createdirectory",
-      "label": "createDirectory()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "createdirectory()",
-      "source_file": "scripts/git-delta.test.mjs",
-      "source_location": "L79"
-    },
-    {
-      "id": "scripts_git_delta_test_createrepository",
-      "label": "createRepository()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "createrepository()",
-      "source_file": "scripts/git-delta.test.mjs",
-      "source_location": "L68"
-    },
-    {
-      "id": "scripts_git_sync_test_createproject",
-      "label": "createProject()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "createproject()",
-      "source_file": "scripts/git-sync.test.mjs",
-      "source_location": "L355"
-    },
-    {
-      "id": "scripts_git_sync_test_git",
-      "label": "git()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "git()",
-      "source_file": "scripts/git-sync.test.mjs",
-      "source_location": "L404"
-    },
-    {
-      "id": "scripts_git_sync_test_rungate",
-      "label": "runGate()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "rungate()",
-      "source_file": "scripts/git-sync.test.mjs",
-      "source_location": "L408"
-    },
-    {
-      "id": "scripts_governance_gate_test_executable",
-      "label": "executable()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "executable()",
-      "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L184"
-    },
-    {
-      "id": "scripts_governance_gate_test_fixture",
-      "label": "fixture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "fixture()",
-      "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L170"
-    },
-    {
-      "id": "scripts_governance_gate_test_git",
-      "label": "git()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "git()",
-      "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L186"
-    },
-    {
-      "id": "scripts_governance_gate_test_run",
-      "label": "run()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "run()",
-      "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L185"
-    },
-    {
       "id": "scripts_blueprint_gate_test_createdirectory",
       "label": "createDirectory()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "createdirectory()",
@@ -584,7 +440,7 @@
       "label": "createDocumentationProject()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "createdocumentationproject()",
@@ -596,7 +452,7 @@
       "label": "createProject()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "createproject()",
@@ -608,7 +464,7 @@
       "label": "initializeRepository()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "initializerepository()",
@@ -620,7 +476,7 @@
       "label": "readEnvironment()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "readenvironment()",
@@ -632,7 +488,7 @@
       "label": "runGate()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "rungate()",
@@ -644,7 +500,7 @@
       "label": "runGateFrom()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "rungatefrom()",
@@ -656,12 +512,144 @@
       "label": "withoutCI()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "withoutci()",
       "source_file": "scripts/blueprint-gate.test.mjs",
       "source_location": "L144"
+    },
+    {
+      "id": "scripts_git_delta_listversionedfiles",
+      "label": "listVersionedFiles()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "listversionedfiles()",
+      "source_file": "scripts/git-delta.mjs",
+      "source_location": "L13"
+    },
+    {
+      "id": "scripts_git_delta_parsegitstatus",
+      "label": "parseGitStatus()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "parsegitstatus()",
+      "source_file": "scripts/git-delta.mjs",
+      "source_location": "L19"
+    },
+    {
+      "id": "scripts_git_delta_test_createdirectory",
+      "label": "createDirectory()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "createdirectory()",
+      "source_file": "scripts/git-delta.test.mjs",
+      "source_location": "L79"
+    },
+    {
+      "id": "scripts_git_delta_test_createrepository",
+      "label": "createRepository()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "createrepository()",
+      "source_file": "scripts/git-delta.test.mjs",
+      "source_location": "L68"
+    },
+    {
+      "id": "scripts_git_sync_test_createproject",
+      "label": "createProject()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "createproject()",
+      "source_file": "scripts/git-sync.test.mjs",
+      "source_location": "L355"
+    },
+    {
+      "id": "scripts_git_sync_test_git",
+      "label": "git()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "git()",
+      "source_file": "scripts/git-sync.test.mjs",
+      "source_location": "L404"
+    },
+    {
+      "id": "scripts_git_sync_test_rungate",
+      "label": "runGate()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "rungate()",
+      "source_file": "scripts/git-sync.test.mjs",
+      "source_location": "L408"
+    },
+    {
+      "id": "scripts_governance_gate_test_executable",
+      "label": "executable()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "executable()",
+      "source_file": "scripts/governance-gate.test.mjs",
+      "source_location": "L258"
+    },
+    {
+      "id": "scripts_governance_gate_test_fixture",
+      "label": "fixture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "fixture()",
+      "source_file": "scripts/governance-gate.test.mjs",
+      "source_location": "L244"
+    },
+    {
+      "id": "scripts_governance_gate_test_git",
+      "label": "git()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "git()",
+      "source_file": "scripts/governance-gate.test.mjs",
+      "source_location": "L260"
+    },
+    {
+      "id": "scripts_governance_gate_test_run",
+      "label": "run()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "run()",
+      "source_file": "scripts/governance-gate.test.mjs",
+      "source_location": "L259"
     },
     {
       "id": "scripts_dependency_policy_readjson",
@@ -697,7 +685,7 @@
       "file_type": "code",
       "norm_label": "capability()",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L101"
+      "source_location": "L102"
     },
     {
       "id": "scripts_governance_detectcapabilities",
@@ -721,7 +709,7 @@
       "file_type": "code",
       "norm_label": "listworkflowfiles()",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L129"
+      "source_location": "L130"
     },
     {
       "id": "scripts_governance_parsetomlarraytables",
@@ -733,7 +721,7 @@
       "file_type": "code",
       "norm_label": "parsetomlarraytables()",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L138"
+      "source_location": "L139"
     },
     {
       "id": "scripts_governance_readjson",
@@ -745,7 +733,7 @@
       "file_type": "code",
       "norm_label": "readjson()",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L105"
+      "source_location": "L106"
     },
     {
       "id": "scripts_governance_readwrangler",
@@ -757,7 +745,19 @@
       "file_type": "code",
       "norm_label": "readwrangler()",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L109"
+      "source_location": "L110"
+    },
+    {
+      "id": "scripts_governance_safeentries",
+      "label": "safeEntries()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "policy-regression.test.mjs",
+      "file_type": "code",
+      "norm_label": "safeentries()",
+      "source_file": "scripts/governance.mjs",
+      "source_location": "L137"
     },
     {
       "id": "scripts_governance_summarizeresults",
@@ -769,7 +769,19 @@
       "file_type": "code",
       "norm_label": "summarizeresults()",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L54"
+      "source_location": "L55"
+    },
+    {
+      "id": "scripts_governance_validatewranglerconfig",
+      "label": "validateWranglerConfig()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "policy-regression.test.mjs",
+      "file_type": "code",
+      "norm_label": "validatewranglerconfig()",
+      "source_file": "scripts/governance.mjs",
+      "source_location": "L67"
     },
     {
       "id": "scripts_license_policy_entries",
@@ -853,7 +865,7 @@
       "file_type": "code",
       "norm_label": "project()",
       "source_file": "scripts/policy-regression.test.mjs",
-      "source_location": "L134"
+      "source_location": "L147"
     },
     {
       "id": "scripts_blueprint_gate",
@@ -1042,7 +1054,7 @@
       "node_kind": "heading",
       "norm_label": "capabilities",
       "source_file": "openspec/changes/centralized-governance-contract/proposal.md",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_proposal_impact",
@@ -1054,7 +1066,7 @@
       "node_kind": "heading",
       "norm_label": "impact",
       "source_file": "openspec/changes/centralized-governance-contract/proposal.md",
-      "source_location": "L29"
+      "source_location": "L30"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_proposal_modified_capabilities",
@@ -1066,7 +1078,7 @@
       "node_kind": "heading",
       "norm_label": "modified capabilities",
       "source_file": "openspec/changes/centralized-governance-contract/proposal.md",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_proposal_new_capabilities",
@@ -1078,7 +1090,7 @@
       "node_kind": "heading",
       "norm_label": "new capabilities",
       "source_file": "openspec/changes/centralized-governance-contract/proposal.md",
-      "source_location": "L20"
+      "source_location": "L21"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_proposal_proposal",
@@ -1199,6 +1211,18 @@
       "norm_label": "6. document compatibility and complete integration",
       "source_file": "openspec/changes/centralized-governance-contract/tasks.md",
       "source_location": "L32"
+    },
+    {
+      "id": "openspec_changes_centralized_governance_contract_tasks_7_corrective_review_findings",
+      "label": "7. Corrective review findings",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "Tasks",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7. corrective review findings",
+      "source_file": "openspec/changes/centralized-governance-contract/tasks.md",
+      "source_location": "L38"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_tasks_tasks",
@@ -1355,7 +1379,7 @@
       "file_type": "code",
       "norm_label": "engines",
       "source_file": "package.json",
-      "source_location": "L20"
+      "source_location": "L30"
     },
     {
       "id": "package_engines_node",
@@ -1366,7 +1390,7 @@
       "file_type": "code",
       "norm_label": "node",
       "source_file": "package.json",
-      "source_location": "L21"
+      "source_location": "L31"
     },
     {
       "id": "package_files",
@@ -1457,142 +1481,10 @@
       "source_location": "L3"
     },
     {
-      "id": "scripts_git_delta",
-      "label": "git-delta.mjs",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "git-delta.mjs",
-      "source_file": "scripts/git-delta.mjs",
-      "source_location": "L1"
-    },
-    {
-      "id": "scripts_git_delta_test",
-      "label": "git-delta.test.mjs",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "git-delta.test.mjs",
-      "source_file": "scripts/git-delta.test.mjs",
-      "source_location": "L1"
-    },
-    {
-      "id": "scripts_git_delta_test_roots",
-      "label": "roots",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "roots",
-      "source_file": "scripts/git-delta.test.mjs",
-      "source_location": "L9"
-    },
-    {
-      "id": "scripts_git_sync_test",
-      "label": "git-sync.test.mjs",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "git-sync.test.mjs",
-      "source_file": "scripts/git-sync.test.mjs",
-      "source_location": "L1"
-    },
-    {
-      "id": "scripts_git_sync_test_gate",
-      "label": "gate",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "gate",
-      "source_file": "scripts/git-sync.test.mjs",
-      "source_location": "L9"
-    },
-    {
-      "id": "scripts_git_sync_test_roots",
-      "label": "roots",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "roots",
-      "source_file": "scripts/git-sync.test.mjs",
-      "source_location": "L10"
-    },
-    {
-      "id": "scripts_governance_gate_test",
-      "label": "governance-gate.test.mjs",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "governance-gate.test.mjs",
-      "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L1"
-    },
-    {
-      "id": "scripts_governance_gate_test_gate",
-      "label": "gate",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "gate",
-      "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L9"
-    },
-    {
-      "id": "scripts_governance_gate_test_roots",
-      "label": "roots",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "roots",
-      "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L11"
-    },
-    {
-      "id": "scripts_governance_gate_test_systemnpm",
-      "label": "systemNpm",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "systemnpm",
-      "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L10"
-    },
-    {
-      "id": "scripts_setup_git_hooks",
-      "label": "setup-git-hooks.mjs",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "setup-git-hooks.mjs",
-      "source_file": "scripts/setup-git-hooks.mjs",
-      "source_location": "L1"
-    },
-    {
-      "id": "scripts_setup_git_hooks_result",
-      "label": "result",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "result",
-      "source_file": "scripts/setup-git-hooks.mjs",
-      "source_location": "L3"
-    },
-    {
       "id": "scripts_blueprint_gate_test",
       "label": "blueprint-gate.test.mjs",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "blueprint-gate.test.mjs",
@@ -1603,7 +1495,7 @@
       "id": "scripts_blueprint_gate_test_gate",
       "label": "gate",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "gate",
@@ -1614,7 +1506,7 @@
       "id": "scripts_blueprint_gate_test_roots",
       "label": "roots",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "roots",
@@ -1622,11 +1514,143 @@
       "source_location": "L10"
     },
     {
+      "id": "scripts_git_delta",
+      "label": "git-delta.mjs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "git-delta.mjs",
+      "source_file": "scripts/git-delta.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_git_delta_test",
+      "label": "git-delta.test.mjs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "git-delta.test.mjs",
+      "source_file": "scripts/git-delta.test.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_git_delta_test_roots",
+      "label": "roots",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "roots",
+      "source_file": "scripts/git-delta.test.mjs",
+      "source_location": "L9"
+    },
+    {
+      "id": "scripts_git_sync_test",
+      "label": "git-sync.test.mjs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "git-sync.test.mjs",
+      "source_file": "scripts/git-sync.test.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_git_sync_test_gate",
+      "label": "gate",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "gate",
+      "source_file": "scripts/git-sync.test.mjs",
+      "source_location": "L9"
+    },
+    {
+      "id": "scripts_git_sync_test_roots",
+      "label": "roots",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "roots",
+      "source_file": "scripts/git-sync.test.mjs",
+      "source_location": "L10"
+    },
+    {
+      "id": "scripts_governance_gate_test",
+      "label": "governance-gate.test.mjs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "governance-gate.test.mjs",
+      "source_file": "scripts/governance-gate.test.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_governance_gate_test_gate",
+      "label": "gate",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "gate",
+      "source_file": "scripts/governance-gate.test.mjs",
+      "source_location": "L9"
+    },
+    {
+      "id": "scripts_governance_gate_test_roots",
+      "label": "roots",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "roots",
+      "source_file": "scripts/governance-gate.test.mjs",
+      "source_location": "L11"
+    },
+    {
+      "id": "scripts_governance_gate_test_systemnpm",
+      "label": "systemNpm",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "systemnpm",
+      "source_file": "scripts/governance-gate.test.mjs",
+      "source_location": "L10"
+    },
+    {
+      "id": "scripts_setup_git_hooks",
+      "label": "setup-git-hooks.mjs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "setup-git-hooks.mjs",
+      "source_file": "scripts/setup-git-hooks.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_setup_git_hooks_result",
+      "label": "result",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "result",
+      "source_file": "scripts/setup-git-hooks.mjs",
+      "source_location": "L3"
+    },
+    {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec",
       "label": "project-contract-and-lifecycle/spec.md",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "project-contract-and-lifecycle/spec.md",
@@ -1638,7 +1662,7 @@
       "label": "ADDED Requirements",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "added requirements",
@@ -1650,7 +1674,7 @@
       "label": "Purpose",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "purpose",
@@ -1662,67 +1686,67 @@
       "label": "Requirement: Derived projects SHALL remain compatible without policy copies",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "requirement: derived projects shall remain compatible without policy copies",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L89"
+      "source_location": "L105"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_gatecommit_shall_test_its_own_implementation_without_weakening_global_controls",
       "label": "Requirement: GateCommit SHALL test its own implementation without weakening global controls",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "requirement: gatecommit shall test its own implementation without weakening global controls",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L29"
+      "source_location": "L45"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_git_closure_shall_preserve_safe_lifecycle_guarantees",
       "label": "Requirement: Git closure SHALL preserve safe lifecycle guarantees",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "requirement: git closure shall preserve safe lifecycle guarantees",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L53"
+      "source_location": "L69"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_git_hooks_shall_use_one_path_and_prevent_internal_recursion",
       "label": "Requirement: Git hooks SHALL use one path and prevent internal recursion",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "requirement: git hooks shall use one path and prevent internal recursion",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L41"
+      "source_location": "L57"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_graphify_and_openspec_shall_be_part_of_the_relevant_change_lifecycle",
       "label": "Requirement: Graphify and OpenSpec SHALL be part of the relevant change lifecycle",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "requirement: graphify and openspec shall be part of the relevant change lifecycle",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L73"
+      "source_location": "L89"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_project_owned_checks_shall_run_through_a_stable_contract",
       "label": "Requirement: Project-owned checks SHALL run through a stable contract",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "requirement: project-owned checks shall run through a stable contract",
@@ -1730,215 +1754,251 @@
       "source_location": "L9"
     },
     {
+      "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_a_declared_additional_check_is_missing_or_fails",
+      "label": "Scenario: A declared additional check is missing or fails",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: a declared additional check is missing or fails",
+      "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
+      "source_location": "L29"
+    },
+    {
+      "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_additional_project_checks_are_declared",
+      "label": "Scenario: Additional project checks are declared",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: additional project checks are declared",
+      "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
+      "source_location": "L25"
+    },
+    {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_application_has_unit_test_contract",
       "label": "Scenario: Application has unit-test contract",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: application has unit-test contract",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L13"
+      "source_location": "L17"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_application_lacks_required_unit_test_contract",
       "label": "Scenario: Application lacks required unit-test contract",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: application lacks required unit-test contract",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L17"
+      "source_location": "L21"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_derived_project_adopts_compatible_gatecommit",
       "label": "Scenario: Derived project adopts compatible GateCommit",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: derived project adopts compatible gatecommit",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L93"
+      "source_location": "L109"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_external_commit_invokes_the_gate",
       "label": "Scenario: External commit invokes the gate",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: external commit invokes the gate",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L45"
+      "source_location": "L61"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_gate_passes_with_changes",
       "label": "Scenario: Gate passes with changes",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: gate passes with changes",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L65"
+      "source_location": "L81"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_gate_passes_without_changes",
       "label": "Scenario: Gate passes without changes",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: gate passes without changes",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L69"
+      "source_location": "L85"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_gatecommit_has_applicable_global_controls",
       "label": "Scenario: GateCommit has applicable global controls",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: gatecommit has applicable global controls",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L37"
+      "source_location": "L53"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_gatecommit_performs_its_validated_internal_commit",
       "label": "Scenario: GateCommit performs its validated internal commit",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: gatecommit performs its validated internal commit",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L49"
+      "source_location": "L65"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_gatecommit_repository_is_gated",
       "label": "Scenario: GateCommit repository is gated",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: gatecommit repository is gated",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L33"
+      "source_location": "L49"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_graph_is_absent_before_implementation",
       "label": "Scenario: Graph is absent before implementation",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: graph is absent before implementation",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L77"
+      "source_location": "L93"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_local_shared_control_exists_during_migration",
       "label": "Scenario: Local shared control exists during migration",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: local shared control exists during migration",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L97"
+      "source_location": "L113"
+    },
+    {
+      "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_no_additional_project_checks_are_declared",
+      "label": "Scenario: No additional project checks are declared",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: no additional project checks are declared",
+      "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
+      "source_location": "L33"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_planning_is_incomplete",
       "label": "Scenario: Planning is incomplete",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: planning is incomplete",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L81"
+      "source_location": "L97"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_project_requires_local_smoke_test",
       "label": "Scenario: Project requires local smoke test",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: project requires local smoke test",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L21"
+      "source_location": "L37"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_required_check_fails",
       "label": "Scenario: Required check fails",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: required check fails",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L57"
+      "source_location": "L73"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_smoke_test_is_not_required",
       "label": "Scenario: Smoke test is not required",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: smoke test is not required",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L25"
+      "source_location": "L41"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_structural_implementation_is_complete",
       "label": "Scenario: Structural implementation is complete",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: structural implementation is complete",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L85"
+      "source_location": "L101"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_worktree_changes_during_validation",
       "label": "Scenario: Worktree changes during validation",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scenario: worktree changes during validation",
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L61"
+      "source_location": "L77"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_spec_delta",
       "label": "Spec Delta",
       "_origin": "ast",
       "community": 5,
-      "community_name": "ADDED Requirements",
+      "community_name": "Requirement: Project-owned checks SHALL run through a stable contract",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "spec delta",
@@ -2133,7 +2193,7 @@
       "node_kind": "heading",
       "norm_label": "change lifecycle",
       "source_file": "README.md",
-      "source_location": "L83"
+      "source_location": "L102"
     },
     {
       "id": "readme_gatecommit",
@@ -2157,7 +2217,19 @@
       "node_kind": "heading",
       "norm_label": "git and hooks",
       "source_file": "README.md",
-      "source_location": "L63"
+      "source_location": "L82"
+    },
+    {
+      "id": "readme_migrating_from_gatecommit_1_x_to_2_0_0",
+      "label": "Migrating from GateCommit 1.x to 2.0.0",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "GateCommit",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "migrating from gatecommit 1.x to 2.0.0",
+      "source_file": "README.md",
+      "source_location": "L116"
     },
     {
       "id": "readme_results_and_project_owned_tests",
@@ -2229,7 +2301,7 @@
       "node_kind": "heading",
       "norm_label": "requirement: gate results shall use canonical result semantics",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L61"
+      "source_location": "L63"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_requirement_github_actions_validation_shall_be_capability_aware",
@@ -2241,7 +2313,7 @@
       "node_kind": "heading",
       "norm_label": "requirement: github actions validation shall be capability-aware",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L45"
+      "source_location": "L47"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_requirement_global_security_and_dependency_controls_shall_be_provided_by_gatecommit",
@@ -2253,7 +2325,7 @@
       "node_kind": "heading",
       "norm_label": "requirement: global security and dependency controls shall be provided by gatecommit",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L25"
+      "source_location": "L27"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_scenario_blocking_result_exists",
@@ -2265,7 +2337,7 @@
       "node_kind": "heading",
       "norm_label": "scenario: blocking result exists",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L69"
+      "source_location": "L71"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_scenario_capability_inventory_is_unavailable",
@@ -2277,7 +2349,7 @@
       "node_kind": "heading",
       "norm_label": "scenario: capability inventory is unavailable",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L21"
+      "source_location": "L23"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_scenario_capability_is_absent",
@@ -2289,7 +2361,7 @@
       "node_kind": "heading",
       "norm_label": "scenario: capability is absent",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L17"
+      "source_location": "L19"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_scenario_code_capability_is_present",
@@ -2301,7 +2373,7 @@
       "node_kind": "heading",
       "norm_label": "scenario: code capability is present",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L29"
+      "source_location": "L31"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_scenario_invalid_workflows_exist",
@@ -2313,7 +2385,7 @@
       "node_kind": "heading",
       "norm_label": "scenario: invalid workflows exist",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L53"
+      "source_location": "L55"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_scenario_newly_changed_source_adds_a_capability",
@@ -2325,7 +2397,7 @@
       "node_kind": "heading",
       "norm_label": "scenario: newly changed source adds a capability",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L13"
+      "source_location": "L15"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_scenario_non_applicable_result",
@@ -2337,7 +2409,7 @@
       "node_kind": "heading",
       "norm_label": "scenario: non-applicable result",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L73"
+      "source_location": "L75"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_scenario_npm_dependencies_are_absent",
@@ -2349,7 +2421,7 @@
       "node_kind": "heading",
       "norm_label": "scenario: npm dependencies are absent",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L37"
+      "source_location": "L39"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_scenario_npm_dependencies_are_present",
@@ -2361,7 +2433,7 @@
       "node_kind": "heading",
       "norm_label": "scenario: npm dependencies are present",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L33"
+      "source_location": "L35"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_scenario_required_control_is_unavailable",
@@ -2373,7 +2445,7 @@
       "node_kind": "heading",
       "norm_label": "scenario: required control is unavailable",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L41"
+      "source_location": "L43"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_scenario_review_only_observation",
@@ -2385,7 +2457,7 @@
       "node_kind": "heading",
       "norm_label": "scenario: review-only observation",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L65"
+      "source_location": "L67"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_scenario_valid_workflows_exist",
@@ -2397,7 +2469,7 @@
       "node_kind": "heading",
       "norm_label": "scenario: valid workflows exist",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L49"
+      "source_location": "L51"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_scenario_workflows_are_absent",
@@ -2409,7 +2481,7 @@
       "node_kind": "heading",
       "norm_label": "scenario: workflows are absent",
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L57"
+      "source_location": "L59"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_governance_controls_spec_spec_delta",
@@ -2505,7 +2577,7 @@
       "node_kind": "heading",
       "norm_label": "keep tool lifecycle outside automatic hooks",
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L44"
+      "source_location": "L46"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_design_migration_plan",
@@ -2517,7 +2589,7 @@
       "node_kind": "heading",
       "norm_label": "migration plan",
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L56"
+      "source_location": "L58"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_design_normalize_result_records_before_aggregation",
@@ -2529,7 +2601,7 @@
       "node_kind": "heading",
       "norm_label": "normalize result records before aggregation",
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L32"
+      "source_location": "L34"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_design_open_questions",
@@ -2541,7 +2613,7 @@
       "node_kind": "heading",
       "norm_label": "open questions",
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L68"
+      "source_location": "L70"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_design_preserve_and_strengthen_the_existing_git_transaction_boundary",
@@ -2553,7 +2625,7 @@
       "node_kind": "heading",
       "norm_label": "preserve and strengthen the existing git transaction boundary",
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L40"
+      "source_location": "L42"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_design_risks_trade_offs",
@@ -2565,7 +2637,7 @@
       "node_kind": "heading",
       "norm_label": "risks / trade-offs",
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L48"
+      "source_location": "L50"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_design_separate_shared_controls_from_project_contract_checks",
@@ -2589,7 +2661,7 @@
       "node_kind": "heading",
       "norm_label": "treat actionlint as a capability control",
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L36"
+      "source_location": "L38"
     },
     {
       "id": "ref_node_crypto",
@@ -2608,7 +2680,7 @@
       "label": "ref_node_assert",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_assert",
@@ -2620,7 +2692,7 @@
       "label": "ref_node_child_process",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_child_process",
@@ -2632,7 +2704,7 @@
       "label": "ref_node_os",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_os",
@@ -2644,7 +2716,7 @@
       "label": "ref_node_test",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_test",
@@ -2656,7 +2728,7 @@
       "label": "ref_node_url",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_url",
@@ -2698,7 +2770,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L191",
+      "source_location": "L235",
       "weight": 1.0
     },
     {
@@ -2710,7 +2782,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L187",
+      "source_location": "L230",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate_rundeclaredprojectchecks",
+      "target": "scripts_blueprint_gate_report",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate_rundeclaredprojectchecks",
+      "target": "scripts_blueprint_gate_run",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L181",
       "weight": 1.0
     },
     {
@@ -2722,7 +2818,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L159",
+      "source_location": "L198",
       "weight": 1.0
     },
     {
@@ -2770,7 +2866,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L163",
+      "source_location": "L202",
       "weight": 1.0
     },
     {
@@ -2782,7 +2878,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L168",
+      "source_location": "L207",
       "weight": 1.0
     },
     {
@@ -2822,6 +2918,18 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_blueprint_gate_runprojectchecks",
+      "target": "scripts_blueprint_gate_rundeclaredprojectchecks",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L147",
+      "weight": 1.0
+    },
+    {
       "source": "scripts_blueprint_gate_runrequiredscript",
       "target": "scripts_blueprint_gate_report",
       "relation": "calls",
@@ -2830,7 +2938,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L173",
+      "source_location": "L214",
       "weight": 1.0
     },
     {
@@ -2842,7 +2950,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L174",
+      "source_location": "L217",
       "weight": 1.0
     },
     {
@@ -3406,7 +3514,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -3430,7 +3538,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L174",
+      "source_location": "L248",
       "weight": 1.0
     },
     {
@@ -3442,7 +3550,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L178",
+      "source_location": "L252",
       "weight": 1.0
     },
     {
@@ -3454,7 +3562,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L120",
+      "source_location": "L121",
       "weight": 1.0
     },
     {
@@ -3466,7 +3574,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L90",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -3658,7 +3766,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L170",
+      "source_location": "L244",
       "weight": 1.0
     },
     {
@@ -3670,7 +3778,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L185",
+      "source_location": "L259",
       "weight": 1.0
     },
     {
@@ -3682,7 +3790,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L186",
+      "source_location": "L260",
       "weight": 1.0
     },
     {
@@ -3706,7 +3814,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/policy-regression.test.mjs",
-      "source_location": "L134",
+      "source_location": "L147",
       "weight": 1.0
     },
     {
@@ -4803,7 +4911,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L32",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -4814,7 +4922,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L36",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -4825,7 +4933,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L40",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -4836,7 +4944,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L44",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -4869,7 +4977,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L48",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -4880,18 +4988,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L56",
-      "weight": 1.0
-    },
-    {
-      "source": "openspec_changes_centralized_governance_contract_design_design",
-      "target": "openspec_changes_centralized_governance_contract_design_open_questions",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "openspec/changes/centralized-governance-contract/design.md",
-      "source_location": "L68",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -4903,6 +5000,17 @@
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_centralized_governance_contract_design_design",
+      "target": "openspec_changes_centralized_governance_contract_design_open_questions",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/centralized-governance-contract/design.md",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -4924,7 +5032,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/proposal.md",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -4935,7 +5043,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/proposal.md",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -4946,18 +5054,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/proposal.md",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "openspec_changes_centralized_governance_contract_proposal_proposal",
-      "target": "openspec_changes_centralized_governance_contract_proposal_impact",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "openspec/changes/centralized-governance-contract/proposal.md",
-      "source_location": "L29",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -4969,6 +5066,17 @@
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/proposal.md",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_centralized_governance_contract_proposal_proposal",
+      "target": "openspec_changes_centralized_governance_contract_proposal_impact",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/centralized-governance-contract/proposal.md",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -5012,7 +5120,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L25",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -5023,7 +5131,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L45",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -5034,7 +5142,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L61",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -5056,7 +5164,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L13",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -5067,7 +5175,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L17",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -5078,7 +5186,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L21",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -5089,7 +5197,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L65",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -5100,7 +5208,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L69",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -5111,7 +5219,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L73",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -5122,7 +5230,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L49",
+      "source_location": "L51",
       "weight": 1.0
     },
     {
@@ -5133,7 +5241,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L53",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -5144,7 +5252,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L57",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
@@ -5155,7 +5263,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L29",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -5166,7 +5274,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L33",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -5177,7 +5285,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L37",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -5188,7 +5296,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/governance-controls/spec.md",
-      "source_location": "L41",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
@@ -5226,13 +5334,24 @@
     },
     {
       "source": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_added_requirements",
+      "target": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_derived_projects_shall_remain_compatible_without_policy_copies",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_added_requirements",
       "target": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_gatecommit_shall_test_its_own_implementation_without_weakening_global_controls",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L29",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -5243,7 +5362,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L41",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
@@ -5254,23 +5373,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L53",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
       "source": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_added_requirements",
       "target": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_graphify_and_openspec_shall_be_part_of_the_relevant_change_lifecycle",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L73",
-      "weight": 1.0
-    },
-    {
-      "source": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_added_requirements",
-      "target": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_derived_projects_shall_remain_compatible_without_policy_copies",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5298,7 +5406,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L93",
+      "source_location": "L109",
       "weight": 1.0
     },
     {
@@ -5309,7 +5417,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L97",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -5320,7 +5428,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L33",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -5331,7 +5439,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L37",
+      "source_location": "L53",
       "weight": 1.0
     },
     {
@@ -5342,7 +5450,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L57",
+      "source_location": "L73",
       "weight": 1.0
     },
     {
@@ -5353,7 +5461,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L61",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -5364,7 +5472,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L65",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -5375,7 +5483,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L69",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -5386,7 +5494,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L45",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -5397,29 +5505,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L49",
-      "weight": 1.0
-    },
-    {
-      "source": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_graphify_and_openspec_shall_be_part_of_the_relevant_change_lifecycle",
-      "target": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_graph_is_absent_before_implementation",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L77",
-      "weight": 1.0
-    },
-    {
-      "source": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_graphify_and_openspec_shall_be_part_of_the_relevant_change_lifecycle",
-      "target": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_planning_is_incomplete",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L81",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -5430,7 +5516,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L85",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_graphify_and_openspec_shall_be_part_of_the_relevant_change_lifecycle",
+      "target": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_graph_is_absent_before_implementation",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_graphify_and_openspec_shall_be_part_of_the_relevant_change_lifecycle",
+      "target": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_planning_is_incomplete",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
+      "source_location": "L97",
       "weight": 1.0
     },
     {
@@ -5441,7 +5549,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L13",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -5452,7 +5560,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L17",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_project_owned_checks_shall_run_through_a_stable_contract",
+      "target": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_additional_project_checks_are_declared",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_project_owned_checks_shall_run_through_a_stable_contract",
+      "target": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_a_declared_additional_check_is_missing_or_fails",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_requirement_project_owned_checks_shall_run_through_a_stable_contract",
+      "target": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec_scenario_no_additional_project_checks_are_declared",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -5463,7 +5604,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L21",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -5474,7 +5615,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "openspec/changes/centralized-governance-contract/specs/project-contract-and-lifecycle/spec.md",
-      "source_location": "L25",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -5567,6 +5708,17 @@
     },
     {
       "source": "openspec_changes_centralized_governance_contract_tasks_tasks",
+      "target": "openspec_changes_centralized_governance_contract_tasks_7_corrective_review_findings",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/centralized-governance-contract/tasks.md",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_centralized_governance_contract_tasks_tasks",
       "target": "openspec_changes_centralized_governance_contract_tasks_2_normalize_result_semantics",
       "relation": "contains",
       "_origin": "ast",
@@ -5600,17 +5752,6 @@
     },
     {
       "source": "package",
-      "target": "package_engines",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "package.json",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "package",
       "target": "package_version",
       "relation": "contains",
       "_origin": "ast",
@@ -5618,6 +5759,17 @@
       "confidence_score": 1.0,
       "source_file": "package.json",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "package",
+      "target": "package_engines",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -5683,7 +5835,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -5732,6 +5884,28 @@
     },
     {
       "source": "readme_gatecommit",
+      "target": "readme_change_lifecycle",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_gatecommit",
+      "target": "readme_migrating_from_gatecommit_1_x_to_2_0_0",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_gatecommit",
       "target": "readme_capability_driven_controls",
       "relation": "contains",
       "_origin": "ast",
@@ -5760,18 +5934,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L63",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_gatecommit",
-      "target": "readme_change_lifecycle",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L83",
+      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -5798,35 +5961,13 @@
     },
     {
       "source": "scripts_blueprint_gate",
-      "target": "scripts_blueprint_gate_rundocumentationchecks",
+      "target": "scripts_blueprint_gate_rundeclaredprojectchecks",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L148",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_blueprint_gate",
-      "target": "scripts_blueprint_gate_runmaintainercontract",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L162",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_blueprint_gate",
-      "target": "scripts_blueprint_gate_runpolicyregression",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L166",
+      "source_location": "L150",
       "weight": 1.0
     },
     {
@@ -5842,46 +5983,13 @@
     },
     {
       "source": "scripts_blueprint_gate",
-      "target": "scripts_blueprint_gate_runrequiredscript",
+      "target": "scripts_blueprint_gate_rundocumentationchecks",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L171",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_blueprint_gate",
-      "target": "scripts_blueprint_gate_run",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L177",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_blueprint_gate",
-      "target": "scripts_blueprint_gate_report",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L190",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_blueprint_gate",
-      "target": "scripts_blueprint_gate_reportgitpreflightfailure",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L196",
+      "source_location": "L187",
       "weight": 1.0
     },
     {
@@ -5897,13 +6005,79 @@
     },
     {
       "source": "scripts_blueprint_gate",
+      "target": "scripts_blueprint_gate_runmaintainercontract",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L201",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate",
+      "target": "scripts_blueprint_gate_runpolicyregression",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L205",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate",
+      "target": "scripts_blueprint_gate_runrequiredscript",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L210",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate",
+      "target": "scripts_blueprint_gate_run",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L220",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate",
+      "target": "scripts_blueprint_gate_report",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L234",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate",
+      "target": "scripts_blueprint_gate_reportgitpreflightfailure",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L240",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate",
       "target": "scripts_blueprint_gate_reportslowestchecks",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L202",
+      "source_location": "L246",
       "weight": 1.0
     },
     {
@@ -5914,7 +6088,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L207",
+      "source_location": "L251",
       "weight": 1.0
     },
     {
@@ -5925,7 +6099,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L213",
+      "source_location": "L257",
       "weight": 1.0
     },
     {
@@ -6409,7 +6583,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L101",
+      "source_location": "L102",
       "weight": 1.0
     },
     {
@@ -6420,7 +6594,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L105",
+      "source_location": "L106",
       "weight": 1.0
     },
     {
@@ -6431,7 +6605,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L109",
+      "source_location": "L110",
       "weight": 1.0
     },
     {
@@ -6442,7 +6616,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L129",
+      "source_location": "L130",
       "weight": 1.0
     },
     {
@@ -6453,7 +6627,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L136",
+      "source_location": "L137",
       "weight": 1.0
     },
     {
@@ -6464,7 +6638,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L138",
+      "source_location": "L139",
       "weight": 1.0
     },
     {
@@ -6475,7 +6649,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L48",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -6486,7 +6660,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L54",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -6508,7 +6682,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L66",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -6541,7 +6715,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L184",
+      "source_location": "L258",
       "weight": 1.0
     },
     {
@@ -6700,5 +6874,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "50f54c34081a865fd6b3f5510aff7f3f16517499"
+  "built_at_commit": "1ceffa3f02e36c12ac642fcf113ab3f0376d5083"
 }

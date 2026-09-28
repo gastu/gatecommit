@@ -12,7 +12,17 @@
     "hooks:install": "node scripts/setup-git-hooks.mjs"
   },
   "files": [
-    "scripts/**",
+    "scripts/blueprint-gate.mjs",
+    "scripts/git-delta.mjs",
+    "scripts/git-sync.mjs",
+    "scripts/governance.mjs",
+    "scripts/dependency-policy-cli.mjs",
+    "scripts/dependency-policy.mjs",
+    "scripts/license-policy-cli.mjs",
+    "scripts/license-policy.mjs",
+    "scripts/policy-regression.test.mjs",
+    "scripts/security/semgrep.yml",
+    "scripts/setup-git-hooks.mjs",
     ".githooks/pre-commit",
     "README.md",
     "LICENSE"

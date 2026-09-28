@@ -17,8 +17,9 @@ export function detectCapabilities(root, versionedFiles, changedFiles) {
   const npm = Object.keys(allDeps).length > 0;
   const wrangler = wranglerPaths.length > 0;
   const d1Script = Object.keys(scripts).some((name) => /(?:^|:)d1(?:$|:)/iu.test(name) || /(?:^|:)d1[-_]/iu.test(name));
-  const d1Config = [...files].some((file) => /(?:^|\/)(?:d1|database|databases)\.(?:jsonc?|toml)$/iu.test(file));
-  const d1 = wranglerConfig === null && wrangler ? null : Boolean(wranglerConfig?.d1 || d1Script || d1Config);
+  // A generic file name such as database.json is not evidence of Cloudflare D1.
+  // Wrangler's d1_databases declaration and explicitly named D1 scripts are.
+  const d1 = wranglerConfig === null && wrangler ? null : Boolean(wranglerConfig?.d1 || d1Script);
   const kv = wranglerConfig === null && wrangler ? null : wranglerConfig?.kv ?? false;
   const r2 = wranglerConfig === null && wrangler ? null : wranglerConfig?.r2 ?? false;
   const drizzle = Object.keys(allDeps).some((name) => name === "drizzle-orm" || name.startsWith("drizzle-"))
@@ -122,7 +123,7 @@ function readWrangler(path) {
       r2Bindings: parseTomlArrayTables(source, "r2_buckets"),
     };
     const migrationsDir = source.match(/^\s*migrations_dir\s*=\s*["']([^"']+)["']/mu)?.[1];
-    return { ...entries, migrationsDir, d1: entries.d1Bindings.length > 0 || /\bd1_databases\b/u.test(source), kv: entries.kvBindings.length > 0, r2: entries.r2Bindings.length > 0 };
+    return { ...entries, migrationsDir, d1: entries.d1Bindings.length > 0, kv: entries.kvBindings.length > 0, r2: entries.r2Bindings.length > 0 };
   } catch { return null; }
 }
 
@@ -142,7 +143,7 @@ function parseTomlArrayTables(source, name) {
     const header = line.match(/^\s*\[\[([^\]]+)\]\]\s*$/u);
     if (header) {
       if (row) rows.push(row);
-      active = header[1] === name;
+      active = header[1].split(".").at(-1) === name;
       row = active ? {} : null;
       continue;
     }

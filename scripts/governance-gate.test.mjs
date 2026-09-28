@@ -34,6 +34,18 @@ test("Wrangler with D1, KV and R2 runs config and types checks", () => {
   for (const name of ["wrangler-configuration", "d1-configuration", "kv-configuration", "r2-configuration", "wrangler-types"]) assert.match(result.stdout, new RegExp(`CHECK ${name} PASS`, "u"));
 });
 
+test("generic database filenames do not create D1 capability or checks", () => {
+  for (const filename of ["database.json", "databases.json", "d1.json"]) {
+    const { root, bins } = fixture();
+    writeFileSync(join(root, filename), JSON.stringify({ name: "unrelated data" }));
+    const result = run(root, bins);
+    assert.equal(result.status, 0, `${filename}: ${result.stdout}${result.stderr}`);
+    assert.match(result.stdout, /CHECK capability-d1 N\/A/u, filename);
+    assert.match(result.stdout, /CHECK d1-configuration N\/A .*detail=/u, filename);
+    assert.match(result.stdout, /CHECK project-d1-checks N\/A .*detail=/u, filename);
+  }
+});
+
 test("Actionlint runs for workflow YAML and is N/A when workflows are absent", () => {
   const absent = fixture();
   const absentResult = run(absent.root, absent.bins);
@@ -127,6 +139,68 @@ test("application project tests accept test:unit or test and block when both are
   const missingResult = run(missing.root, missing.bins);
   assert.notEqual(missingResult.status, 0);
   assert.match(missingResult.stdout, /CHECK project-unit-tests BLOCKED/u);
+  assert.match(missingResult.stdout, /application capability requires a unit-test script/u);
+
+  const missingLint = fixture({ scripts: { build: "node -e 'process.exit(0)'", "test:unit": "node -e 'process.exit(0)'" } });
+  const missingLintResult = run(missingLint.root, missingLint.bins);
+  assert.notEqual(missingLintResult.status, 0);
+  assert.match(missingLintResult.stdout, /CHECK lint BLOCKED/u);
+  assert.match(missingLintResult.stdout, /application capability requires a lint script/u);
+});
+
+test("declared project-owned checks run in order and all must pass", () => {
+  const checks = ["test:integration", "test:http:contract", "test:deploy:contract"];
+  const scripts = Object.fromEntries(checks.map((script, index) => [script, `node -e 'console.log("ORDER_${index + 1}")'`]));
+  const fixtureWithChecks = fixture({
+    scripts: { build: "node -e 'process.exit(0)'", lint: "node -e 'process.exit(0)'", "test:unit": "node -e 'process.exit(0)'", ...scripts },
+    contract: { checks },
+  });
+  const passing = run(fixtureWithChecks.root, fixtureWithChecks.bins);
+  assert.equal(passing.status, 0, passing.stdout + passing.stderr);
+  assert.match(passing.stdout, /CHECK project-owned-checks PASS .*3 declared/u);
+  let previous = -1;
+  for (let index = 1; index <= checks.length; index += 1) {
+    const position = passing.stdout.indexOf(`ORDER_${index}`);
+    assert.ok(position > previous, `check ${index} did not execute in declaration order`);
+    previous = position;
+  }
+
+  const oneFails = fixture({
+    scripts: { build: "node -e 'process.exit(0)'", lint: "node -e 'process.exit(0)'", "test:unit": "node -e 'process.exit(0)'", first: "node -e 'process.exit(0)'", second: "node -e 'process.exit(7)'", third: "node -e 'console.log(\"THIRD_RAN\")'" },
+    contract: { checks: ["first", "second", "third"] },
+  });
+  const failed = run(oneFails.root, oneFails.bins);
+  assert.notEqual(failed.status, 0);
+  assert.match(failed.stdout, /CHECK project-check-2 BLOCKED/u);
+  assert.match(failed.stdout, /CHECK project-owned-checks BLOCKED/u);
+  assert.match(failed.stdout, /THIRD_RAN/u);
+
+  const missing = fixture({
+    scripts: { build: "node -e 'process.exit(0)'", lint: "node -e 'process.exit(0)'", "test:unit": "node -e 'process.exit(0)'", present: "node -e 'process.exit(0)'" },
+    contract: { checks: ["present", "missing:integration"] },
+  });
+  const absent = run(missing.root, missing.bins);
+  assert.notEqual(absent.status, 0);
+  assert.match(absent.stdout, /declares missing npm script 'missing:integration'/u);
+  assert.match(absent.stdout, /CHECK project-owned-checks BLOCKED/u);
+});
+
+test("no additional checks is N/A and 1.0.5 project checks migrate through the generic contract", () => {
+  const empty = fixture({ scripts: { build: "node -e 'process.exit(0)'", lint: "node -e 'process.exit(0)'", "test:unit": "node -e 'process.exit(0)'" } });
+  const notApplicable = run(empty.root, empty.bins);
+  assert.equal(notApplicable.status, 0, notApplicable.stdout + notApplicable.stderr);
+  assert.match(notApplicable.stdout, /CHECK project-owned-checks N\/A .*detail=/u);
+
+  const legacyNames = ["test:http:account", "test:http:organizations", "test:http:platform", "test:remote-contract", "test:deploy-contract", "test:smoke:local"];
+  const scripts = Object.fromEntries(legacyNames.map((name) => [name, "node -e 'process.exit(0)'" ]));
+  const migrated = fixture({
+    scripts: { build: "node -e 'process.exit(0)'", lint: "node -e 'process.exit(0)'", "test:unit": "node -e 'process.exit(0)'", ...scripts },
+    contract: { checks: legacyNames },
+  });
+  const result = run(migrated.root, migrated.bins);
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+  assert.match(result.stdout, /CHECK project-owned-checks PASS .*6 declared/u);
+  for (let index = 1; index <= legacyNames.length; index += 1) assert.match(result.stdout, new RegExp(`CHECK project-check-${index} PASS`, "u"));
 });
 
 test("GateCommit maintainer self-test runs without an application capability", () => {

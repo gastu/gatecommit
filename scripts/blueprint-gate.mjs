@@ -143,6 +143,45 @@ function runProjectChecks() {
   if (smoke === undefined || smoke === false) report("project-smoke", "N/A", "project contract does not require local smoke testing");
   else if (typeof smoke === "string" && typeof scripts[smoke] === "string") run("project-smoke", "npm", ["run", smoke]);
   else report("project-smoke", "BLOCKED", "gatecommit.smoke must name an existing required project script");
+
+  runDeclaredProjectChecks();
+}
+
+function runDeclaredProjectChecks() {
+  const declared = packageJson.gatecommit?.checks;
+  if (declared === undefined || (Array.isArray(declared) && declared.length === 0)) {
+    report("project-owned-checks", "N/A", "no additional project-owned checks are declared");
+    return;
+  }
+  if (!Array.isArray(declared) || declared.some((script) => typeof script !== "string" || !script.trim())) {
+    report("project-owned-checks", "BLOCKED", "gatecommit.checks must be an ordered array of required npm script names");
+    return;
+  }
+  const reserved = new Set(["lint:eslint", "lint", "test:unit", "test", "build"]);
+  const duplicates = new Set();
+  const seen = new Set();
+  for (const script of declared) {
+    if (reserved.has(script)) duplicates.add(script);
+    if (script === packageJson.gatecommit?.smoke) duplicates.add(script);
+    if (seen.has(script)) duplicates.add(script);
+    seen.add(script);
+  }
+  if (duplicates.size) {
+    report("project-owned-checks", "BLOCKED", `gatecommit.checks duplicates a canonical check: ${[...duplicates].join(", ")}`);
+    return;
+  }
+
+  const statuses = [];
+  for (const [index, script] of declared.entries()) {
+    if (typeof scripts[script] !== "string" || !scripts[script].trim()) {
+      report(`project-check-${index + 1}`, "BLOCKED", `gatecommit.checks declares missing npm script '${script}'`);
+      statuses.push("BLOCKED");
+      continue;
+    }
+    statuses.push(run(`project-check-${index + 1}`, "npm", ["run", script]));
+  }
+  const blocked = statuses.filter((status) => status === "BLOCKED").length;
+  report("project-owned-checks", blocked ? "BLOCKED" : "PASS", blocked ? `${blocked} declared project check(s) failed or are missing` : `${declared.length} declared project check(s) passed`);
 }
 
 function runDocumentationChecks() {
@@ -170,7 +209,11 @@ function runPolicyRegression(name) {
 
 function runRequiredScript(name, candidates) {
   const script = candidates.find((candidate) => typeof scripts[candidate] === "string" && scripts[candidate].trim());
-  if (!script) { report(name, "BLOCKED", `missing required project check: ${candidates.join(" or ")}`); return; }
+  if (!script) {
+    const purpose = name === "lint" ? "application capability requires a lint script" : name === "project-unit-tests" ? "application capability requires a unit-test script" : "missing required project check";
+    report(name, "BLOCKED", `${purpose}; add one of: ${candidates.join(" or ")}`);
+    return;
+  }
   run(name, "npm", ["run", script]);
 }
 
@@ -185,6 +228,7 @@ function run(name, command, args, options = {}) {
   const status = result.status === 0 ? "PASS" : result.status === options.reviewExitCode ? "REVIEW" : "BLOCKED";
   const reportDetail = status === "REVIEW" && !detail ? "license metadata requires review" : detail;
   report(name, status, reportDetail, performance.now() - started);
+  return status;
 }
 
 function report(name, status, detail = "", duration = 0) {
