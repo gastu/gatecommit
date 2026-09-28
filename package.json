@@ -11,7 +11,8 @@
   },
   "files": [
     "scripts/blueprint-gate.mjs",
-    "scripts/git-delta.mjs"
+    "scripts/git-delta.mjs",
+    "scripts/git-sync.mjs"
   ],
   "engines": {
     "node": ">=20"

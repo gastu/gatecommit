@@ -1,12 +1,24 @@
 #!/usr/bin/env node
 
 import { existsSync, readFileSync } from "node:fs";
-import { join, resolve } from "node:path";
+import { isAbsolute, join, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
 import { listVersionedFiles, readGitDelta } from "./git-delta.mjs";
+import { captureWorktreeSnapshot, formatGitState, inspectGitState, INTERNAL_COMMIT_HOOK, remoteAheadMessage, syncValidatedChanges } from "./git-sync.mjs";
 
-const rootArgument = process.argv.slice(2).find((argument) => !argument.startsWith("--"));
-const root = resolve(rootArgument ?? process.cwd());
+if (process.env[INTERNAL_COMMIT_HOOK] === "1") {
+  console.log("GATECOMMIT pre-commit hook: parent validation passed");
+  process.exit(0);
+}
+
+const options = parseArguments(process.argv.slice(2));
+if (!options.ok) {
+  console.error(`BLOCKED ${options.reason}`);
+  console.log("GATE_RESULT findings=1 review=0 expected=0");
+  process.exit(1);
+}
+
+const { root, commitMessage, profile } = options;
 const packagePath = join(root, "package.json");
 
 if (!existsSync(packagePath)) {
@@ -35,15 +47,34 @@ const hasWrangler = existsSync(join(root, "wrangler.jsonc")) || existsSync(join(
 const hasApplication = hasWrangler || Object.keys(dependencies).some((name) => /^(?:hono|react|react-dom|next|express|fastify|@cloudflare\/)/u.test(name)) || typeof scripts.build === "string" || typeof scripts.deploy === "string";
 const results = [];
 
-console.log(delta === null
-  ? "DELTA unknown; using capability-only fallback"
-  : `DELTA known files=${delta.files.length}`);
+const initialState = inspectGitState(root);
+if (!initialState.ok) reportGitPreflightFailure(initialState.reason);
+console.log(formatGitState(initialState));
+if (initialState.remoteAhead > 0) reportGitPreflightFailure(remoteAheadMessage(initialState));
 
-if (process.argv.includes("--profile=documentation")) {
-  runDocumentationProfile();
-  process.exit(results.some((result) => result.status === "BLOCKED") ? 1 : 0);
+const initialSnapshot = captureWorktreeSnapshot(root);
+if (!initialSnapshot.ok) reportGitPreflightFailure(initialSnapshot.reason);
+
+if (profile === "documentation") runDocumentationProfile();
+else runApplicationProfile();
+
+const blocked = results.filter((result) => result.status === "BLOCKED");
+const warnings = results.filter((result) => result.status === "WARN");
+const notApplicable = results.filter((result) => result.status === "NOT_APPLICABLE");
+const finalStatus = blocked.length > 0 ? "FAIL" : "PASS";
+
+console.log(`TOTAL ${finalStatus} checks=${results.length} blocked=${blocked.length} warnings=${warnings.length} not_applicable=${notApplicable.length}`);
+reportSlowestChecks();
+if (blocked.length > 0) {
+  console.log(`GATE_RESULT findings=${blocked.length} review=${warnings.length} expected=0`);
+  process.exit(1);
 }
 
+const sync = syncValidatedChanges(root, initialState, initialSnapshot, commitMessage);
+console.log(`GATE_RESULT findings=0 review=${warnings.length} expected=0`);
+process.exit(sync.ok ? 0 : 1);
+
+function runApplicationProfile() {
 run("diff-unstaged", "git", ["diff", "--check"]);
 run("diff-staged", "git", ["diff", "--cached", "--check"]);
 run("github-actions", "node", ["--input-type=module", "-e", checkGithubActionsSource()], { blockOnNonZero: true });
@@ -78,16 +109,15 @@ runScript("http-platform", ["test:http:platform"]);
 runScript("remote-contract", ["test:remote-contract"]);
 runScript("deploy-contract", ["test:deploy-contract"]);
 runScript("smoke-local", ["test:smoke:harness", "test:smoke:local"]);
+}
 
-const blocked = results.filter((result) => result.status === "BLOCKED");
-const warnings = results.filter((result) => result.status === "WARN");
-const notApplicable = results.filter((result) => result.status === "NOT_APPLICABLE");
-const finalStatus = blocked.length > 0 ? "FAIL" : "PASS";
-
-console.log(`TOTAL ${finalStatus} checks=${results.length} blocked=${blocked.length} warnings=${warnings.length} not_applicable=${notApplicable.length}`);
-reportSlowestChecks();
-console.log(`GATE_RESULT findings=${blocked.length} review=${warnings.length} expected=0`);
-process.exit(blocked.length > 0 ? 1 : 0);
+function reportGitPreflightFailure(reason) {
+  console.error(`CHECK git-preflight BLOCKED duration=0ms detail=${JSON.stringify(reason)}`);
+  console.log("TOTAL BLOCKED checks=1 blocked=1 warnings=0 not_applicable=0");
+  console.log("SLOWEST CHECKS");
+  console.log("GATE_RESULT findings=1 review=0 expected=0");
+  process.exit(1);
+}
 
 function runScript(name, candidates) {
   const script = candidates.find((candidate) => typeof scripts[candidate] === "string" && scripts[candidate].trim() !== "");
@@ -204,10 +234,37 @@ function runDocumentationProfile() {
   run("dependency-policy", process.execPath, ["--input-type=module", "-e", dependencyPolicySource()]);
   run("contract-regressions", process.execPath, ["--test", ...["gate-metrics.test.mjs", "validate-dependency-policy.test.mjs", "validate-derived-contract.test.mjs"].map((file) => join(root, "scripts", file))]);
   run("gitleaks", "gitleaks", ["detect", "--source", root, "--no-banner", "--redact"]);
-  const blocked = results.filter((result) => result.status === "BLOCKED").length;
-  console.log(`TOTAL ${blocked === 0 ? "PASS" : "FAIL"} checks=${results.length} blocked=${blocked}`);
-  reportSlowestChecks();
-  console.log(`GATE_RESULT findings=${blocked} review=0 expected=0`);
+}
+
+function parseArguments(args) {
+  const profileArgs = args.filter((argument) => argument.startsWith("--"));
+  const invalidProfile = profileArgs.find((argument) => argument !== "--profile=documentation");
+  if (invalidProfile) return { ok: false, reason: `opción no reconocida: ${invalidProfile}` };
+
+  const positional = args.filter((argument) => !argument.startsWith("--"));
+  let root = process.cwd();
+  let commitMessage;
+
+  if (positional.length > 0) {
+    const candidate = resolve(positional[0]);
+    const pathLike = positional[0] === "."
+      || positional[0] === ".."
+      || positional[0].startsWith("./")
+      || positional[0].startsWith("../")
+      || isAbsolute(positional[0]);
+    if (existsSync(join(candidate, "package.json")) || pathLike) {
+      root = candidate;
+      positional.shift();
+    }
+  }
+
+  if (positional.length > 1) return { ok: false, reason: "uso: gatecommit [mensaje de commit]" };
+  if (positional.length === 1) {
+    if (!positional[0].trim()) return { ok: false, reason: "el mensaje de commit no puede estar vacío" };
+    commitMessage = positional[0];
+  }
+
+  return { ok: true, root, commitMessage, profile: profileArgs.length ? "documentation" : "application" };
 }
 
 function markdownLinksSource() {

@@ -18,7 +18,7 @@ test("normal gate preserves scripts, checks, and the result contract", () => {
   const result = runGate(root, withoutCI());
 
   assert.equal(result.status, 0, result.stdout);
-  assert.match(result.stdout, /DELTA known files=0/u);
+  assert.match(result.stdout, /GIT_STATE .*untracked=0/u);
   assert.match(result.stdout, /CHECK secrets NOT_APPLICABLE/u);
   assert.match(result.stdout, /TOTAL PASS/u);
   assert.match(result.stdout, /GATE_RESULT findings=0 review=0 expected=0/u);
@@ -31,23 +31,22 @@ test("sets CI only when the caller has not defined it", () => {
   const defaultEnv = withoutCI();
   defaultEnv.GATE_TEST_PRESERVED = "retained";
   const defaultResult = runGate(root, defaultEnv);
-  assert.equal(defaultResult.status, 0, defaultResult.stdout);
+  assert.equal(defaultResult.status, 0, defaultResult.stdout + defaultResult.stderr);
   assert.deepEqual(readEnvironment(root), { CI: "true", orchestrator: "1", preserved: "retained" });
 
-  const explicitEnv = { ...process.env, GATE_TEST_ENV_FILE: join(root, "environment.json"), GATE_TEST_PRESERVED: "retained", CI: "false" };
+  const explicitEnv = { ...process.env, GATE_TEST_ENV_FILE: join(root, "..", "environment.json"), GATE_TEST_PRESERVED: "retained", CI: "false" };
   const explicitResult = runGate(root, explicitEnv);
-  assert.equal(explicitResult.status, 0, explicitResult.stdout);
+  assert.equal(explicitResult.status, 0, explicitResult.stdout + explicitResult.stderr);
   assert.deepEqual(readEnvironment(root), { CI: "false", orchestrator: "1", preserved: "retained" });
 });
 
-test("unknown Git state runs code-capability checks instead of marking them not applicable", () => {
+test("unknown Git state blocks before running checks", () => {
   const root = createProject({ git: false });
   const result = runGate(root, withoutCI());
 
   assert.notEqual(result.status, 0);
-  assert.match(result.stdout, /DELTA unknown; using capability-only fallback/u);
-  assert.match(result.stdout, /CHECK secrets BLOCKED/u);
-  assert.doesNotMatch(result.stdout, /CHECK secrets NOT_APPLICABLE/u);
+  assert.match(result.stdout + result.stderr, /CHECK git-preflight BLOCKED/u);
+  assert.match(result.stdout, /GATE_RESULT findings=1/u);
 });
 
 test("untracked TypeScript files activate code checks", () => {
@@ -57,7 +56,7 @@ test("untracked TypeScript files activate code checks", () => {
   const result = runGate(root, withoutCI());
 
   assert.notEqual(result.status, 0);
-  assert.match(result.stdout, /DELTA known files=1/u);
+  assert.match(result.stdout, /GIT_STATE .*untracked=1/u);
   assert.match(result.stdout, /CHECK typecheck BLOCKED/u);
   assert.match(result.stdout, /CHECK secrets BLOCKED/u);
   assert.doesNotMatch(result.stdout, /CHECK typecheck NOT_APPLICABLE/u);
@@ -65,9 +64,8 @@ test("untracked TypeScript files activate code checks", () => {
 
 test("documentation profile runs its dedicated checks and shares subprocess environment", () => {
   const root = createDocumentationProject();
-  const shimDirectory = join(root, "bin");
-  mkdirSync(shimDirectory);
-  const gitleaksOutput = join(root, "gitleaks-environment.json");
+  const shimDirectory = createDirectory("gatecommit-bin-");
+  const gitleaksOutput = join(root, "..", "gitleaks-environment.json");
   const gitleaksPath = join(shimDirectory, "gitleaks");
   writeFileSync(gitleaksPath, `#!/bin/sh\nprintf '{"CI":"%s","orchestrator":"%s"}' "$CI" "$BLUEPRINT_GATE_ORCHESTRATOR" > '${gitleaksOutput}'\n`);
   chmodSync(gitleaksPath, 0o755);
@@ -125,11 +123,16 @@ function createDocumentationProject() {
 }
 
 function initializeRepository(root) {
-  execFileSync("git", ["init", "-q"], { cwd: root });
+  const remote = join(root, "..", `${root.split("/").at(-1)}-remote.git`);
+  execFileSync("git", ["init", "--bare", "-q", "-b", "main", remote]);
+  execFileSync("git", ["init", "-q", "-b", "main"], { cwd: root });
   execFileSync("git", ["config", "user.email", "gatecommit-test@example.invalid"], { cwd: root });
   execFileSync("git", ["config", "user.name", "GateCommit Test"], { cwd: root });
   execFileSync("git", ["add", "-A"], { cwd: root });
   execFileSync("git", ["commit", "-qm", "baseline"], { cwd: root });
+  execFileSync("git", ["remote", "add", "origin", remote], { cwd: root });
+  execFileSync("git", ["push", "-qu", "origin", "main"], { cwd: root });
+  roots.push(remote);
 }
 
 function createDirectory(prefix) {
@@ -147,11 +150,11 @@ function runGateFrom(root, env, ...arguments_) {
 }
 
 function withoutCI() {
-  const env = { ...process.env, GATE_TEST_ENV_FILE: join(roots.at(-1), "environment.json") };
+  const env = { ...process.env, GATE_TEST_ENV_FILE: join(roots.at(-1), "..", "environment.json") };
   delete env.CI;
   return env;
 }
 
 function readEnvironment(root) {
-  return JSON.parse(readFileSync(join(root, "environment.json"), "utf8"));
+  return JSON.parse(readFileSync(join(root, "..", "environment.json"), "utf8"));
 }
