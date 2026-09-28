@@ -1,6 +1,6 @@
 {
   "name": "gatecommit",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Local commit gate for derived projects",
   "license": "MIT",
   "bin": {

@@ -37,7 +37,7 @@ test("change list reports tracked modifications and untracked files that are com
   const result = runGate(root);
 
   assert.equal(result.status, 0, result.stdout + result.stderr);
-  assert.match(result.stdout, /GIT_CHANGES files=2\n(?:M  README\.md\n\?\?  new-file\.txt|\?\?  new-file\.txt\nM  README\.md)/u);
+  assert.match(result.stdout, /GIT_CHANGES files=2\n(?:M  README\.md\n\?\? new-file\.txt|\?\? new-file\.txt\nM  README\.md)/u);
   assert.deepEqual(git(root, ["diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD"]).split("\n").sort(), ["README.md", "new-file.txt"]);
 });
 
