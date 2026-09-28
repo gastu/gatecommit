@@ -33,4 +33,4 @@
 
 - [x] 6.1 Document Blueprint handoff compatibility, canonical statuses, capability signals, project-owned test contract, maintainer tests, and explicit Graphify/OpenSpec lifecycle; verify documentation matches `docs/gatecommit-handoff.json` at Blueprint commit `37dea8fa033f4494a3ab8e3c3a6f24115751a05d`.
 - [x] 6.2 Verify no derived repository is changed and no existing control is removed before equivalent coverage passes; inspect the final diff and GateCommit test coverage.
-- [ ] 6.3 Run `openspec validate centralized-governance-contract`, GateCommit's focused and full test suite, the GateCommit gate, and Graphify post-change update; verify no blocking findings and synchronized Git state before authorized closure.
+- [x] 6.3 Run `openspec validate centralized-governance-contract`, GateCommit's focused and full test suite, the GateCommit gate, and Graphify post-change update; verify no blocking findings and synchronized Git state before authorized closure.
