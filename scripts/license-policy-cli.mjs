@@ -1,0 +1,13 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { inspectLicenses } from "./license-policy.mjs";
+const root = process.argv[2] ?? process.cwd();
+const result = inspectLicenses(root);
+const pkg = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
+const direct = { ...pkg.dependencies, ...pkg.devDependencies, ...pkg.optionalDependencies, ...pkg.peerDependencies };
+const found = new Set(result.items.map((item) => item.name));
+const missing = Object.keys(direct).filter((name) => !found.has(name));
+for (const item of result.items) console.log(`LICENSE ${item.status} ${item.name}@${item.version} license=${JSON.stringify(item.license)}`);
+for (const name of missing) console.error(`LICENSE BLOCKED missing installed metadata for direct dependency ${name}`);
+console.log(`LICENSE_POLICY blocked=${result.blocked} review=${result.review}`);
+process.exitCode = result.blocked || missing.length ? 1 : result.review ? 2 : 0;

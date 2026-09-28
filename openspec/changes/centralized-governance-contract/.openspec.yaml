@@ -1,0 +1,4 @@
+schema: spec-driven
+created: 2026-09-28
+goal: "Alinear GateCommit con el handoff verificable de Blueprint #21 y mantener
+  verificaciones propias y políticas globales sin debilitar controles."

@@ -1,18 +1,21 @@
 {
   "name": "gatecommit",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "Local commit gate for derived projects",
   "license": "MIT",
   "bin": {
     "gatecommit": "scripts/blueprint-gate.mjs"
   },
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "gate:commit": "node scripts/blueprint-gate.mjs",
+    "hooks:install": "node scripts/setup-git-hooks.mjs"
   },
   "files": [
-    "scripts/blueprint-gate.mjs",
-    "scripts/git-delta.mjs",
-    "scripts/git-sync.mjs"
+    "scripts/**",
+    ".githooks/pre-commit",
+    "README.md",
+    "LICENSE"
   ],
   "engines": {
     "node": ">=20"

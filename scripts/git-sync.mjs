@@ -187,7 +187,7 @@ export function syncValidatedChanges(root, initialState, initialSnapshot, commit
 
   const push = git(root, ["push", currentState.remote, `HEAD:${currentState.mergeRef}`], { stdio: "inherit" });
   if (!push.ok) {
-    console.error(`PUSH ${currentState.remote}/${currentState.upstreamBranch} FAIL detail=${JSON.stringify(push.reason)}`);
+    console.error(`PUSH ${currentState.remote}/${currentState.upstreamBranch} BLOCKED detail=${JSON.stringify(push.reason)}`);
     return syncFailure(`git push falló: ${push.reason}; el commit local se conserva`, { commit, pushFailed: true });
   }
   console.log(`PUSH ${currentState.remote}/${currentState.upstreamBranch} PASS`);
@@ -377,6 +377,6 @@ function failure(reason) {
 
 function syncFailure(reason, details = {}) {
   console.error(`SYNC BLOCKED detail=${JSON.stringify(reason)}`);
-  console.log("SYNC FAIL");
+  console.log("SYNC BLOCKED");
   return { ok: false, reason, ...details };
 }
