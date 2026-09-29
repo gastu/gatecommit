@@ -1,6 +1,6 @@
 {
   "name": "gatecommit",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Local commit gate for derived projects",
   "license": "MIT",
   "bin": {
@@ -13,6 +13,7 @@
   },
   "files": [
     "scripts/blueprint-gate.mjs",
+    "scripts/check-runner.mjs",
     "scripts/git-delta.mjs",
     "scripts/git-sync.mjs",
     "scripts/governance.mjs",

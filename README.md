@@ -69,6 +69,16 @@ empty list reports `N/A`. Do not repeat `lint:eslint`,
 `lint`, `test:unit`, `test`, `build`, or the separately declared
 `gatecommit.smoke` script in this list. Use it for project-specific integration,
 HTTP, remote/deploy contract, smoke, data, or other required checks.
+Scripts declared in `gatecommit.checks` MUST NOT daemonize, intentionally launch
+detached processes, create persistent services, or deliberately escape
+GateCommit's managed lifecycle. GateCommit terminates the direct check process
+and, on POSIX, its managed process group (Windows uses `taskkill /T`), then
+makes a best-effort attempt to clean up other descendants it can identify
+safely. Cleanup cannot guarantee termination of a process that deliberately
+detaches, creates a new session, or is reparented before GateCommit observes it.
+Normal attached process trees such as npm and Vitest are cleaned up centrally.
+Every check that exceeds its timeout remains `BLOCKED`, whether or not
+additional descendants could be identified.
 Wrangler runtime validation checks D1 binding names, database names and resource
 IDs, KV/R2 binding fields, and the configured D1 migrations directory.
 
