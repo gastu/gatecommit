@@ -2,8 +2,8 @@
 
 import { existsSync, readFileSync } from "node:fs";
 import { isAbsolute, join, resolve } from "node:path";
-import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { resolveCheckTimeout, runCheck, validateTimeoutConfiguration } from "./check-runner.mjs";
 import { listVersionedFiles, readGitDelta } from "./git-delta.mjs";
 import { detectCapabilities, result, summarizeResults, validateWranglerConfig } from "./governance.mjs";
 import { captureWorktreeSnapshot, formatGitState, inspectGitState, INTERNAL_COMMIT_HOOK, remoteAheadMessage, syncValidatedChanges } from "./git-sync.mjs";
@@ -24,6 +24,8 @@ let packageJson;
 try { packageJson = JSON.parse(readFileSync(packagePath, "utf8")); }
 catch (error) { blockedBeforeChecks(`package.json is invalid: ${error.message}`); }
 const scripts = packageJson.scripts ?? {};
+const timeoutErrors = validateTimeoutConfiguration(packageJson.gatecommit ?? {});
+if (timeoutErrors.length) blockedTimeoutConfiguration(timeoutErrors);
 const delta = readGitDelta(root);
 const versioned = listVersionedFiles(root);
 const capabilities = detectCapabilities(root, versioned, delta?.files ?? null);
@@ -36,8 +38,8 @@ if (initialState.remoteAhead > 0) reportGitPreflightFailure(remoteAheadMessage(i
 const initialSnapshot = captureWorktreeSnapshot(root);
 if (!initialSnapshot.ok) reportGitPreflightFailure(initialSnapshot.reason);
 
-run("diff-unstaged", "git", ["diff", "--check"]);
-run("diff-staged", "git", ["diff", "--cached", "--check"]);
+await run("diff-unstaged", "git", ["diff", "--check"]);
+await run("diff-staged", "git", ["diff", "--cached", "--check"]);
 if (!capabilities.inventoryComplete) report("capability-inventory", "BLOCKED", capabilities.inventoryReason);
 
 const knownCapabilities = ["code", "typescript", "application", "npm", "wrangler", "d1", "kv", "r2", "drizzle", "github-actions"];
@@ -46,12 +48,12 @@ for (const name of knownCapabilities) {
   if (capability.present === false) report(`capability-${name}`, "N/A", capability.reason);
 }
 
-runGlobalControls();
-runRuntimeControls();
+await runGlobalControls();
+await runRuntimeControls();
 if (profile === "documentation") runDocumentationChecks();
-else runProjectChecks();
-runDeclaredProjectChecks();
-if (packageJson.name === "gatecommit") runMaintainerContract();
+else await runProjectChecks();
+await runDeclaredProjectChecks();
+if (packageJson.name === "gatecommit") await runMaintainerContract();
 
 const summary = summarizeResults(results);
 console.log(`TOTAL ${summary.status} checks=${results.length} blocked=${summary.blocked} review=${summary.review} not_applicable=${summary.notApplicable}`);
@@ -64,12 +66,12 @@ const sync = syncValidatedChanges(root, initialState, initialSnapshot, commitMes
 console.log(`GATE_RESULT findings=0 review=${summary.review} expected=0`);
 process.exit(sync.ok ? 0 : 1);
 
-function runGlobalControls() {
+async function runGlobalControls() {
   if (capabilities.code.present === true) {
-    run("semgrep", "semgrep", ["--jobs", "1", "--error", "--metrics=off", "--disable-version-check", "--config", join(PACKAGE_ROOT, "scripts/security/semgrep.yml"), "."]);
-    runPolicyRegression("semgrep-regression");
-    run("gitleaks", "gitleaks", ["detect", "--source", root, "--no-banner", "--redact"]);
-    runPolicyRegression("gitleaks-regression");
+    await run("semgrep", "semgrep", ["--jobs", "1", "--error", "--metrics=off", "--disable-version-check", "--config", join(PACKAGE_ROOT, "scripts/security/semgrep.yml"), "."]);
+    await runPolicyRegression("semgrep-regression");
+    await run("gitleaks", "gitleaks", ["detect", "--source", root, "--no-banner", "--redact"]);
+    await runPolicyRegression("gitleaks-regression");
   } else if (capabilities.code.present === null) {
     report("semgrep", "BLOCKED", capabilities.code.reason);
     report("gitleaks", "BLOCKED", capabilities.code.reason);
@@ -81,29 +83,29 @@ function runGlobalControls() {
   }
 
   if (capabilities.npm.present) {
-    run("dependency-policy", process.execPath, [join(PACKAGE_ROOT, "scripts/dependency-policy-cli.mjs"), root]);
-    runPolicyRegression("dependency-policy-regression");
-    run("licenses", process.execPath, [join(PACKAGE_ROOT, "scripts/license-policy-cli.mjs"), root], { reviewExitCode: 2 });
-    runPolicyRegression("license-regression");
-    run("npm-audit", "npm", ["audit", "--include=dev", "--audit-level=moderate"], { cwd: root });
+    await run("dependency-policy", process.execPath, [join(PACKAGE_ROOT, "scripts/dependency-policy-cli.mjs"), root]);
+    await runPolicyRegression("dependency-policy-regression");
+    await run("licenses", process.execPath, [join(PACKAGE_ROOT, "scripts/license-policy-cli.mjs"), root], { reviewExitCode: 2 });
+    await runPolicyRegression("license-regression");
+    await run("npm-audit", "npm", ["audit", "--include=dev", "--audit-level=moderate"], { cwd: root });
   } else {
     for (const name of ["dependency-policy", "dependency-policy-regression", "licenses", "license-regression", "npm-audit"]) report(name, "N/A", capabilities.npm.reason);
   }
 
-  if (capabilities["github-actions"].present === true) run("actionlint", "actionlint", capabilities.workflowFiles);
+  if (capabilities["github-actions"].present === true) await run("actionlint", "actionlint", capabilities.workflowFiles);
   else if (capabilities["github-actions"].present === false) report("actionlint", "N/A", capabilities["github-actions"].reason);
   else report("actionlint", "BLOCKED", capabilities["github-actions"].reason);
 }
 
-function runRuntimeControls() {
+async function runRuntimeControls() {
   for (const name of ["wrangler", "d1", "kv", "r2"]) {
     const cap = capabilities[name];
     if (cap.present === null) { report(`${name}-configuration`, "BLOCKED", cap.reason); continue; }
     if (!cap.present) { report(`${name}-configuration`, "N/A", cap.reason); continue; }
     const failures = validateWranglerConfig(capabilities.wranglerConfig, root);
-    if (name === "d1" && capabilities.d1.present && !capabilities.wranglerConfig?.d1Bindings?.length) failures.push("D1 capability has no detectable d1_databases binding");
-    if (name === "kv" && capabilities.kv.present && !capabilities.wranglerConfig?.kvBindings?.length) failures.push("KV capability has no valid kv_namespaces binding");
-    if (name === "r2" && capabilities.r2.present && !capabilities.wranglerConfig?.r2Bindings?.length) failures.push("R2 capability has no valid r2_buckets binding");
+    if (name === "d1" && capabilities.d1.present && !capabilities.wranglerConfig?.scopes?.some(({ d1Bindings }) => d1Bindings.length)) failures.push("D1 capability has no detectable d1_databases binding");
+    if (name === "kv" && capabilities.kv.present && !capabilities.wranglerConfig?.scopes?.some(({ kvBindings }) => kvBindings.length)) failures.push("KV capability has no valid kv_namespaces binding");
+    if (name === "r2" && capabilities.r2.present && !capabilities.wranglerConfig?.scopes?.some(({ r2Bindings }) => r2Bindings.length)) failures.push("R2 capability has no valid r2_buckets binding");
     report(`${name}-configuration`, failures.length ? "BLOCKED" : "PASS", failures.join("; "));
   }
   if (capabilities.d1.present === true) {
@@ -113,25 +115,25 @@ function runRuntimeControls() {
     } else if (!declared?.length) {
       report("project-d1-checks", "N/A", "no project-specific D1 check is required by its contract");
     } else {
-      for (const script of declared) runRequiredScript(`project-d1-${script}`, [script]);
+      for (const script of declared) await runRequiredScript(`project-d1-${script}`, [script]);
     }
   } else if (capabilities.d1.present === false) report("project-d1-checks", "N/A", capabilities.d1.reason);
-  if (capabilities.wrangler.present === true) runRequiredScript("wrangler-types", ["wrangler:types:check", "test:wrangler-types", "check:wrangler", "cf-types"]);
+  if (capabilities.wrangler.present === true) await runRequiredScript("wrangler-types", ["wrangler:types:check", "test:wrangler-types", "check:wrangler", "cf-types"]);
   else if (capabilities.wrangler.present === false) report("wrangler-types", "N/A", capabilities.wrangler.reason);
-  if (capabilities.drizzle.present === true) runRequiredScript("drizzle-schema", ["db:check:drizzle", "db:check"]);
+  if (capabilities.drizzle.present === true) await runRequiredScript("drizzle-schema", ["db:check:drizzle", "db:check"]);
   else if (capabilities.drizzle.present === false) report("drizzle-schema", "N/A", capabilities.drizzle.reason);
   else report("drizzle-schema", "BLOCKED", capabilities.drizzle.reason);
 }
 
-function runProjectChecks() {
-  if (capabilities.typescript.present === true) runRequiredScript("typecheck", ["typecheck"]);
+async function runProjectChecks() {
+  if (capabilities.typescript.present === true) await runRequiredScript("typecheck", ["typecheck"]);
   else if (capabilities.typescript.present === false) report("typecheck", "N/A", capabilities.typescript.reason);
   else report("typecheck", "BLOCKED", capabilities.typescript.reason);
 
   if (capabilities.application.present === true) {
-    runRequiredScript("lint", ["lint:eslint", "lint"]);
-    runRequiredScript("project-unit-tests", ["test:unit", "test"]);
-    if (typeof scripts.build === "string") run("build", "npm", ["run", "build"]);
+    await runRequiredScript("lint", ["lint:eslint", "lint"]);
+    await runRequiredScript("project-unit-tests", ["test:unit", "test"]);
+    if (typeof scripts.build === "string") await run("build", "npm", ["run", "build"]);
     else if (packageJson.gatecommit?.buildRequired === true) report("build", "BLOCKED", "project contract requires a build script");
     else report("build", "N/A", "no build artifact is declared by the project");
   } else if (capabilities.application.present === false) {
@@ -142,12 +144,12 @@ function runProjectChecks() {
 
   const smoke = packageJson.gatecommit?.smoke;
   if (smoke === undefined || smoke === false) report("project-smoke", "N/A", "project contract does not require local smoke testing");
-  else if (typeof smoke === "string" && typeof scripts[smoke] === "string") run("project-smoke", "npm", ["run", smoke]);
+  else if (typeof smoke === "string" && typeof scripts[smoke] === "string") await run("project-smoke", "npm", ["run", smoke]);
   else report("project-smoke", "BLOCKED", "gatecommit.smoke must name an existing required project script");
 
 }
 
-function runDeclaredProjectChecks() {
+async function runDeclaredProjectChecks() {
   const declared = packageJson.gatecommit?.checks;
   if (declared === undefined || (Array.isArray(declared) && declared.length === 0)) {
     report("project-owned-checks", "N/A", "no additional project-owned checks are declared");
@@ -178,7 +180,7 @@ function runDeclaredProjectChecks() {
       statuses.push("BLOCKED");
       continue;
     }
-    statuses.push(run(`project-check-${index + 1}`, "npm", ["run", script]));
+    statuses.push(await run(`project-check-${index + 1}`, "npm", ["run", script], { script }));
   }
   const blocked = statuses.filter((status) => status === "BLOCKED").length;
   report("project-owned-checks", blocked ? "BLOCKED" : "PASS", blocked ? `${blocked} declared project check(s) failed or are missing` : `${declared.length} declared project check(s) passed`);
@@ -199,33 +201,34 @@ function runDocumentationChecks() {
 }
 
 function runMaintainerContract() {
-  run("maintainer-self-test", "npm", ["test"], { cwd: root, timeout: 120_000 });
+  return run("maintainer-self-test", "npm", ["test"], { cwd: root });
 }
 
-function runPolicyRegression(name) {
+async function runPolicyRegression(name) {
   const kind = name.startsWith("semgrep") ? "semgrep" : name.startsWith("gitleaks") ? "gitleaks" : name.startsWith("license") ? "license" : "dependency";
-  run(name, process.execPath, ["--test", join(PACKAGE_ROOT, "scripts/policy-regression.test.mjs")], { env: { GATECOMMIT_REGRESSION_KIND: kind } });
+  await run(name, process.execPath, ["--test", join(PACKAGE_ROOT, "scripts/policy-regression.test.mjs")], { env: { GATECOMMIT_REGRESSION_KIND: kind } });
 }
 
-function runRequiredScript(name, candidates) {
+async function runRequiredScript(name, candidates) {
   const script = candidates.find((candidate) => typeof scripts[candidate] === "string" && scripts[candidate].trim());
   if (!script) {
     const purpose = name === "lint" ? "application capability requires a lint script" : name === "project-unit-tests" ? "application capability requires a unit-test script" : "missing required project check";
     report(name, "BLOCKED", `${purpose}; add one of: ${candidates.join(" or ")}`);
     return;
   }
-  run(name, "npm", ["run", script]);
+  await run(name, "npm", ["run", script]);
 }
 
-function run(name, command, args, options = {}) {
+async function run(name, command, args, options = {}) {
   const started = performance.now();
   const env = { ...process.env, ...options.env, BLUEPRINT_GATE_ORCHESTRATOR: "1", ...(process.env.CI === undefined ? { CI: "true" } : {}) };
   delete env.NODE_TEST_CONTEXT;
-  const result = spawnSync(command, args, { cwd: options.cwd ?? root, stdio: "inherit", env, timeout: options.timeout ?? 120_000 });
-  const detail = result.error ? `${result.error.code === "ENOENT" ? `${command} is not installed or not on PATH` : result.error.message}`
-    : result.status === null ? "check timed out"
-      : result.status !== 0 && result.status !== options.reviewExitCode ? `${command} exited with status ${result.status}` : "";
-  const status = result.status === 0 ? "PASS" : result.status === options.reviewExitCode ? "REVIEW" : "BLOCKED";
+  const timeoutMs = resolveCheckTimeout(packageJson.gatecommit ?? {}, options.script);
+  const childResult = await runCheck(command, args, { cwd: options.cwd ?? root, stdio: "inherit", env, timeoutMs });
+  const detail = childResult.timedOut ? `check exceeded timeout of ${timeoutMs}ms and its process tree was terminated`
+    : childResult.error ? `${childResult.error.code === "ENOENT" ? `${command} is not installed or not on PATH` : childResult.error.message}`
+      : childResult.status !== 0 && childResult.status !== options.reviewExitCode ? `${command} exited with status ${childResult.status}` : "";
+  const status = childResult.timedOut ? "BLOCKED" : childResult.status === 0 ? "PASS" : childResult.status === options.reviewExitCode ? "REVIEW" : "BLOCKED";
   const reportDetail = status === "REVIEW" && !detail ? "license metadata requires review" : detail;
   report(name, status, reportDetail, performance.now() - started);
   return status;
@@ -250,6 +253,14 @@ function reportSlowestChecks() {
 
 function blockedBeforeChecks(reason) {
   console.error(`BLOCKED ${reason}`);
+  console.log("GATE_RESULT findings=1 review=0 expected=0");
+  process.exit(1);
+}
+
+function blockedTimeoutConfiguration(errors) {
+  const reason = `invalid timeout configuration: ${errors.join("; ")}`;
+  console.error(`CHECK timeout-configuration BLOCKED duration=0ms detail=${JSON.stringify(reason)}`);
+  console.log("TOTAL BLOCKED checks=1 blocked=1 review=0 not_applicable=0");
   console.log("GATE_RESULT findings=1 review=0 expected=0");
   process.exit(1);
 }

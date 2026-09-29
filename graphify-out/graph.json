@@ -13,7 +13,19 @@
       "file_type": "code",
       "norm_label": "blockedbeforechecks()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L251"
+      "source_location": "L254"
+    },
+    {
+      "id": "scripts_blueprint_gate_blockedtimeoutconfiguration",
+      "label": "blockedTimeoutConfiguration()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "blueprint-gate.mjs",
+      "file_type": "code",
+      "norm_label": "blockedtimeoutconfiguration()",
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L260"
     },
     {
       "id": "scripts_blueprint_gate_parsearguments",
@@ -25,7 +37,7 @@
       "file_type": "code",
       "norm_label": "parsearguments()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L257"
+      "source_location": "L268"
     },
     {
       "id": "scripts_blueprint_gate_report",
@@ -37,7 +49,7 @@
       "file_type": "code",
       "norm_label": "report()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L234"
+      "source_location": "L237"
     },
     {
       "id": "scripts_blueprint_gate_reportgitpreflightfailure",
@@ -49,7 +61,7 @@
       "file_type": "code",
       "norm_label": "reportgitpreflightfailure()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L240"
+      "source_location": "L243"
     },
     {
       "id": "scripts_blueprint_gate_reportslowestchecks",
@@ -61,7 +73,7 @@
       "file_type": "code",
       "norm_label": "reportslowestchecks()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L246"
+      "source_location": "L249"
     },
     {
       "id": "scripts_blueprint_gate_run",
@@ -73,7 +85,7 @@
       "file_type": "code",
       "norm_label": "run()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L220"
+      "source_location": "L222"
     },
     {
       "id": "scripts_blueprint_gate_rundeclaredprojectchecks",
@@ -85,7 +97,7 @@
       "file_type": "code",
       "norm_label": "rundeclaredprojectchecks()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L150"
+      "source_location": "L152"
     },
     {
       "id": "scripts_blueprint_gate_rundocumentationchecks",
@@ -97,7 +109,7 @@
       "file_type": "code",
       "norm_label": "rundocumentationchecks()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L187"
+      "source_location": "L189"
     },
     {
       "id": "scripts_blueprint_gate_runglobalcontrols",
@@ -109,7 +121,7 @@
       "file_type": "code",
       "norm_label": "runglobalcontrols()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L67"
+      "source_location": "L69"
     },
     {
       "id": "scripts_blueprint_gate_runmaintainercontract",
@@ -121,7 +133,7 @@
       "file_type": "code",
       "norm_label": "runmaintainercontract()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L201"
+      "source_location": "L203"
     },
     {
       "id": "scripts_blueprint_gate_runpolicyregression",
@@ -133,7 +145,7 @@
       "file_type": "code",
       "norm_label": "runpolicyregression()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L205"
+      "source_location": "L207"
     },
     {
       "id": "scripts_blueprint_gate_runprojectchecks",
@@ -145,7 +157,7 @@
       "file_type": "code",
       "norm_label": "runprojectchecks()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L126"
+      "source_location": "L128"
     },
     {
       "id": "scripts_blueprint_gate_runrequiredscript",
@@ -157,7 +169,7 @@
       "file_type": "code",
       "norm_label": "runrequiredscript()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L210"
+      "source_location": "L212"
     },
     {
       "id": "scripts_blueprint_gate_runruntimecontrols",
@@ -169,43 +181,19 @@
       "file_type": "code",
       "norm_label": "runruntimecontrols()",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L98"
+      "source_location": "L100"
     },
     {
-      "id": "scripts_governance_result",
-      "label": "result()",
+      "id": "scripts_git_delta_readgitdelta",
+      "label": "readGitDelta()",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "community_name": "blueprint-gate.mjs",
+      "community": 1,
+      "community_name": "git-sync.mjs",
       "file_type": "code",
-      "norm_label": "result()",
-      "source_file": "scripts/governance.mjs",
-      "source_location": "L49"
-    },
-    {
-      "id": "scripts_governance_safeentries",
-      "label": "safeEntries()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "blueprint-gate.mjs",
-      "file_type": "code",
-      "norm_label": "safeentries()",
-      "source_file": "scripts/governance.mjs",
-      "source_location": "L137"
-    },
-    {
-      "id": "scripts_governance_validatewranglerconfig",
-      "label": "validateWranglerConfig()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "blueprint-gate.mjs",
-      "file_type": "code",
-      "norm_label": "validatewranglerconfig()",
-      "source_file": "scripts/governance.mjs",
-      "source_location": "L67"
+      "norm_label": "readgitdelta()",
+      "source_file": "scripts/git-delta.mjs",
+      "source_location": "L3"
     },
     {
       "id": "scripts_git_sync_captureworktreesnapshot",
@@ -436,12 +424,228 @@
       "source_location": "L103"
     },
     {
+      "id": "scripts_check_runner_resolvechecktimeout",
+      "label": "resolveCheckTimeout()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "resolvechecktimeout()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L28"
+    },
+    {
+      "id": "scripts_check_runner_resolvemanagedcommand",
+      "label": "resolveManagedCommand()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "resolvemanagedcommand()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L33"
+    },
+    {
+      "id": "scripts_check_runner_runcheck",
+      "label": "runCheck()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "runcheck()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L40"
+    },
+    {
+      "id": "scripts_check_runner_runtaskkill",
+      "label": "runTaskkill()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "runtaskkill()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L112"
+    },
+    {
+      "id": "scripts_check_runner_signalprocessgroup",
+      "label": "signalProcessGroup()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "signalprocessgroup()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L93"
+    },
+    {
+      "id": "scripts_check_runner_terminateprocesstree",
+      "label": "terminateProcessTree()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "terminateprocesstree()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L77"
+    },
+    {
+      "id": "scripts_check_runner_test_isprocessalive",
+      "label": "isProcessAlive()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "isprocessalive()",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L75"
+    },
+    {
+      "id": "scripts_check_runner_validatetimeoutconfiguration",
+      "label": "validateTimeoutConfiguration()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "validatetimeoutconfiguration()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L9"
+    },
+    {
+      "id": "scripts_check_runner_validatevalue",
+      "label": "validateValue()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "validatevalue()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L71"
+    },
+    {
+      "id": "scripts_check_runner_waitforchildclose",
+      "label": "waitForChildClose()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "waitforchildclose()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L102"
+    },
+    {
+      "id": "scripts_blueprint_gate_test_createdirectory",
+      "label": "createDirectory()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "createdirectory()",
+      "source_file": "scripts/blueprint-gate.test.mjs",
+      "source_location": "L203"
+    },
+    {
+      "id": "scripts_blueprint_gate_test_createdocumentationproject",
+      "label": "createDocumentationProject()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "createdocumentationproject()",
+      "source_file": "scripts/blueprint-gate.test.mjs",
+      "source_location": "L181"
+    },
+    {
+      "id": "scripts_blueprint_gate_test_createproject",
+      "label": "createProject()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "createproject()",
+      "source_file": "scripts/blueprint-gate.test.mjs",
+      "source_location": "L165"
+    },
+    {
+      "id": "scripts_blueprint_gate_test_initializerepository",
+      "label": "initializeRepository()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "initializerepository()",
+      "source_file": "scripts/blueprint-gate.test.mjs",
+      "source_location": "L190"
+    },
+    {
+      "id": "scripts_blueprint_gate_test_readenvironment",
+      "label": "readEnvironment()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "readenvironment()",
+      "source_file": "scripts/blueprint-gate.test.mjs",
+      "source_location": "L223"
+    },
+    {
+      "id": "scripts_blueprint_gate_test_rungate",
+      "label": "runGate()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "rungate()",
+      "source_file": "scripts/blueprint-gate.test.mjs",
+      "source_location": "L209"
+    },
+    {
+      "id": "scripts_blueprint_gate_test_rungatefrom",
+      "label": "runGateFrom()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "rungatefrom()",
+      "source_file": "scripts/blueprint-gate.test.mjs",
+      "source_location": "L213"
+    },
+    {
+      "id": "scripts_blueprint_gate_test_withoutci",
+      "label": "withoutCI()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "withoutci()",
+      "source_file": "scripts/blueprint-gate.test.mjs",
+      "source_location": "L217"
+    },
+    {
       "id": "scripts_git_delta_listversionedfiles",
       "label": "listVersionedFiles()",
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "listversionedfiles()",
       "source_file": "scripts/git-delta.mjs",
@@ -453,23 +657,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "parsegitstatus()",
       "source_file": "scripts/git-delta.mjs",
       "source_location": "L19"
-    },
-    {
-      "id": "scripts_git_delta_readgitdelta",
-      "label": "readGitDelta()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "readgitdelta()",
-      "source_file": "scripts/git-delta.mjs",
-      "source_location": "L3"
     },
     {
       "id": "scripts_git_delta_test_createdirectory",
@@ -477,7 +669,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "createdirectory()",
       "source_file": "scripts/git-delta.test.mjs",
@@ -489,7 +681,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "createrepository()",
       "source_file": "scripts/git-delta.test.mjs",
@@ -501,7 +693,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "createproject()",
       "source_file": "scripts/git-sync.test.mjs",
@@ -513,7 +705,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "git()",
       "source_file": "scripts/git-sync.test.mjs",
@@ -525,7 +717,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "rungate()",
       "source_file": "scripts/git-sync.test.mjs",
@@ -537,7 +729,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "executable()",
       "source_file": "scripts/governance-gate.test.mjs",
@@ -549,7 +741,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "fixture()",
       "source_file": "scripts/governance-gate.test.mjs",
@@ -561,7 +753,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "git()",
       "source_file": "scripts/governance-gate.test.mjs",
@@ -573,107 +765,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "run()",
       "source_file": "scripts/governance-gate.test.mjs",
       "source_location": "L259"
-    },
-    {
-      "id": "scripts_blueprint_gate_test_createdirectory",
-      "label": "createDirectory()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "createdirectory()",
-      "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L175"
-    },
-    {
-      "id": "scripts_blueprint_gate_test_createdocumentationproject",
-      "label": "createDocumentationProject()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "createdocumentationproject()",
-      "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L153"
-    },
-    {
-      "id": "scripts_blueprint_gate_test_createproject",
-      "label": "createProject()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "createproject()",
-      "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L137"
-    },
-    {
-      "id": "scripts_blueprint_gate_test_initializerepository",
-      "label": "initializeRepository()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "initializerepository()",
-      "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L162"
-    },
-    {
-      "id": "scripts_blueprint_gate_test_readenvironment",
-      "label": "readEnvironment()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "readenvironment()",
-      "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L195"
-    },
-    {
-      "id": "scripts_blueprint_gate_test_rungate",
-      "label": "runGate()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "rungate()",
-      "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L181"
-    },
-    {
-      "id": "scripts_blueprint_gate_test_rungatefrom",
-      "label": "runGateFrom()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "rungatefrom()",
-      "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L185"
-    },
-    {
-      "id": "scripts_blueprint_gate_test_withoutci",
-      "label": "withoutCI()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "withoutci()",
-      "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L189"
     },
     {
       "id": "scripts_dependency_policy_readjson",
@@ -709,7 +805,7 @@
       "file_type": "code",
       "norm_label": "capability()",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L102"
+      "source_location": "L112"
     },
     {
       "id": "scripts_governance_detectcapabilities",
@@ -733,19 +829,19 @@
       "file_type": "code",
       "norm_label": "listworkflowfiles()",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L130"
+      "source_location": "L137"
     },
     {
-      "id": "scripts_governance_parsetomlarraytables",
-      "label": "parseTomlArrayTables()",
+      "id": "scripts_governance_parsetomlbindingscopes",
+      "label": "parseTomlBindingScopes()",
       "_callable": true,
       "_origin": "ast",
       "community": 6,
       "community_name": "policy-regression.test.mjs",
       "file_type": "code",
-      "norm_label": "parsetomlarraytables()",
+      "norm_label": "parsetomlbindingscopes()",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L139"
+      "source_location": "L146"
     },
     {
       "id": "scripts_governance_readjson",
@@ -757,7 +853,7 @@
       "file_type": "code",
       "norm_label": "readjson()",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L106"
+      "source_location": "L116"
     },
     {
       "id": "scripts_governance_readwrangler",
@@ -769,7 +865,31 @@
       "file_type": "code",
       "norm_label": "readwrangler()",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L110"
+      "source_location": "L120"
+    },
+    {
+      "id": "scripts_governance_result",
+      "label": "result()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "policy-regression.test.mjs",
+      "file_type": "code",
+      "norm_label": "result()",
+      "source_file": "scripts/governance.mjs",
+      "source_location": "L49"
+    },
+    {
+      "id": "scripts_governance_safeentries",
+      "label": "safeEntries()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "policy-regression.test.mjs",
+      "file_type": "code",
+      "norm_label": "safeentries()",
+      "source_file": "scripts/governance.mjs",
+      "source_location": "L144"
     },
     {
       "id": "scripts_governance_summarizeresults",
@@ -782,6 +902,18 @@
       "norm_label": "summarizeresults()",
       "source_file": "scripts/governance.mjs",
       "source_location": "L55"
+    },
+    {
+      "id": "scripts_governance_validatewranglerconfig",
+      "label": "validateWranglerConfig()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "policy-regression.test.mjs",
+      "file_type": "code",
+      "norm_label": "validatewranglerconfig()",
+      "source_file": "scripts/governance.mjs",
+      "source_location": "L67"
     },
     {
       "id": "scripts_license_policy_entries",
@@ -865,7 +997,7 @@
       "file_type": "code",
       "norm_label": "project()",
       "source_file": "scripts/policy-regression.test.mjs",
-      "source_location": "L147"
+      "source_location": "L210"
     },
     {
       "id": "scripts_blueprint_gate",
@@ -887,7 +1019,7 @@
       "file_type": "code",
       "norm_label": "capabilities",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L29"
+      "source_location": "L31"
     },
     {
       "id": "scripts_blueprint_gate_delta",
@@ -898,7 +1030,7 @@
       "file_type": "code",
       "norm_label": "delta",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L27"
+      "source_location": "L29"
     },
     {
       "id": "scripts_blueprint_gate_initialsnapshot",
@@ -909,7 +1041,7 @@
       "file_type": "code",
       "norm_label": "initialsnapshot",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L36"
+      "source_location": "L38"
     },
     {
       "id": "scripts_blueprint_gate_initialstate",
@@ -920,7 +1052,7 @@
       "file_type": "code",
       "norm_label": "initialstate",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L32"
+      "source_location": "L34"
     },
     {
       "id": "scripts_blueprint_gate_knowncapabilities",
@@ -931,7 +1063,7 @@
       "file_type": "code",
       "norm_label": "knowncapabilities",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L43"
+      "source_location": "L45"
     },
     {
       "id": "scripts_blueprint_gate_options",
@@ -975,7 +1107,7 @@
       "file_type": "code",
       "norm_label": "results",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L30"
+      "source_location": "L32"
     },
     {
       "id": "scripts_blueprint_gate_summary",
@@ -986,7 +1118,7 @@
       "file_type": "code",
       "norm_label": "summary",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L56"
+      "source_location": "L58"
     },
     {
       "id": "scripts_blueprint_gate_sync",
@@ -997,7 +1129,18 @@
       "file_type": "code",
       "norm_label": "sync",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L63"
+      "source_location": "L65"
+    },
+    {
+      "id": "scripts_blueprint_gate_timeouterrors",
+      "label": "timeoutErrors",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "blueprint-gate.mjs",
+      "file_type": "code",
+      "norm_label": "timeouterrors",
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L27"
     },
     {
       "id": "scripts_blueprint_gate_versioned",
@@ -1008,7 +1151,7 @@
       "file_type": "code",
       "norm_label": "versioned",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L28"
+      "source_location": "L30"
     },
     {
       "id": "scripts_git_sync_internal_commit_hook",
@@ -1034,13 +1177,13 @@
     },
     {
       "id": "openspec_changes_centralized_governance_contract_proposal",
-      "label": "proposal.md",
+      "label": "centralized-governance-contract/proposal.md",
       "_origin": "ast",
       "community": 10,
       "community_name": "Proposal",
       "file_type": "document",
       "node_kind": "page",
-      "norm_label": "proposal.md",
+      "norm_label": "centralized-governance-contract/proposal.md",
       "source_file": "openspec/changes/centralized-governance-contract/proposal.md",
       "source_location": "L1"
     },
@@ -1130,13 +1273,13 @@
     },
     {
       "id": "openspec_changes_centralized_governance_contract_tasks",
-      "label": "tasks.md",
+      "label": "centralized-governance-contract/tasks.md",
       "_origin": "ast",
       "community": 11,
       "community_name": "Tasks",
       "file_type": "document",
       "node_kind": "page",
-      "norm_label": "tasks.md",
+      "norm_label": "centralized-governance-contract/tasks.md",
       "source_file": "openspec/changes/centralized-governance-contract/tasks.md",
       "source_location": "L1"
     },
@@ -1261,6 +1404,30 @@
       "source_location": "L1"
     },
     {
+      "id": "changelog_2_0_0",
+      "label": "2.0.0",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "Changelog",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2.0.0",
+      "source_file": "CHANGELOG.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "changelog_2_0_1",
+      "label": "2.0.1",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "Changelog",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2.0.1",
+      "source_file": "CHANGELOG.md",
+      "source_location": "L3"
+    },
+    {
       "id": "changelog_changelog",
       "label": "Changelog",
       "_origin": "ast",
@@ -1271,18 +1438,6 @@
       "norm_label": "changelog",
       "source_file": "CHANGELOG.md",
       "source_location": "L1"
-    },
-    {
-      "id": "changelog_unreleased_target_2_0_0",
-      "label": "Unreleased (target: 2.0.0)",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "Changelog",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "unreleased (target: 2.0.0)",
-      "source_file": "CHANGELOG.md",
-      "source_location": "L3"
     },
     {
       "id": "githooks_pre_commit",
@@ -1339,6 +1494,660 @@
       "source_location": "L1"
     },
     {
+      "id": "scripts_check_runner",
+      "label": "check-runner.mjs",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "check-runner.mjs",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_check_runner_default_timeout_ms",
+      "label": "DEFAULT_TIMEOUT_MS",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "default_timeout_ms",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L5"
+    },
+    {
+      "id": "scripts_check_runner_max_timeout_ms",
+      "label": "MAX_TIMEOUT_MS",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "max_timeout_ms",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L6"
+    },
+    {
+      "id": "scripts_check_runner_termination_grace_ms",
+      "label": "TERMINATION_GRACE_MS",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "termination_grace_ms",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L7"
+    },
+    {
+      "id": "scripts_check_runner_test",
+      "label": "check-runner.test.mjs",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "check-runner.test.mjs",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_check_runner_test_roots",
+      "label": "roots",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "roots",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L8"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec",
+      "label": "2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_added_requirements",
+      "label": "ADDED Requirements",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "added requirements",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_check_timeouts_and_process_lifecycle",
+      "label": "Check timeouts and process lifecycle",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "check timeouts and process lifecycle",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "label": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requirement: managed checks shall use validated configurable timeouts",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L5"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_checks_shall_terminate_and_reap_their_process_tree",
+      "label": "Requirement: Timed-out checks SHALL terminate and reap their process tree",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requirement: timed-out checks shall terminate and reap their process tree",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L49"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_descendant_remains_active_after_graceful_termination",
+      "label": "Scenario: A descendant remains active after graceful termination",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: a descendant remains active after graceful termination",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L70"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_long_suite_finishes_inside_its_selected_timeout",
+      "label": "Scenario: A long suite finishes inside its selected timeout",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: a long suite finishes inside its selected timeout",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L58"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_process_hangs_past_its_selected_timeout",
+      "label": "Scenario: A process hangs past its selected timeout",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: a process hangs past its selected timeout",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L65"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_no_timeout_configuration_uses_the_default",
+      "label": "Scenario: No timeout configuration uses the default",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: no timeout configuration uses the default",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L18"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_per_script_timeout_overrides_the_project_timeout",
+      "label": "Scenario: Per-script timeout overrides the project timeout",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: per-script timeout overrides the project timeout",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L28"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_precedence_resolves_to_the_most_specific_configured_value",
+      "label": "Scenario: Precedence resolves to the most specific configured value",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: precedence resolves to the most specific configured value",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L34"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_project_timeout_overrides_the_default",
+      "label": "Scenario: Project timeout overrides the default",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: project timeout overrides the default",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L23"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_timeout_values_are_invalid",
+      "label": "Scenario: Timeout values are invalid",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: timeout values are invalid",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "openspec_specs_wrangler_binding_scopes_spec",
+      "label": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_specs_wrangler_binding_scopes_spec_purpose",
+      "label": "Purpose",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "purpose",
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "openspec_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "label": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requirement: wrangler bindings shall be validated independently per environment scope",
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L10"
+    },
+    {
+      "id": "openspec_specs_wrangler_binding_scopes_spec_requirements",
+      "label": "Requirements",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requirements",
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L8"
+    },
+    {
+      "id": "openspec_specs_wrangler_binding_scopes_spec_scenario_base_and_production_d1_declarations_reuse_a_binding_name",
+      "label": "Scenario: Base and production D1 declarations reuse a binding name",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: base and production d1 declarations reuse a binding name",
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L19"
+    },
+    {
+      "id": "openspec_specs_wrangler_binding_scopes_spec_scenario_base_and_production_kv_declarations_reuse_a_binding_name",
+      "label": "Scenario: Base and production KV declarations reuse a binding name",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: base and production kv declarations reuse a binding name",
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L32"
+    },
+    {
+      "id": "openspec_specs_wrangler_binding_scopes_spec_scenario_base_and_production_r2_declarations_reuse_a_binding_name",
+      "label": "Scenario: Base and production R2 declarations reuse a binding name",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: base and production r2 declarations reuse a binding name",
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L44"
+    },
+    {
+      "id": "openspec_specs_wrangler_binding_scopes_spec_scenario_base_only_and_multiple_environment_wrangler_configurations",
+      "label": "Scenario: Base-only and multiple-environment Wrangler configurations",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: base-only and multiple-environment wrangler configurations",
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L56"
+    },
+    {
+      "id": "openspec_specs_wrangler_binding_scopes_spec_scenario_d1_declarations_duplicate_a_binding_in_one_scope",
+      "label": "Scenario: D1 declarations duplicate a binding in one scope",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: d1 declarations duplicate a binding in one scope",
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L26"
+    },
+    {
+      "id": "openspec_specs_wrangler_binding_scopes_spec_scenario_kv_declarations_duplicate_a_binding_in_one_scope",
+      "label": "Scenario: KV declarations duplicate a binding in one scope",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: kv declarations duplicate a binding in one scope",
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L38"
+    },
+    {
+      "id": "openspec_specs_wrangler_binding_scopes_spec_scenario_r2_declarations_duplicate_a_binding_in_one_scope",
+      "label": "Scenario: R2 declarations duplicate a binding in one scope",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: r2 declarations duplicate a binding in one scope",
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L50"
+    },
+    {
+      "id": "openspec_specs_wrangler_binding_scopes_spec_scenario_wrangler_capability_is_absent",
+      "label": "Scenario: Wrangler capability is absent",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: wrangler capability is absent",
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L62"
+    },
+    {
+      "id": "openspec_specs_wrangler_binding_scopes_spec_wrangler_binding_scopes_specification",
+      "label": "wrangler-binding-scopes Specification",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "wrangler-binding-scopes specification",
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec",
+      "label": "2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_added_requirements",
+      "label": "ADDED Requirements",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "added requirements",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "label": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requirement: wrangler bindings shall be validated independently per environment scope",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L5"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_base_and_production_d1_declarations_reuse_a_binding_name",
+      "label": "Scenario: Base and production D1 declarations reuse a binding name",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: base and production d1 declarations reuse a binding name",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L14"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_base_and_production_kv_declarations_reuse_a_binding_name",
+      "label": "Scenario: Base and production KV declarations reuse a binding name",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: base and production kv declarations reuse a binding name",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L27"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_base_and_production_r2_declarations_reuse_a_binding_name",
+      "label": "Scenario: Base and production R2 declarations reuse a binding name",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: base and production r2 declarations reuse a binding name",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L39"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_base_only_and_multiple_environment_wrangler_configurations",
+      "label": "Scenario: Base-only and multiple-environment Wrangler configurations",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: base-only and multiple-environment wrangler configurations",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L51"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_d1_declarations_duplicate_a_binding_in_one_scope",
+      "label": "Scenario: D1 declarations duplicate a binding in one scope",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: d1 declarations duplicate a binding in one scope",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L21"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_kv_declarations_duplicate_a_binding_in_one_scope",
+      "label": "Scenario: KV declarations duplicate a binding in one scope",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: kv declarations duplicate a binding in one scope",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_r2_declarations_duplicate_a_binding_in_one_scope",
+      "label": "Scenario: R2 declarations duplicate a binding in one scope",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: r2 declarations duplicate a binding in one scope",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L45"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_wrangler_capability_is_absent",
+      "label": "Scenario: Wrangler capability is absent",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: wrangler capability is absent",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L57"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_wrangler_binding_scopes",
+      "label": "Wrangler binding scopes",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "Requirement: Wrangler bindings SHALL be validated independently per environment scope",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "wrangler binding scopes",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design",
+      "label": "2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_compatibility_boundaries",
+      "label": "Compatibility boundaries",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "compatibility boundaries",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L89"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_decisions",
+      "label": "Decisions",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "decisions",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L30"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_design",
+      "label": "Design",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "design",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_goals_non_goals",
+      "label": "Goals / Non-Goals",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "goals / non-goals",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L12"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_migration_plan",
+      "label": "Migration Plan",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "migration plan",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L106"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_open_questions",
+      "label": "Open Questions",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "open questions",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L119"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_process_tree_termination",
+      "label": "Process-tree termination",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "process-tree termination",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L75"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_risks_trade_offs",
+      "label": "Risks / Trade-offs",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "risks / trade-offs",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L96"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_timeout_configuration_and_precedence",
+      "label": "Timeout configuration and precedence",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "timeout configuration and precedence",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L45"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_validate_wrangler_declarations_by_scope",
+      "label": "Validate Wrangler declarations by scope",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "validate wrangler declarations by scope",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L32"
+    },
+    {
       "id": "package",
       "label": "package.json",
       "_origin": "ast",
@@ -1391,7 +2200,7 @@
       "file_type": "code",
       "norm_label": "engines",
       "source_file": "package.json",
-      "source_location": "L30"
+      "source_location": "L31"
     },
     {
       "id": "package_engines_node",
@@ -1402,7 +2211,7 @@
       "file_type": "code",
       "norm_label": "node",
       "source_file": "package.json",
-      "source_location": "L31"
+      "source_location": "L32"
     },
     {
       "id": "package_files",
@@ -1493,142 +2302,154 @@
       "source_location": "L3"
     },
     {
-      "id": "scripts_git_delta",
-      "label": "git-delta.mjs",
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal",
+      "label": "2026-09-29-fix-wrangler-scopes-and-check-timeouts/proposal.md",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "git-delta.mjs",
-      "source_file": "scripts/git-delta.mjs",
+      "community": 20,
+      "community_name": "Fix Wrangler scopes and configurable check timeouts",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-09-29-fix-wrangler-scopes-and-check-timeouts/proposal.md",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/proposal.md",
       "source_location": "L1"
     },
     {
-      "id": "scripts_git_delta_test",
-      "label": "git-delta.test.mjs",
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_compatibility",
+      "label": "Compatibility",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "git-delta.test.mjs",
-      "source_file": "scripts/git-delta.test.mjs",
+      "community": 20,
+      "community_name": "Fix Wrangler scopes and configurable check timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "compatibility",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/proposal.md",
+      "source_location": "L34"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_fix_wrangler_scopes_and_configurable_check_timeouts",
+      "label": "Fix Wrangler scopes and configurable check timeouts",
+      "_origin": "ast",
+      "community": 20,
+      "community_name": "Fix Wrangler scopes and configurable check timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "fix wrangler scopes and configurable check timeouts",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/proposal.md",
       "source_location": "L1"
     },
     {
-      "id": "scripts_git_delta_test_roots",
-      "label": "roots",
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_non_goals",
+      "label": "Non-Goals",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "roots",
-      "source_file": "scripts/git-delta.test.mjs",
-      "source_location": "L9"
+      "community": 20,
+      "community_name": "Fix Wrangler scopes and configurable check timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "non-goals",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/proposal.md",
+      "source_location": "L25"
     },
     {
-      "id": "scripts_git_sync_test",
-      "label": "git-sync.test.mjs",
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_what_changes",
+      "label": "What Changes",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "git-sync.test.mjs",
-      "source_file": "scripts/git-sync.test.mjs",
-      "source_location": "L1"
-    },
-    {
-      "id": "scripts_git_sync_test_gate",
-      "label": "gate",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "gate",
-      "source_file": "scripts/git-sync.test.mjs",
-      "source_location": "L9"
-    },
-    {
-      "id": "scripts_git_sync_test_roots",
-      "label": "roots",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "roots",
-      "source_file": "scripts/git-sync.test.mjs",
-      "source_location": "L10"
-    },
-    {
-      "id": "scripts_governance_gate_test",
-      "label": "governance-gate.test.mjs",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "governance-gate.test.mjs",
-      "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L1"
-    },
-    {
-      "id": "scripts_governance_gate_test_gate",
-      "label": "gate",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "gate",
-      "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L9"
-    },
-    {
-      "id": "scripts_governance_gate_test_roots",
-      "label": "roots",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "roots",
-      "source_file": "scripts/governance-gate.test.mjs",
+      "community": 20,
+      "community_name": "Fix Wrangler scopes and configurable check timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "what changes",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/proposal.md",
       "source_location": "L11"
     },
     {
-      "id": "scripts_governance_gate_test_systemnpm",
-      "label": "systemNpm",
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_why",
+      "label": "Why",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "systemnpm",
-      "source_file": "scripts/governance-gate.test.mjs",
-      "source_location": "L10"
+      "community": 20,
+      "community_name": "Fix Wrangler scopes and configurable check timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "why",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/proposal.md",
+      "source_location": "L3"
     },
     {
-      "id": "scripts_setup_git_hooks",
-      "label": "setup-git-hooks.mjs",
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks",
+      "label": "2026-09-29-fix-wrangler-scopes-and-check-timeouts/tasks.md",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "setup-git-hooks.mjs",
-      "source_file": "scripts/setup-git-hooks.mjs",
+      "community": 21,
+      "community_name": "Tasks",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-09-29-fix-wrangler-scopes-and-check-timeouts/tasks.md",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/tasks.md",
       "source_location": "L1"
     },
     {
-      "id": "scripts_setup_git_hooks_result",
-      "label": "result",
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_1_wrangler_environment_scopes",
+      "label": "1. Wrangler environment scopes",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "governance-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "result",
-      "source_file": "scripts/setup-git-hooks.mjs",
+      "community": 21,
+      "community_name": "Tasks",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1. wrangler environment scopes",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/tasks.md",
       "source_location": "L3"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_2_timeout_contract",
+      "label": "2. Timeout contract",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Tasks",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. timeout contract",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/tasks.md",
+      "source_location": "L13"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_3_process_lifecycle",
+      "label": "3. Process lifecycle",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Tasks",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. process lifecycle",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/tasks.md",
+      "source_location": "L22"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_4_completion",
+      "label": "4. Completion",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Tasks",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. completion",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/tasks.md",
+      "source_location": "L36"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_tasks",
+      "label": "Tasks",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Tasks",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tasks",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/tasks.md",
+      "source_location": "L1"
     },
     {
       "id": "scripts_blueprint_gate_test",
       "label": "blueprint-gate.test.mjs",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "blueprint-gate.test.mjs",
@@ -1639,7 +2460,7 @@
       "id": "scripts_blueprint_gate_test_gate",
       "label": "gate",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "gate",
@@ -1650,12 +2471,312 @@
       "id": "scripts_blueprint_gate_test_roots",
       "label": "roots",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "community_name": "blueprint-gate.test.mjs",
       "file_type": "code",
       "norm_label": "roots",
       "source_file": "scripts/blueprint-gate.test.mjs",
       "source_location": "L10"
+    },
+    {
+      "id": "scripts_git_delta",
+      "label": "git-delta.mjs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "git-delta.mjs",
+      "source_file": "scripts/git-delta.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_git_delta_test",
+      "label": "git-delta.test.mjs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "git-delta.test.mjs",
+      "source_file": "scripts/git-delta.test.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_git_delta_test_roots",
+      "label": "roots",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "roots",
+      "source_file": "scripts/git-delta.test.mjs",
+      "source_location": "L9"
+    },
+    {
+      "id": "scripts_git_sync_test",
+      "label": "git-sync.test.mjs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "git-sync.test.mjs",
+      "source_file": "scripts/git-sync.test.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_git_sync_test_gate",
+      "label": "gate",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "gate",
+      "source_file": "scripts/git-sync.test.mjs",
+      "source_location": "L9"
+    },
+    {
+      "id": "scripts_git_sync_test_roots",
+      "label": "roots",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "roots",
+      "source_file": "scripts/git-sync.test.mjs",
+      "source_location": "L10"
+    },
+    {
+      "id": "scripts_governance_gate_test",
+      "label": "governance-gate.test.mjs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "governance-gate.test.mjs",
+      "source_file": "scripts/governance-gate.test.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_governance_gate_test_gate",
+      "label": "gate",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "gate",
+      "source_file": "scripts/governance-gate.test.mjs",
+      "source_location": "L9"
+    },
+    {
+      "id": "scripts_governance_gate_test_roots",
+      "label": "roots",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "roots",
+      "source_file": "scripts/governance-gate.test.mjs",
+      "source_location": "L11"
+    },
+    {
+      "id": "scripts_governance_gate_test_systemnpm",
+      "label": "systemNpm",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "systemnpm",
+      "source_file": "scripts/governance-gate.test.mjs",
+      "source_location": "L10"
+    },
+    {
+      "id": "scripts_setup_git_hooks",
+      "label": "setup-git-hooks.mjs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "setup-git-hooks.mjs",
+      "source_file": "scripts/setup-git-hooks.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_setup_git_hooks_result",
+      "label": "result",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "blueprint-gate.test.mjs",
+      "file_type": "code",
+      "norm_label": "result",
+      "source_file": "scripts/setup-git-hooks.mjs",
+      "source_location": "L3"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec",
+      "label": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_check_timeouts_and_process_lifecycle_specification",
+      "label": "check-timeouts-and-process-lifecycle Specification",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "check-timeouts-and-process-lifecycle specification",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_purpose",
+      "label": "Purpose",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "purpose",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "label": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requirement: managed checks shall use validated configurable timeouts",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L10"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_checks_shall_terminate_and_reap_their_process_tree",
+      "label": "Requirement: Timed-out checks SHALL terminate and reap their process tree",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requirement: timed-out checks shall terminate and reap their process tree",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L54"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirements",
+      "label": "Requirements",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requirements",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L8"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_descendant_remains_active_after_graceful_termination",
+      "label": "Scenario: A descendant remains active after graceful termination",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: a descendant remains active after graceful termination",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L75"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_long_suite_finishes_inside_its_selected_timeout",
+      "label": "Scenario: A long suite finishes inside its selected timeout",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: a long suite finishes inside its selected timeout",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L63"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_process_hangs_past_its_selected_timeout",
+      "label": "Scenario: A process hangs past its selected timeout",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: a process hangs past its selected timeout",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L70"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_no_timeout_configuration_uses_the_default",
+      "label": "Scenario: No timeout configuration uses the default",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: no timeout configuration uses the default",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L23"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_per_script_timeout_overrides_the_project_timeout",
+      "label": "Scenario: Per-script timeout overrides the project timeout",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: per-script timeout overrides the project timeout",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_precedence_resolves_to_the_most_specific_configured_value",
+      "label": "Scenario: Precedence resolves to the most specific configured value",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: precedence resolves to the most specific configured value",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L39"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_project_timeout_overrides_the_default",
+      "label": "Scenario: Project timeout overrides the default",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: project timeout overrides the default",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L28"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_timeout_values_are_invalid",
+      "label": "Scenario: Timeout values are invalid",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Managed checks SHALL use validated configurable timeouts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: timeout values are invalid",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L46"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_specs_project_contract_and_lifecycle_spec",
@@ -2184,6 +3305,18 @@
       "source_location": "L13"
     },
     {
+      "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_context",
+      "label": "Context",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "policy-regression.test.mjs",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "context",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L3"
+    },
+    {
       "id": "readme",
       "label": "README.md",
       "_origin": "ast",
@@ -2521,13 +3654,13 @@
     },
     {
       "id": "openspec_changes_centralized_governance_contract_design",
-      "label": "design.md",
+      "label": "centralized-governance-contract/design.md",
       "_origin": "ast",
       "community": 9,
       "community_name": "Decisions",
       "file_type": "document",
       "node_kind": "page",
-      "norm_label": "design.md",
+      "norm_label": "centralized-governance-contract/design.md",
       "source_file": "openspec/changes/centralized-governance-contract/design.md",
       "source_location": "L1"
     },
@@ -2704,7 +3837,7 @@
       "label": "ref_node_assert",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_assert",
@@ -2716,7 +3849,7 @@
       "label": "ref_node_child_process",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_child_process",
@@ -2728,7 +3861,7 @@
       "label": "ref_node_os",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_os",
@@ -2740,7 +3873,7 @@
       "label": "ref_node_test",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_test",
@@ -2752,7 +3885,7 @@
       "label": "ref_node_url",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "governance-gate.test.mjs",
+      "community_name": "blueprint-gate.test.mjs",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_url",
@@ -2794,7 +3927,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L235",
+      "source_location": "L238",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate_run",
+      "target": "scripts_check_runner_resolvechecktimeout",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L226",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate_run",
+      "target": "scripts_check_runner_runcheck",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L227",
       "weight": 1.0
     },
     {
@@ -2806,7 +3963,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L230",
+      "source_location": "L233",
       "weight": 1.0
     },
     {
@@ -2818,7 +3975,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L153",
+      "source_location": "L155",
       "weight": 1.0
     },
     {
@@ -2830,7 +3987,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L181",
+      "source_location": "L183",
       "weight": 1.0
     },
     {
@@ -2842,7 +3999,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L198",
+      "source_location": "L200",
       "weight": 1.0
     },
     {
@@ -2854,7 +4011,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L69",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -2866,7 +4023,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L70",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -2878,7 +4035,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L74",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -2890,7 +4047,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L202",
+      "source_location": "L204",
       "weight": 1.0
     },
     {
@@ -2902,7 +4059,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L207",
+      "source_location": "L209",
       "weight": 1.0
     },
     {
@@ -2914,7 +4071,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L127",
+      "source_location": "L129",
       "weight": 1.0
     },
     {
@@ -2926,7 +4083,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L128",
+      "source_location": "L130",
       "weight": 1.0
     },
     {
@@ -2938,7 +4095,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L134",
+      "source_location": "L136",
       "weight": 1.0
     },
     {
@@ -2950,7 +4107,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L214",
+      "source_location": "L216",
       "weight": 1.0
     },
     {
@@ -2962,24 +4119,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L217",
+      "source_location": "L219",
       "weight": 1.0
     },
     {
       "source": "scripts_blueprint_gate_runruntimecontrols",
       "target": "scripts_blueprint_gate_report",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L101",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_blueprint_gate_runruntimecontrols",
-      "target": "scripts_governance_validatewranglerconfig",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2991,6 +4136,18 @@
     },
     {
       "source": "scripts_blueprint_gate_runruntimecontrols",
+      "target": "scripts_governance_validatewranglerconfig",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate_runruntimecontrols",
       "target": "scripts_blueprint_gate_runrequiredscript",
       "relation": "calls",
       "_origin": "ast",
@@ -2998,7 +4155,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L116",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -3010,7 +4167,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L154",
+      "source_location": "L182",
       "weight": 1.0
     },
     {
@@ -3022,7 +4179,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L158",
+      "source_location": "L186",
       "weight": 1.0
     },
     {
@@ -3034,7 +4191,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L138",
+      "source_location": "L166",
       "weight": 1.0
     },
     {
@@ -3046,7 +4203,79 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L149",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_runcheck",
+      "target": "scripts_check_runner_resolvemanagedcommand",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_runcheck",
+      "target": "scripts_check_runner_terminateprocesstree",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_terminateprocesstree",
+      "target": "scripts_check_runner_runtaskkill",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_terminateprocesstree",
+      "target": "scripts_check_runner_waitforchildclose",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_terminateprocesstree",
+      "target": "scripts_check_runner_signalprocessgroup",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_validatetimeoutconfiguration",
+      "target": "scripts_check_runner_validatevalue",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -3567,14 +4796,14 @@
     },
     {
       "source": "scripts_governance_readwrangler",
-      "target": "scripts_governance_parsetomlarraytables",
+      "target": "scripts_governance_parsetomlbindingscopes",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L121",
+      "source_location": "L132",
       "weight": 1.0
     },
     {
@@ -3586,7 +4815,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/governance.mjs",
-      "source_location": "L91",
+      "source_location": "L100",
       "weight": 1.0
     },
     {
@@ -3634,7 +4863,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L137",
+      "source_location": "L165",
       "weight": 1.0
     },
     {
@@ -3646,7 +4875,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L153",
+      "source_location": "L181",
       "weight": 1.0
     },
     {
@@ -3658,7 +4887,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L175",
+      "source_location": "L203",
       "weight": 1.0
     },
     {
@@ -3670,7 +4899,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L181",
+      "source_location": "L209",
       "weight": 1.0
     },
     {
@@ -3682,7 +4911,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L185",
+      "source_location": "L213",
       "weight": 1.0
     },
     {
@@ -3694,7 +4923,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L189",
+      "source_location": "L217",
       "weight": 1.0
     },
     {
@@ -3706,7 +4935,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L195",
+      "source_location": "L223",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "scripts_check_runner_test_isprocessalive",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -3826,7 +5067,43 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/policy-regression.test.mjs",
-      "source_location": "L147",
+      "source_location": "L210",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate",
+      "target": "scripts_check_runner_resolvechecktimeout",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate",
+      "target": "scripts_check_runner_runcheck",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate",
+      "target": "scripts_check_runner_validatetimeoutconfiguration",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -3971,6 +5248,78 @@
       "context": "import",
       "source_file": "scripts/blueprint-gate.mjs",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "scripts_check_runner_default_timeout_ms",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "scripts_check_runner_max_timeout_ms",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "scripts_check_runner_resolvechecktimeout",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "scripts_check_runner_resolvemanagedcommand",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "scripts_check_runner_runcheck",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "scripts_check_runner_validatetimeoutconfiguration",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4131,7 +5480,7 @@
     },
     {
       "source": "scripts_blueprint_gate",
-      "target": "ref_node_child_process",
+      "target": "ref_node_url",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4143,7 +5492,7 @@
     },
     {
       "source": "scripts_blueprint_gate",
-      "target": "ref_node_url",
+      "target": "scripts_check_runner",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4271,6 +5620,114 @@
       "context": "import",
       "source_file": "scripts/blueprint-gate.test.mjs",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "ref_node_child_process",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "ref_node_fs",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "ref_node_path",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "ref_node_assert",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "ref_node_fs",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "ref_node_os",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "ref_node_path",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "ref_node_test",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "scripts_check_runner",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4862,13 +6319,24 @@
     },
     {
       "source": "changelog_changelog",
-      "target": "changelog_unreleased_target_2_0_0",
+      "target": "changelog_2_0_1",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHANGELOG.md",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "changelog_changelog",
+      "target": "changelog_2_0_0",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CHANGELOG.md",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -4880,6 +6348,490 @@
       "confidence_score": 1.0,
       "source_file": ".githooks/pre-commit",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_design",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_decisions",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_validate_wrangler_declarations_by_scope",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_decisions",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_timeout_configuration_and_precedence",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_decisions",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_process_tree_termination",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_decisions",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_compatibility_boundaries",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_design",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_migration_plan",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_design",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_open_questions",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_design",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_goals_non_goals",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_design",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_context",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_design",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_decisions",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_design",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_risks_trade_offs",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_fix_wrangler_scopes_and_configurable_check_timeouts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/proposal.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_fix_wrangler_scopes_and_configurable_check_timeouts",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_what_changes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/proposal.md",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_fix_wrangler_scopes_and_configurable_check_timeouts",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_non_goals",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/proposal.md",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_fix_wrangler_scopes_and_configurable_check_timeouts",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_why",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/proposal.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_fix_wrangler_scopes_and_configurable_check_timeouts",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_proposal_compatibility",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/proposal.md",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_check_timeouts_and_process_lifecycle",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_added_requirements",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_checks_shall_terminate_and_reap_their_process_tree",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_added_requirements",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_check_timeouts_and_process_lifecycle",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_added_requirements",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_no_timeout_configuration_uses_the_default",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_project_timeout_overrides_the_default",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_per_script_timeout_overrides_the_project_timeout",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_precedence_resolves_to_the_most_specific_configured_value",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_timeout_values_are_invalid",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_checks_shall_terminate_and_reap_their_process_tree",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_long_suite_finishes_inside_its_selected_timeout",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_checks_shall_terminate_and_reap_their_process_tree",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_process_hangs_past_its_selected_timeout",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_checks_shall_terminate_and_reap_their_process_tree",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_descendant_remains_active_after_graceful_termination",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_wrangler_binding_scopes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_added_requirements",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_base_and_production_d1_declarations_reuse_a_binding_name",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_d1_declarations_duplicate_a_binding_in_one_scope",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_base_and_production_kv_declarations_reuse_a_binding_name",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_kv_declarations_duplicate_a_binding_in_one_scope",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_base_and_production_r2_declarations_reuse_a_binding_name",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_r2_declarations_duplicate_a_binding_in_one_scope",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_base_only_and_multiple_environment_wrangler_configurations",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_scenario_wrangler_capability_is_absent",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_wrangler_binding_scopes",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_wrangler_binding_scopes_spec_added_requirements",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_tasks",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/tasks.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_tasks",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_2_timeout_contract",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/tasks.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_tasks",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_3_process_lifecycle",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/tasks.md",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_tasks",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_1_wrangler_environment_scopes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/tasks.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_tasks",
+      "target": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_tasks_4_completion",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/tasks.md",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -5763,6 +7715,281 @@
       "weight": 1.0
     },
     {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_check_timeouts_and_process_lifecycle_specification",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_check_timeouts_and_process_lifecycle_specification",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_purpose",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_check_timeouts_and_process_lifecycle_specification",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirements",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_no_timeout_configuration_uses_the_default",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_project_timeout_overrides_the_default",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_per_script_timeout_overrides_the_project_timeout",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_precedence_resolves_to_the_most_specific_configured_value",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_timeout_values_are_invalid",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_checks_shall_terminate_and_reap_their_process_tree",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_long_suite_finishes_inside_its_selected_timeout",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_checks_shall_terminate_and_reap_their_process_tree",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_process_hangs_past_its_selected_timeout",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_checks_shall_terminate_and_reap_their_process_tree",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_descendant_remains_active_after_graceful_termination",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirements",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_managed_checks_shall_use_validated_configurable_timeouts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirements",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_checks_shall_terminate_and_reap_their_process_tree",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_wrangler_binding_scopes_spec",
+      "target": "openspec_specs_wrangler_binding_scopes_spec_wrangler_binding_scopes_specification",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_specs_wrangler_binding_scopes_spec_scenario_base_and_production_d1_declarations_reuse_a_binding_name",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_specs_wrangler_binding_scopes_spec_scenario_d1_declarations_duplicate_a_binding_in_one_scope",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_specs_wrangler_binding_scopes_spec_scenario_base_and_production_kv_declarations_reuse_a_binding_name",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_specs_wrangler_binding_scopes_spec_scenario_kv_declarations_duplicate_a_binding_in_one_scope",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_specs_wrangler_binding_scopes_spec_scenario_base_and_production_r2_declarations_reuse_a_binding_name",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_specs_wrangler_binding_scopes_spec_scenario_r2_declarations_duplicate_a_binding_in_one_scope",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_specs_wrangler_binding_scopes_spec_scenario_base_only_and_multiple_environment_wrangler_configurations",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "target": "openspec_specs_wrangler_binding_scopes_spec_scenario_wrangler_capability_is_absent",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_wrangler_binding_scopes_spec_requirements",
+      "target": "openspec_specs_wrangler_binding_scopes_spec_requirement_wrangler_bindings_shall_be_validated_independently_per_environment_scope",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_wrangler_binding_scopes_spec_wrangler_binding_scopes_specification",
+      "target": "openspec_specs_wrangler_binding_scopes_spec_purpose",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_wrangler_binding_scopes_spec_wrangler_binding_scopes_specification",
+      "target": "openspec_specs_wrangler_binding_scopes_spec_requirements",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
       "source": "package",
       "target": "package_files",
       "relation": "contains",
@@ -5803,7 +8030,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -5869,7 +8096,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -5973,6 +8200,17 @@
     },
     {
       "source": "scripts_blueprint_gate",
+      "target": "scripts_blueprint_gate_runruntimecontrols",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate",
       "target": "scripts_blueprint_gate_package_root",
       "relation": "contains",
       "_origin": "ast",
@@ -5990,7 +8228,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L126",
+      "source_location": "L128",
       "weight": 1.0
     },
     {
@@ -6001,7 +8239,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L150",
+      "source_location": "L152",
       "weight": 1.0
     },
     {
@@ -6023,7 +8261,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L187",
+      "source_location": "L189",
       "weight": 1.0
     },
     {
@@ -6045,7 +8283,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L201",
+      "source_location": "L203",
       "weight": 1.0
     },
     {
@@ -6056,7 +8294,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L205",
+      "source_location": "L207",
       "weight": 1.0
     },
     {
@@ -6067,7 +8305,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L210",
+      "source_location": "L212",
       "weight": 1.0
     },
     {
@@ -6078,7 +8316,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L220",
+      "source_location": "L222",
       "weight": 1.0
     },
     {
@@ -6089,7 +8327,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L234",
+      "source_location": "L237",
       "weight": 1.0
     },
     {
@@ -6100,7 +8338,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L240",
+      "source_location": "L243",
       "weight": 1.0
     },
     {
@@ -6111,7 +8349,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L246",
+      "source_location": "L249",
       "weight": 1.0
     },
     {
@@ -6122,7 +8360,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L251",
+      "source_location": "L254",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate",
+      "target": "scripts_blueprint_gate_blockedtimeoutconfiguration",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L260",
       "weight": 1.0
     },
     {
@@ -6133,12 +8382,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L257",
+      "source_location": "L268",
       "weight": 1.0
     },
     {
       "source": "scripts_blueprint_gate",
-      "target": "scripts_blueprint_gate_delta",
+      "target": "scripts_blueprint_gate_timeouterrors",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6149,18 +8398,7 @@
     },
     {
       "source": "scripts_blueprint_gate",
-      "target": "scripts_blueprint_gate_versioned",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L28",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_blueprint_gate",
-      "target": "scripts_blueprint_gate_capabilities",
+      "target": "scripts_blueprint_gate_delta",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6171,7 +8409,7 @@
     },
     {
       "source": "scripts_blueprint_gate",
-      "target": "scripts_blueprint_gate_results",
+      "target": "scripts_blueprint_gate_versioned",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6182,7 +8420,18 @@
     },
     {
       "source": "scripts_blueprint_gate",
-      "target": "scripts_blueprint_gate_initialstate",
+      "target": "scripts_blueprint_gate_capabilities",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate",
+      "target": "scripts_blueprint_gate_results",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6193,13 +8442,24 @@
     },
     {
       "source": "scripts_blueprint_gate",
+      "target": "scripts_blueprint_gate_initialstate",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/blueprint-gate.mjs",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_blueprint_gate",
       "target": "scripts_blueprint_gate_initialsnapshot",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L36",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -6210,7 +8470,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L43",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -6221,7 +8481,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L56",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -6232,7 +8492,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L63",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -6243,18 +8503,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L67",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_blueprint_gate",
-      "target": "scripts_blueprint_gate_runruntimecontrols",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/blueprint-gate.mjs",
-      "source_location": "L98",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -6276,7 +8525,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.test.mjs",
-      "source_location": "L162",
+      "source_location": "L190",
       "weight": 1.0
     },
     {
@@ -6288,6 +8537,149 @@
       "confidence_score": 1.0,
       "source_file": "scripts/blueprint-gate.test.mjs",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_waitforchildclose",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_runtaskkill",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_resolvechecktimeout",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_resolvemanagedcommand",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_runcheck",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_default_timeout_ms",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_max_timeout_ms",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_termination_grace_ms",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_validatevalue",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_terminateprocesstree",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_validatetimeoutconfiguration",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_signalprocessgroup",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "scripts_check_runner_test_roots",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -6617,7 +9009,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L102",
+      "source_location": "L112",
       "weight": 1.0
     },
     {
@@ -6628,7 +9020,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L106",
+      "source_location": "L116",
       "weight": 1.0
     },
     {
@@ -6639,7 +9031,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L110",
+      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -6650,7 +9042,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L130",
+      "source_location": "L137",
       "weight": 1.0
     },
     {
@@ -6661,18 +9053,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L137",
+      "source_location": "L144",
       "weight": 1.0
     },
     {
       "source": "scripts_governance",
-      "target": "scripts_governance_parsetomlarraytables",
+      "target": "scripts_governance_parsetomlbindingscopes",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/governance.mjs",
-      "source_location": "L139",
+      "source_location": "L146",
       "weight": 1.0
     },
     {
@@ -6905,8 +9297,20 @@
       "source_file": "scripts/setup-git-hooks.mjs",
       "source_location": "L3",
       "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_design_context",
+      "target": "scripts_governance_validatewranglerconfig",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "validateWranglerConfig()",
+      "source_file": "openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md",
+      "source_location": "L5",
+      "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3132068c3e337d5ab1326ef7db4d7d478e5e0aec"
+  "built_at_commit": "00964051e860a04fced244fa5bd5d0aacc4ef634"
 }

@@ -122,6 +122,34 @@ test("documentation profile enforces the shared gatecommit.checks contract", () 
   assert.match(failingResult.stdout, /CHECK project-owned-checks BLOCKED/u);
 });
 
+test("documentation profile applies project and per-script timeout precedence", () => {
+  const projectTimeout = createDocumentationProject({
+    contract: { timeoutMs: 8_000, checks: ["test:slow"] },
+    scripts: { "test:slow": "node -e 'setTimeout(() => process.exit(0), 1200)'" },
+  });
+  const projectResult = runGate(projectTimeout, withoutCI(), "--profile=documentation");
+  assert.equal(projectResult.status, 0, projectResult.stdout + projectResult.stderr);
+  assert.match(projectResult.stdout, /CHECK project-check-1 PASS/u);
+
+  const override = createDocumentationProject({
+    contract: { timeoutMs: 8_000, checks: ["test:slow"], checkTimeoutsMs: { "test:slow": 100 } },
+    scripts: { "test:slow": "node -e 'setTimeout(() => process.exit(0), 500)'" },
+  });
+  const overrideResult = runGate(override, withoutCI(), "--profile=documentation");
+  assert.notEqual(overrideResult.status, 0);
+  assert.match(overrideResult.stdout, /CHECK project-check-1 BLOCKED .*timeout of 100ms/u);
+  assert.match(overrideResult.stdout, /CHECK project-owned-checks BLOCKED/u);
+});
+
+test("invalid timeout configuration blocks with actionable settings before checks", () => {
+  const invalid = createDocumentationProject({ contract: { timeoutMs: 0, checks: [] } });
+  const result = runGate(invalid, withoutCI(), "--profile=documentation");
+  assert.notEqual(result.status, 0);
+  assert.match(result.stdout + result.stderr, /CHECK timeout-configuration BLOCKED/u);
+  assert.match(result.stdout + result.stderr, /gatecommit\.timeoutMs must be an integer from 1 through 3600000 milliseconds/u);
+  assert.doesNotMatch(result.stdout, /CHECK markdown-links/u);
+});
+
 test("slowest-check summary is capped at three and does not change failure status", () => {
   const root = createProject({ failLint: true });
   const result = runGate(root, withoutCI());

@@ -58,6 +58,69 @@ test("detects D1, KV and R2 bindings in Wrangler TOML", { skip: onlyKind("depend
   assert.equal(caps.wranglerConfig.migrationsDir, "db/migrations");
 });
 
+test("Wrangler JSONC preserves base and named environment binding scopes", { skip: onlyKind("dependency") }, () => {
+  const root = project();
+  writeFileSync(join(root, "wrangler.jsonc"), JSON.stringify({
+    name: "fixture",
+    d1_databases: [{ binding: "DB", database_name: "app", database_id: "d1-base" }],
+    kv_namespaces: [{ binding: "CACHE", id: "kv-base" }],
+    r2_buckets: [{ binding: "FILES", bucket_name: "files-base" }],
+    env: {
+      production: {
+        d1_databases: [{ binding: "DB", database_name: "app", database_id: "d1-production" }],
+        kv_namespaces: [{ binding: "CACHE", id: "kv-production" }],
+        r2_buckets: [{ binding: "FILES", bucket_name: "files-production" }],
+      },
+      staging: {
+        d1_databases: [{ binding: "DB", database_name: "app", database_id: "d1-staging" }],
+        kv_namespaces: [{ binding: "CACHE", id: "kv-staging" }],
+        r2_buckets: [{ binding: "FILES", bucket_name: "files-staging" }],
+      },
+    },
+  }));
+  const config = detectCapabilities(root, ["wrangler.jsonc"], []).wranglerConfig;
+  assert.deepEqual(config.scopes.map(({ name }) => name), ["base", "env.production", "env.staging"]);
+  assert.deepEqual(validateWranglerConfig(config), []);
+});
+
+test("D1 duplicate bindings block only within the base or a named environment scope", { skip: onlyKind("dependency") }, () => {
+  const valid = (duplicateIn) => ({ scopes: [
+    { name: "base", d1Bindings: [{ binding: "DB", database_name: "app", database_id: "base-1" }, ...(duplicateIn === "base" ? [{ binding: "DB", database_name: "other", database_id: "base-2" }] : [])], kvBindings: [], r2Bindings: [] },
+    { name: "env.production", d1Bindings: [{ binding: "DB", database_name: "app", database_id: "prod-1" }, ...(duplicateIn === "production" ? [{ binding: "DB", database_name: "other", database_id: "prod-2" }] : [])], kvBindings: [], r2Bindings: [] },
+  ] });
+  assert.deepEqual(validateWranglerConfig(valid(null)), []);
+  assert.ok(validateWranglerConfig(valid("base")).some((failure) => failure.includes("base: D1 binding name DB is duplicated")));
+  assert.ok(validateWranglerConfig(valid("production")).some((failure) => failure.includes("env.production: D1 binding name DB is duplicated")));
+});
+
+test("KV duplicate bindings block only within the base or a named environment scope", { skip: onlyKind("dependency") }, () => {
+  const config = (duplicateIn) => ({ scopes: [
+    { name: "base", d1Bindings: [], kvBindings: [{ binding: "CACHE", id: "base-1" }, ...(duplicateIn === "base" ? [{ binding: "CACHE", id: "base-2" }] : [])], r2Bindings: [] },
+    { name: "env.production", d1Bindings: [], kvBindings: [{ binding: "CACHE", id: "prod-1" }, ...(duplicateIn === "production" ? [{ binding: "CACHE", id: "prod-2" }] : [])], r2Bindings: [] },
+  ] });
+  assert.deepEqual(validateWranglerConfig(config(null)), []);
+  assert.ok(validateWranglerConfig(config("base")).some((failure) => failure.includes("base: KV binding name CACHE is duplicated")));
+  assert.ok(validateWranglerConfig(config("production")).some((failure) => failure.includes("env.production: KV binding name CACHE is duplicated")));
+});
+
+test("R2 duplicate bindings block only within the base or a named environment scope", { skip: onlyKind("dependency") }, () => {
+  const config = (duplicateIn) => ({ scopes: [
+    { name: "base", d1Bindings: [], kvBindings: [], r2Bindings: [{ binding: "FILES", bucket_name: "base-1" }, ...(duplicateIn === "base" ? [{ binding: "FILES", bucket_name: "base-2" }] : [])] },
+    { name: "env.production", d1Bindings: [], kvBindings: [], r2Bindings: [{ binding: "FILES", bucket_name: "prod-1" }, ...(duplicateIn === "production" ? [{ binding: "FILES", bucket_name: "prod-2" }] : [])] },
+  ] });
+  assert.deepEqual(validateWranglerConfig(config(null)), []);
+  assert.ok(validateWranglerConfig(config("base")).some((failure) => failure.includes("base: R2 binding name FILES is duplicated")));
+  assert.ok(validateWranglerConfig(config("production")).some((failure) => failure.includes("env.production: R2 binding name FILES is duplicated")));
+});
+
+test("Wrangler TOML preserves base and environment scopes", { skip: onlyKind("dependency") }, () => {
+  const root = project();
+  writeFileSync(join(root, "wrangler.toml"), `name = "fixture"\n[[d1_databases]]\nbinding = "DB"\ndatabase_name = "app"\ndatabase_id = "base"\n[[env.production.d1_databases]]\nbinding = "DB"\ndatabase_name = "app"\ndatabase_id = "production"\n[[kv_namespaces]]\nbinding = "CACHE"\nid = "base"\n[[env.production.kv_namespaces]]\nbinding = "CACHE"\nid = "production"\n[[r2_buckets]]\nbinding = "FILES"\nbucket_name = "base"\n[[env.production.r2_buckets]]\nbinding = "FILES"\nbucket_name = "production"\n`);
+  const config = detectCapabilities(root, ["wrangler.toml"], []).wranglerConfig;
+  assert.deepEqual(config.scopes.map(({ name }) => name), ["base", "env.production"]);
+  assert.deepEqual(validateWranglerConfig(config), []);
+});
+
 test("detects D1 from unambiguous project scripts and Drizzle from configuration", { skip: onlyKind("dependency") }, () => {
   const root = project({ scripts: { "db:check:d1": "node db.js" } });
   mkdirSync(join(root, "scripts"));
