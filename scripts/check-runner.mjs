@@ -5,6 +5,7 @@ import { dirname, join } from "node:path";
 export const DEFAULT_TIMEOUT_MS = 120_000;
 export const MAX_TIMEOUT_MS = 3_600_000;
 export const TERMINATION_GRACE_MS = 2_000;
+const PROCESS_TREE_SCAN_MS = 200;
 
 export function validateTimeoutConfiguration(gatecommit = {}) {
   const errors = [];
@@ -46,6 +47,8 @@ export function runCheck(command, args, { cwd, env, timeoutMs = DEFAULT_TIMEOUT_
     let timer;
     let exitResult;
     let termination;
+    let treeMonitor;
+    if (process.platform !== "win32" && child.pid) treeMonitor = monitorDescendants(child.pid);
     const complete = (result) => {
       if (settled) return;
       settled = true;
@@ -56,13 +59,13 @@ export function runCheck(command, args, { cwd, env, timeoutMs = DEFAULT_TIMEOUT_
     child.once("close", (status, signal) => {
       exitResult = { status, signal, error: null };
       if (!timedOut) complete(exitResult);
-      else termination?.finally(() => complete(exitResult));
+      else termination?.finally(() => { treeMonitor?.stop(); complete(exitResult); });
     });
     timer = setTimeout(() => {
       timedOut = true;
-      termination = terminateProcessTree(child).catch(() => {
+      termination = terminateProcessTree(child, treeMonitor).catch(() => {
         try { child.kill("SIGKILL"); } catch { /* The child may already have exited. */ }
-      }).finally(() => { if (exitResult) complete(exitResult); });
+      }).finally(() => { treeMonitor?.stop(); if (exitResult) complete(exitResult); });
     }, timeoutMs);
     timer.unref?.();
   });
@@ -74,7 +77,7 @@ function validateValue(value, name, errors) {
   }
 }
 
-async function terminateProcessTree(child) {
+async function terminateProcessTree(child, treeMonitor = undefined) {
   if (!child.pid) return;
   if (process.platform === "win32") {
     const graceful = await runTaskkill(["/PID", String(child.pid), "/T"]);
@@ -84,10 +87,106 @@ async function terminateProcessTree(child) {
     if (!forced) { try { child.kill("SIGKILL"); } catch { /* The child may already have exited. */ } }
   } else {
     signalProcessGroup(child.pid, "SIGTERM");
+    await treeMonitor?.refresh();
+    await signalKnownDescendants(treeMonitor?.known, "SIGTERM");
     await waitForChildClose(child, TERMINATION_GRACE_MS);
+    await treeMonitor?.refresh();
+    await signalKnownDescendants(treeMonitor?.known, "SIGKILL");
     signalProcessGroup(child.pid, "SIGKILL");
   }
   await waitForChildClose(child);
+}
+
+// `ps` provides a portable POSIX parent/child snapshot. We retain process start
+// identities while the check runs, then revalidate them immediately before a
+// signal so PID reuse cannot normally redirect cleanup to an unrelated process.
+function monitorDescendants(rootPid) {
+  const known = new Map();
+  let rootStart;
+  let stopped = false;
+  let scanInFlight;
+  const scan = () => {
+    if (stopped) return Promise.resolve();
+    if (scanInFlight) return scanInFlight;
+    scanInFlight = (async () => {
+      try {
+        const processes = await readProcessSnapshot();
+        const children = new Map();
+        for (const process of processes.values()) {
+          if (!children.has(process.ppid)) children.set(process.ppid, []);
+          children.get(process.ppid).push(process);
+        }
+        const root = processes.get(rootPid);
+        if (root && rootStart === undefined) rootStart = root.start;
+        const queue = [];
+        if (root && root.start === rootStart) queue.push(rootPid);
+        for (const [pid, identity] of known) {
+          if (processes.get(pid)?.start === identity.start) queue.push(pid);
+        }
+        const visited = new Set(queue);
+        while (queue.length) {
+          const parent = queue.shift();
+          for (const process of children.get(parent) ?? []) {
+            if (visited.has(process.pid)) continue;
+            const previous = known.get(process.pid);
+            if (previous && previous.start !== process.start) continue;
+            visited.add(process.pid);
+            if (!previous) known.set(process.pid, process);
+            queue.push(process.pid);
+          }
+        }
+      } catch { /* A transient ps failure must not interrupt the normal group kill. */ }
+    })().finally(() => { scanInFlight = undefined; });
+    return scanInFlight;
+  };
+  void scan();
+  const timer = setInterval(() => { void scan(); }, PROCESS_TREE_SCAN_MS);
+  timer.unref?.();
+  return { known, refresh: scan, stop: () => { stopped = true; clearInterval(timer); } };
+}
+
+function readProcessSnapshot() {
+  return new Promise((resolve, reject) => {
+    const ps = spawn("ps", ["-axo", "pid=,ppid=,lstart="], { stdio: ["ignore", "pipe", "ignore"] });
+    let output = "";
+    ps.stdout.setEncoding("utf8").on("data", (chunk) => { output += chunk; });
+    ps.once("error", reject);
+    ps.once("close", (status) => {
+      if (status !== 0) return reject(new Error("ps process snapshot failed"));
+      const processes = new Map();
+      for (const line of output.split(/\r?\n/u)) {
+        const match = line.match(/^\s*(\d+)\s+(\d+)\s+(.+?)\s*$/u);
+        if (match) processes.set(Number(match[1]), { pid: Number(match[1]), ppid: Number(match[2]), start: match[3] });
+      }
+      resolve(processes);
+    });
+  });
+}
+
+async function signalKnownDescendants(known, signal) {
+  if (!known?.size) return;
+  let current;
+  try { current = await readProcessSnapshot(); } catch { return; }
+  // Descendants first, so a surviving child is signalled before its parent exits.
+  const ordered = [...known.values()].sort((a, b) => processDepth(b.pid, known) - processDepth(a.pid, known));
+  for (const original of ordered) {
+    const present = current.get(original.pid);
+    if (!present || present.start !== original.start) continue;
+    try { process.kill(original.pid, signal); }
+    catch (error) { if (error.code !== "ESRCH") throw error; }
+  }
+}
+
+function processDepth(pid, known) {
+  let depth = 0;
+  let current = known.get(pid);
+  const seen = new Set([pid]);
+  while (current && known.has(current.ppid) && !seen.has(current.ppid)) {
+    seen.add(current.ppid);
+    depth += 1;
+    current = known.get(current.ppid);
+  }
+  return depth;
 }
 
 function signalProcessGroup(pid, signal) {

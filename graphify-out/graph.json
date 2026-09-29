@@ -184,6 +184,54 @@
       "source_location": "L100"
     },
     {
+      "id": "scripts_check_runner_resolvechecktimeout",
+      "label": "resolveCheckTimeout()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "blueprint-gate.mjs",
+      "file_type": "code",
+      "norm_label": "resolvechecktimeout()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L29"
+    },
+    {
+      "id": "scripts_governance_result",
+      "label": "result()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "blueprint-gate.mjs",
+      "file_type": "code",
+      "norm_label": "result()",
+      "source_file": "scripts/governance.mjs",
+      "source_location": "L49"
+    },
+    {
+      "id": "scripts_git_delta_listversionedfiles",
+      "label": "listVersionedFiles()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "git-sync.mjs",
+      "file_type": "code",
+      "norm_label": "listversionedfiles()",
+      "source_file": "scripts/git-delta.mjs",
+      "source_location": "L13"
+    },
+    {
+      "id": "scripts_git_delta_parsegitstatus",
+      "label": "parseGitStatus()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "git-sync.mjs",
+      "file_type": "code",
+      "norm_label": "parsegitstatus()",
+      "source_file": "scripts/git-delta.mjs",
+      "source_location": "L19"
+    },
+    {
       "id": "scripts_git_delta_readgitdelta",
       "label": "readGitDelta()",
       "_callable": true,
@@ -424,16 +472,40 @@
       "source_location": "L103"
     },
     {
-      "id": "scripts_check_runner_resolvechecktimeout",
-      "label": "resolveCheckTimeout()",
+      "id": "scripts_check_runner_monitordescendants",
+      "label": "monitorDescendants()",
       "_callable": true,
       "_origin": "ast",
       "community": 15,
       "community_name": "check-runner.mjs",
       "file_type": "code",
-      "norm_label": "resolvechecktimeout()",
+      "norm_label": "monitordescendants()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L28"
+      "source_location": "L103"
+    },
+    {
+      "id": "scripts_check_runner_processdepth",
+      "label": "processDepth()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "processdepth()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L180"
+    },
+    {
+      "id": "scripts_check_runner_readprocesssnapshot",
+      "label": "readProcessSnapshot()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "readprocesssnapshot()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L148"
     },
     {
       "id": "scripts_check_runner_resolvemanagedcommand",
@@ -445,7 +517,7 @@
       "file_type": "code",
       "norm_label": "resolvemanagedcommand()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L33"
+      "source_location": "L34"
     },
     {
       "id": "scripts_check_runner_runcheck",
@@ -457,7 +529,7 @@
       "file_type": "code",
       "norm_label": "runcheck()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L40"
+      "source_location": "L41"
     },
     {
       "id": "scripts_check_runner_runtaskkill",
@@ -469,7 +541,19 @@
       "file_type": "code",
       "norm_label": "runtaskkill()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L112"
+      "source_location": "L211"
+    },
+    {
+      "id": "scripts_check_runner_signalknowndescendants",
+      "label": "signalKnownDescendants()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "signalknowndescendants()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L166"
     },
     {
       "id": "scripts_check_runner_signalprocessgroup",
@@ -481,7 +565,7 @@
       "file_type": "code",
       "norm_label": "signalprocessgroup()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L93"
+      "source_location": "L192"
     },
     {
       "id": "scripts_check_runner_terminateprocesstree",
@@ -493,7 +577,7 @@
       "file_type": "code",
       "norm_label": "terminateprocesstree()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L77"
+      "source_location": "L80"
     },
     {
       "id": "scripts_check_runner_test_isprocessalive",
@@ -505,7 +589,31 @@
       "file_type": "code",
       "norm_label": "isprocessalive()",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L75"
+      "source_location": "L95"
+    },
+    {
+      "id": "scripts_check_runner_test_processisrunning",
+      "label": "processIsRunning()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "processisrunning()",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L106"
+    },
+    {
+      "id": "scripts_check_runner_test_waituntilnotrunning",
+      "label": "waitUntilNotRunning()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "waituntilnotrunning()",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L100"
     },
     {
       "id": "scripts_check_runner_validatetimeoutconfiguration",
@@ -517,7 +625,7 @@
       "file_type": "code",
       "norm_label": "validatetimeoutconfiguration()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L9"
+      "source_location": "L10"
     },
     {
       "id": "scripts_check_runner_validatevalue",
@@ -529,7 +637,7 @@
       "file_type": "code",
       "norm_label": "validatevalue()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L71"
+      "source_location": "L74"
     },
     {
       "id": "scripts_check_runner_waitforchildclose",
@@ -541,7 +649,7 @@
       "file_type": "code",
       "norm_label": "waitforchildclose()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L102"
+      "source_location": "L201"
     },
     {
       "id": "scripts_blueprint_gate_test_createdirectory",
@@ -638,30 +746,6 @@
       "norm_label": "withoutci()",
       "source_file": "scripts/blueprint-gate.test.mjs",
       "source_location": "L217"
-    },
-    {
-      "id": "scripts_git_delta_listversionedfiles",
-      "label": "listVersionedFiles()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "listversionedfiles()",
-      "source_file": "scripts/git-delta.mjs",
-      "source_location": "L13"
-    },
-    {
-      "id": "scripts_git_delta_parsegitstatus",
-      "label": "parseGitStatus()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "parsegitstatus()",
-      "source_file": "scripts/git-delta.mjs",
-      "source_location": "L19"
     },
     {
       "id": "scripts_git_delta_test_createdirectory",
@@ -868,18 +952,6 @@
       "source_location": "L120"
     },
     {
-      "id": "scripts_governance_result",
-      "label": "result()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "policy-regression.test.mjs",
-      "file_type": "code",
-      "norm_label": "result()",
-      "source_file": "scripts/governance.mjs",
-      "source_location": "L49"
-    },
-    {
       "id": "scripts_governance_safeentries",
       "label": "safeEntries()",
       "_callable": true,
@@ -997,7 +1069,7 @@
       "file_type": "code",
       "norm_label": "project()",
       "source_file": "scripts/policy-regression.test.mjs",
-      "source_location": "L210"
+      "source_location": "L227"
     },
     {
       "id": "scripts_blueprint_gate",
@@ -1154,15 +1226,15 @@
       "source_location": "L30"
     },
     {
-      "id": "scripts_git_sync_internal_commit_hook",
-      "label": "INTERNAL_COMMIT_HOOK",
+      "id": "scripts_git_delta",
+      "label": "git-delta.mjs",
       "_origin": "ast",
-      "community": 0,
-      "community_name": "blueprint-gate.mjs",
+      "community": 1,
+      "community_name": "git-sync.mjs",
       "file_type": "code",
-      "norm_label": "internal_commit_hook",
-      "source_file": "scripts/git-sync.mjs",
-      "source_location": "L7"
+      "norm_label": "git-delta.mjs",
+      "source_file": "scripts/git-delta.mjs",
+      "source_location": "L1"
     },
     {
       "id": "scripts_git_sync",
@@ -1174,6 +1246,17 @@
       "norm_label": "git-sync.mjs",
       "source_file": "scripts/git-sync.mjs",
       "source_location": "L1"
+    },
+    {
+      "id": "scripts_git_sync_internal_commit_hook",
+      "label": "INTERNAL_COMMIT_HOOK",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "git-sync.mjs",
+      "file_type": "code",
+      "norm_label": "internal_commit_hook",
+      "source_file": "scripts/git-sync.mjs",
+      "source_location": "L7"
     },
     {
       "id": "openspec_changes_centralized_governance_contract_proposal",
@@ -1557,7 +1640,7 @@
       "file_type": "code",
       "norm_label": "roots",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L8"
+      "source_location": "L9"
     },
     {
       "id": "openspec_changes_archive_2026_09_29_fix_wrangler_scopes_and_check_timeouts_specs_check_timeouts_and_process_lifecycle_spec",
@@ -2446,6 +2529,306 @@
       "source_location": "L1"
     },
     {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal",
+      "label": "review-followup-process-tree-and-toml-boundaries/proposal.md",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "Close PR review findings for process cleanup and TOML boundaries",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "review-followup-process-tree-and-toml-boundaries/proposal.md",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/proposal.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_close_pr_review_findings_for_process_cleanup_and_toml_boundaries",
+      "label": "Close PR review findings for process cleanup and TOML boundaries",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "Close PR review findings for process cleanup and TOML boundaries",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "close pr review findings for process cleanup and toml boundaries",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/proposal.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_compatibility",
+      "label": "Compatibility",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "Close PR review findings for process cleanup and TOML boundaries",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "compatibility",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/proposal.md",
+      "source_location": "L14"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_non_goals",
+      "label": "Non-Goals",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "Close PR review findings for process cleanup and TOML boundaries",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "non-goals",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/proposal.md",
+      "source_location": "L18"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_what_changes",
+      "label": "What Changes",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "Close PR review findings for process cleanup and TOML boundaries",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "what changes",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/proposal.md",
+      "source_location": "L7"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_why",
+      "label": "Why",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "Close PR review findings for process cleanup and TOML boundaries",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "why",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/proposal.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_design",
+      "label": "review-followup-process-tree-and-toml-boundaries/design.md",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "review-followup-process-tree-and-toml-boundaries/design.md",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/design.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_design_design",
+      "label": "Design",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "design",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/design.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_design_process_discovery_and_signalling",
+      "label": "Process discovery and signalling",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "process discovery and signalling",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/design.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_design_toml_table_boundaries",
+      "label": "TOML table boundaries",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "toml table boundaries",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/design.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_design_validation",
+      "label": "Validation",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "validation",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/design.md",
+      "source_location": "L13"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_wrangler_binding_scopes_spec",
+      "label": "review-followup-process-tree-and-toml-boundaries/specs/wrangler-binding-scopes/spec.md",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Requirement: TOML table headers SHALL end Wrangler binding rows",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "review-followup-process-tree-and-toml-boundaries/specs/wrangler-binding-scopes/spec.md",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_wrangler_binding_scopes_spec_added_requirements",
+      "label": "ADDED Requirements",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Requirement: TOML table headers SHALL end Wrangler binding rows",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "added requirements",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_wrangler_binding_scopes_spec_requirement_toml_table_headers_shall_end_wrangler_binding_rows",
+      "label": "Requirement: TOML table headers SHALL end Wrangler binding rows",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Requirement: TOML table headers SHALL end Wrangler binding rows",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requirement: toml table headers shall end wrangler binding rows",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_wrangler_binding_scopes_spec_scenario_an_ordinary_table_follows_duplicate_binding_rows",
+      "label": "Scenario: An ordinary table follows duplicate binding rows",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Requirement: TOML table headers SHALL end Wrangler binding rows",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: an ordinary table follows duplicate binding rows",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_wrangler_binding_scopes_spec_scenario_resource_tables_cross_environments_and_table_kinds",
+      "label": "Scenario: Resource tables cross environments and table kinds",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "Requirement: TOML table headers SHALL end Wrangler binding rows",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: resource tables cross environments and table kinds",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L15"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_tasks",
+      "label": "review-followup-process-tree-and-toml-boundaries/tasks.md",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Tasks",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "review-followup-process-tree-and-toml-boundaries/tasks.md",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/tasks.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_tasks_process_tree_cleanup",
+      "label": "Process tree cleanup",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Tasks",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "process tree cleanup",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/tasks.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_tasks_tasks",
+      "label": "Tasks",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Tasks",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tasks",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/tasks.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_tasks_toml_parsing",
+      "label": "TOML parsing",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Tasks",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "toml parsing",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/tasks.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_tasks_verification",
+      "label": "Verification",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "Tasks",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "verification",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/tasks.md",
+      "source_location": "L14"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_check_timeouts_and_process_lifecycle_spec",
+      "label": "review-followup-process-tree-and-toml-boundaries/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "_origin": "ast",
+      "community": 26,
+      "community_name": "ADDED Requirements",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "review-followup-process-tree-and-toml-boundaries/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_check_timeouts_and_process_lifecycle_spec_added_requirements",
+      "label": "ADDED Requirements",
+      "_origin": "ast",
+      "community": 26,
+      "community_name": "ADDED Requirements",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "added requirements",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_posix_checks_shall_terminate_escaped_descendants",
+      "label": "Requirement: Timed-out POSIX checks SHALL terminate escaped descendants",
+      "_origin": "ast",
+      "community": 26,
+      "community_name": "ADDED Requirements",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requirement: timed-out posix checks shall terminate escaped descendants",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_grandchild_escapes_into_a_new_session",
+      "label": "Scenario: A grandchild escapes into a new session",
+      "_origin": "ast",
+      "community": 26,
+      "community_name": "ADDED Requirements",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: a grandchild escapes into a new session",
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L7"
+    },
+    {
       "id": "scripts_blueprint_gate_test",
       "label": "blueprint-gate.test.mjs",
       "_origin": "ast",
@@ -2477,17 +2860,6 @@
       "norm_label": "roots",
       "source_file": "scripts/blueprint-gate.test.mjs",
       "source_location": "L10"
-    },
-    {
-      "id": "scripts_git_delta",
-      "label": "git-delta.mjs",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "git-delta.mjs",
-      "source_file": "scripts/git-delta.mjs",
-      "source_location": "L1"
     },
     {
       "id": "scripts_git_delta_test",
@@ -4207,6 +4579,18 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_check_runner_monitordescendants",
+      "target": "scripts_check_runner_readprocesssnapshot",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
       "source": "scripts_check_runner_runcheck",
       "target": "scripts_check_runner_resolvemanagedcommand",
       "relation": "calls",
@@ -4215,7 +4599,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L42",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_runcheck",
+      "target": "scripts_check_runner_monitordescendants",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L51",
       "weight": 1.0
     },
     {
@@ -4227,7 +4623,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L63",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_signalknowndescendants",
+      "target": "scripts_check_runner_readprocesssnapshot",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_signalknowndescendants",
+      "target": "scripts_check_runner_processdepth",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L171",
       "weight": 1.0
     },
     {
@@ -4239,7 +4659,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L80",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -4251,7 +4671,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L82",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -4263,7 +4683,43 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L86",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_terminateprocesstree",
+      "target": "scripts_check_runner_signalknowndescendants",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test_processisrunning",
+      "target": "scripts_check_runner_test_isprocessalive",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test_waituntilnotrunning",
+      "target": "scripts_check_runner_test_processisrunning",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L102",
       "weight": 1.0
     },
     {
@@ -4275,7 +4731,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -4940,6 +5396,30 @@
     },
     {
       "source": "scripts_check_runner_test",
+      "target": "scripts_check_runner_test_waituntilnotrunning",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "scripts_check_runner_test_processisrunning",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
       "target": "scripts_check_runner_test_isprocessalive",
       "relation": "contains",
       "_origin": "ast",
@@ -4947,7 +5427,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L75",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -5067,7 +5547,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/policy-regression.test.mjs",
-      "source_location": "L210",
+      "source_location": "L227",
       "weight": 1.0
     },
     {
@@ -5259,7 +5739,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -5271,7 +5751,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -5283,7 +5763,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -5295,7 +5775,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -5307,7 +5787,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -5319,7 +5799,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -5672,7 +6152,7 @@
     },
     {
       "source": "scripts_check_runner_test",
-      "target": "ref_node_fs",
+      "target": "ref_node_child_process",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5684,7 +6164,7 @@
     },
     {
       "source": "scripts_check_runner_test",
-      "target": "ref_node_os",
+      "target": "ref_node_fs",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5696,7 +6176,7 @@
     },
     {
       "source": "scripts_check_runner_test",
-      "target": "ref_node_path",
+      "target": "ref_node_os",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5708,7 +6188,7 @@
     },
     {
       "source": "scripts_check_runner_test",
-      "target": "ref_node_test",
+      "target": "ref_node_path",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5720,7 +6200,7 @@
     },
     {
       "source": "scripts_check_runner_test",
-      "target": "scripts_check_runner",
+      "target": "ref_node_test",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5728,6 +6208,18 @@
       "context": "import",
       "source_file": "scripts/check-runner.test.mjs",
       "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_test",
+      "target": "scripts_check_runner",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/check-runner.test.mjs",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -7715,6 +8207,226 @@
       "weight": 1.0
     },
     {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_design",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_design_design",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/design.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_design_design",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_design_validation",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/design.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_design_design",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_design_process_discovery_and_signalling",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/design.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_design_design",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_design_toml_table_boundaries",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/design.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_close_pr_review_findings_for_process_cleanup_and_toml_boundaries",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/proposal.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_close_pr_review_findings_for_process_cleanup_and_toml_boundaries",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_compatibility",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/proposal.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_close_pr_review_findings_for_process_cleanup_and_toml_boundaries",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_non_goals",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/proposal.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_close_pr_review_findings_for_process_cleanup_and_toml_boundaries",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_why",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/proposal.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_close_pr_review_findings_for_process_cleanup_and_toml_boundaries",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_proposal_what_changes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/proposal.md",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_check_timeouts_and_process_lifecycle_spec",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_check_timeouts_and_process_lifecycle_spec_added_requirements",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_check_timeouts_and_process_lifecycle_spec_added_requirements",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_posix_checks_shall_terminate_escaped_descendants",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_posix_checks_shall_terminate_escaped_descendants",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_grandchild_escapes_into_a_new_session",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_wrangler_binding_scopes_spec",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_wrangler_binding_scopes_spec_added_requirements",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_wrangler_binding_scopes_spec_added_requirements",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_wrangler_binding_scopes_spec_requirement_toml_table_headers_shall_end_wrangler_binding_rows",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_wrangler_binding_scopes_spec_requirement_toml_table_headers_shall_end_wrangler_binding_rows",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_wrangler_binding_scopes_spec_scenario_resource_tables_cross_environments_and_table_kinds",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_wrangler_binding_scopes_spec_requirement_toml_table_headers_shall_end_wrangler_binding_rows",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_specs_wrangler_binding_scopes_spec_scenario_an_ordinary_table_follows_duplicate_binding_rows",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/specs/wrangler-binding-scopes/spec.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_tasks",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_tasks_tasks",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/tasks.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_tasks_tasks",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_tasks_verification",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/tasks.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_tasks_tasks",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_tasks_process_tree_cleanup",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/tasks.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_review_followup_process_tree_and_toml_boundaries_tasks_tasks",
+      "target": "openspec_changes_review_followup_process_tree_and_toml_boundaries_tasks_toml_parsing",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/review-followup-process-tree-and-toml-boundaries/tasks.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec",
       "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_check_timeouts_and_process_lifecycle_specification",
       "relation": "contains",
@@ -8541,13 +9253,79 @@
     },
     {
       "source": "scripts_check_runner",
+      "target": "scripts_check_runner_validatetimeoutconfiguration",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_monitordescendants",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_readprocesssnapshot",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_signalknowndescendants",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_processdepth",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L180",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_signalprocessgroup",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L192",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
       "target": "scripts_check_runner_waitforchildclose",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L102",
+      "source_location": "L201",
       "weight": 1.0
     },
     {
@@ -8558,7 +9336,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L112",
+      "source_location": "L211",
       "weight": 1.0
     },
     {
@@ -8569,7 +9347,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -8580,7 +9358,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -8591,7 +9369,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L40",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -8635,7 +9413,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L71",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -8646,29 +9424,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L77",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_check_runner",
-      "target": "scripts_check_runner_validatetimeoutconfiguration",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/check-runner.mjs",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_check_runner",
-      "target": "scripts_check_runner_signalprocessgroup",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/check-runner.mjs",
-      "source_location": "L93",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
@@ -8679,7 +9435,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -9312,5 +10068,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "00964051e860a04fced244fa5bd5d0aacc4ef634"
+  "built_at_commit": "163587afd3419e4296b537e9d46cd15f7598f0b0"
 }

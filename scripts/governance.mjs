@@ -147,10 +147,16 @@ function parseTomlBindingScopes(source, migrationsDir) {
   const scopes = new Map([["base", { name: "base", d1Bindings: [], kvBindings: [], r2Bindings: [], migrationsDir }]]);
   let active = null; let row = null;
   for (const line of source.split(/\r?\n/u)) {
-    const header = line.match(/^\s*\[\[([^\]]+)\]\]\s*$/u);
+    const header = line.match(/^\s*(\[\[?)([^\]]+)(\]\]?)\s*(?:#.*)?$/u);
     if (header) {
       if (row) active.rows.push(row);
-      const parts = header[1].split(".");
+      // Every TOML table boundary ends the preceding binding row. Ordinary
+      // tables are intentionally not captured, even if they contain `binding`.
+      active = null;
+      row = null;
+      const isArrayTable = header[1] === "[[" && header[3] === "]]";
+      if (!isArrayTable) continue;
+      const parts = header[2].trim().split(".");
       const kind = parts.at(-1);
       const scopeName = parts[0] === "env" ? `env.${parts[1]}` : "base";
       const key = kind === "d1_databases" ? "d1Bindings" : kind === "kv_namespaces" ? "kvBindings" : kind === "r2_buckets" ? "r2Bindings" : null;

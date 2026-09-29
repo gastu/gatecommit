@@ -121,6 +121,23 @@ test("Wrangler TOML preserves base and environment scopes", { skip: onlyKind("de
   assert.deepEqual(validateWranglerConfig(config), []);
 });
 
+test("Wrangler TOML table boundaries preserve duplicate binding rows", { skip: onlyKind("dependency") }, () => {
+  for (const [table, binding, property, value] of [
+    ["kv_namespaces", "CACHE", "id", "namespace"],
+    ["d1_databases", "DB", "database_id", "database"],
+    ["r2_buckets", "FILES", "bucket_name", "bucket"],
+  ]) {
+    const root = project();
+    const resource = `[[${table}]]\nbinding = "${binding}"\n${property} = "${value}-1"\n[[${table}]]\nbinding = "${binding}"\n${property} = "${value}-2"\n[vars]\nbinding = "MUTATED"\n[[env.staging.${table}]]\nbinding = "${binding}"\n${property} = "${value}-staging"\n[env.staging.vars]\nbinding = "ALSO_MUTATED"\n[[env.production.${table}]]\nbinding = "${binding}"\n${property} = "${value}-production"\n[env.production.other]\nvalue = "table boundary"\n[[env.production.${table}]]\nbinding = "${binding}"\n${property} = "${value}-production-duplicate"\n`;
+    writeFileSync(join(root, "wrangler.toml"), `name = "fixture"\n${resource}`);
+    const config = detectCapabilities(root, ["wrangler.toml"], []).wranglerConfig;
+    const failures = validateWranglerConfig(config);
+    assert.ok(failures.some((failure) => failure.includes(`${table.startsWith("d1") ? "D1" : table.startsWith("kv") ? "KV" : "R2"} binding name ${binding} is duplicated`)), `${table}: same-scope base duplicate remains visible after [vars]`);
+    assert.ok(failures.some((failure) => failure.includes(`env.production`)), `${table}: other array-table transition retains production duplicate`);
+    assert.deepEqual(config.scopes.map(({ name }) => name), ["base", "env.staging", "env.production"]);
+  }
+});
+
 test("detects D1 from unambiguous project scripts and Drizzle from configuration", { skip: onlyKind("dependency") }, () => {
   const root = project({ scripts: { "db:check:d1": "node db.js" } });
   mkdirSync(join(root, "scripts"));

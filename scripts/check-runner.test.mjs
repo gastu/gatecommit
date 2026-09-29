@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { spawn, spawnSync } from "node:child_process";
 import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -72,7 +73,42 @@ test("timed-out process cleanup also terminates and reaps descendants", async ()
   assert.equal(isProcessAlive(descendantPid), false, `descendant ${descendantPid} is no longer running`);
 });
 
+test("timeout cleanup kills a detached grandchild without signalling unrelated processes", { skip: process.platform === "win32" }, async () => {
+  const directory = mkdtempSync(join(tmpdir(), "gatecommit-detached-tree-")); roots.push(directory);
+  const pidFile = join(directory, "pids.json");
+  const grandchildSource = "process.on('SIGTERM',()=>{});setInterval(()=>{},1000)";
+  const childSource = `const{spawn}=require('node:child_process');const fs=require('node:fs');process.on('SIGTERM',()=>{});const grandchild=spawn(process.execPath,['-e',${JSON.stringify(grandchildSource)}],{detached:true,stdio:'ignore'});grandchild.unref();fs.writeFileSync(${JSON.stringify(pidFile)},JSON.stringify({child:process.pid,grandchild:grandchild.pid}));setInterval(()=>{},1000)`;
+  const rootSource = `const{spawn}=require('node:child_process');const fs=require('node:fs');process.on('SIGTERM',()=>{});const child=spawn(process.execPath,['-e',${JSON.stringify(childSource)}],{stdio:'ignore'});fs.writeFileSync(${JSON.stringify(pidFile + ".root")},String(process.pid));setInterval(()=>{},1000)`;
+  const unrelated = spawn(process.execPath, ["-e", "setInterval(()=>{},1000)"], { stdio: "ignore" });
+  try {
+    const result = await runCheck(process.execPath, ["-e", rootSource], { timeoutMs: 900, stdio: "ignore" });
+    assert.equal(result.timedOut, true);
+    const rootPid = Number(readFileSync(pidFile + ".root", "utf8"));
+    const { child, grandchild } = JSON.parse(readFileSync(pidFile, "utf8"));
+    for (const pid of [rootPid, child, grandchild]) await waitUntilNotRunning(pid);
+    assert.equal(await processIsRunning(unrelated.pid), true, "unrelated process remains alive");
+  } finally {
+    unrelated.kill("SIGKILL");
+  }
+});
+
 function isProcessAlive(pid) {
   try { process.kill(pid, 0); return true; }
   catch (error) { if (error.code === "ESRCH") return false; throw error; }
+}
+
+async function waitUntilNotRunning(pid) {
+  const deadline = Date.now() + 3_000;
+  while (await processIsRunning(pid) && Date.now() < deadline) await new Promise((resolve) => setTimeout(resolve, 50));
+  assert.equal(await processIsRunning(pid), false, `process ${pid} is no longer running`);
+}
+
+async function processIsRunning(pid) {
+  if (!isProcessAlive(pid)) return false;
+  if (process.platform === "linux") {
+    try { return !/^State:\s+Z/mu.test(readFileSync(`/proc/${pid}/status`, "utf8")); }
+    catch (error) { if (error.code === "ENOENT") return false; throw error; }
+  }
+  const result = spawnSync("ps", ["-o", "stat=", "-p", String(pid)], { encoding: "utf8" });
+  return result.status === 0 && !/^\s*Z/u.test(result.stdout);
 }

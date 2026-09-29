@@ -1,17 +1,17 @@
 # Graph Report - gatecommit  (2026-09-29)
 
 ## Corpus Check
-- 33 files · ~20,999 words
+- 38 files · ~22,708 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: (none) 4)
 
 ## Summary
-- 331 nodes · 472 edges · 22 communities (20 shown, 2 thin omitted)
+- 362 nodes · 506 edges · 27 communities (25 shown, 2 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `00964051`
+- Built from commit: `163587af`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,6 +38,11 @@
 - Design
 - Fix Wrangler scopes and configurable check timeouts
 - Tasks
+- Close PR review findings for process cleanup and TOML boundaries
+- Design
+- Requirement: TOML table headers SHALL end Wrangler binding rows
+- Tasks
+- ADDED Requirements
 
 ## God Nodes (most connected - your core abstractions)
 1. `syncValidatedChanges()` - 12 edges
@@ -56,9 +61,9 @@
   openspec/changes/archive/2026-09-29-fix-wrangler-scopes-and-check-timeouts/design.md → scripts/governance.mjs
 - `runRuntimeControls()` --calls--> `validateWranglerConfig()`  [EXTRACTED]
   scripts/blueprint-gate.mjs → scripts/governance.mjs
-- `run()` --calls--> `resolveCheckTimeout()`  [EXTRACTED]
-  scripts/blueprint-gate.mjs → scripts/check-runner.mjs
 - `run()` --calls--> `runCheck()`  [EXTRACTED]
+  scripts/blueprint-gate.mjs → scripts/check-runner.mjs
+- `run()` --calls--> `resolveCheckTimeout()`  [EXTRACTED]
   scripts/blueprint-gate.mjs → scripts/check-runner.mjs
 - `report()` --calls--> `result()`  [EXTRACTED]
   scripts/blueprint-gate.mjs → scripts/governance.mjs
@@ -66,23 +71,23 @@
 ## Import Cycles
 - None detected.
 
-## Communities (22 total, 2 thin omitted)
+## Communities (27 total, 2 thin omitted)
 
 ### Community 0 - "blueprint-gate.mjs"
 Cohesion: 0.10
-Nodes (24): capabilities, delta, initialSnapshot, initialState, knownCapabilities, options, PACKAGE_ROOT, packagePath (+16 more)
+Nodes (25): capabilities, delta, initialSnapshot, initialState, knownCapabilities, options, PACKAGE_ROOT, packagePath (+17 more)
 
 ### Community 1 - "git-sync.mjs"
-Cohesion: 0.23
-Nodes (21): ref_node_crypto, readGitDelta(), captureWorktreeSnapshot(), checkIdentity(), count(), digest(), displayGitPath(), failure() (+13 more)
+Cohesion: 0.18
+Nodes (24): ref_node_crypto, listVersionedFiles(), parseGitStatus(), readGitDelta(), captureWorktreeSnapshot(), checkIdentity(), count(), digest() (+16 more)
 
 ### Community 2 - "package.json"
 Cohesion: 0.14
 Nodes (13): bin, gatecommit, description, engines, node, files, license, name (+5 more)
 
 ### Community 3 - "blueprint-gate.test.mjs"
-Cohesion: 0.08
-Nodes (27): ref_node_assert, ref_node_child_process, ref_node_os, ref_node_test, ref_node_url, createDirectory(), createDocumentationProject(), createProject() (+19 more)
+Cohesion: 0.09
+Nodes (25): ref_node_assert, ref_node_child_process, ref_node_os, ref_node_test, ref_node_url, createDirectory(), createDocumentationProject(), createProject() (+17 more)
 
 ### Community 4 - "Requirement: Managed checks SHALL use validated configurable timeouts"
 Cohesion: 0.14
@@ -94,7 +99,7 @@ Nodes (30): ADDED Requirements, Purpose, Requirement: Derived projects SHALL rem
 
 ### Community 6 - "policy-regression.test.mjs"
 Cohesion: 0.10
-Nodes (28): Context, ref_node_fs, ref_node_path, failures, readJson(), validateDependencyPolicy(), capability(), detectCapabilities() (+20 more)
+Nodes (27): Context, ref_node_fs, ref_node_path, failures, readJson(), validateDependencyPolicy(), capability(), detectCapabilities() (+19 more)
 
 ### Community 7 - "GateCommit"
 Cohesion: 0.29
@@ -121,8 +126,8 @@ Cohesion: 0.50
 Nodes (3): 2.0.0, 2.0.1, Changelog
 
 ### Community 15 - "check-runner.mjs"
-Cohesion: 0.23
-Nodes (13): DEFAULT_TIMEOUT_MS, MAX_TIMEOUT_MS, resolveCheckTimeout(), resolveManagedCommand(), runCheck(), runTaskkill(), signalProcessGroup(), terminateProcessTree() (+5 more)
+Cohesion: 0.18
+Nodes (19): DEFAULT_TIMEOUT_MS, MAX_TIMEOUT_MS, monitorDescendants(), processDepth(), readProcessSnapshot(), resolveManagedCommand(), runCheck(), runTaskkill() (+11 more)
 
 ### Community 16 - "Requirement: Managed checks SHALL use validated configurable timeouts"
 Cohesion: 0.15
@@ -148,25 +153,45 @@ Nodes (5): Compatibility, Fix Wrangler scopes and configurable check timeouts, N
 Cohesion: 0.33
 Nodes (5): 1. Wrangler environment scopes, 2. Timeout contract, 3. Process lifecycle, 4. Completion, Tasks
 
+### Community 22 - "Close PR review findings for process cleanup and TOML boundaries"
+Cohesion: 0.33
+Nodes (5): Close PR review findings for process cleanup and TOML boundaries, Compatibility, Non-Goals, What Changes, Why
+
+### Community 23 - "Design"
+Cohesion: 0.40
+Nodes (4): Design, Process discovery and signalling, TOML table boundaries, Validation
+
+### Community 24 - "Requirement: TOML table headers SHALL end Wrangler binding rows"
+Cohesion: 0.40
+Nodes (4): ADDED Requirements, Requirement: TOML table headers SHALL end Wrangler binding rows, Scenario: An ordinary table follows duplicate binding rows, Scenario: Resource tables cross environments and table kinds
+
+### Community 25 - "Tasks"
+Cohesion: 0.40
+Nodes (4): Process tree cleanup, Tasks, TOML parsing, Verification
+
+### Community 26 - "ADDED Requirements"
+Cohesion: 0.50
+Nodes (3): ADDED Requirements, Requirement: Timed-out POSIX checks SHALL terminate escaped descendants, Scenario: A grandchild escapes into a new session
+
 ## Knowledge Gaps
-- **160 isolated node(s):** `name`, `version`, `description`, `license`, `gatecommit` (+155 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 192 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **173 isolated node(s):** `name`, `version`, `description`, `license`, `gatecommit` (+168 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 209 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `validateWranglerConfig()` connect `policy-regression.test.mjs` to `blueprint-gate.mjs`?**
-  _High betweenness centrality (0.033) - this node is a cross-community bridge._
-- **Why does `Context` connect `policy-regression.test.mjs` to `Design`?**
   _High betweenness centrality (0.029) - this node is a cross-community bridge._
+- **Why does `Context` connect `policy-regression.test.mjs` to `Design`?**
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **Why does `Design` connect `Design` to `policy-regression.test.mjs`?**
-  _High betweenness centrality (0.027) - this node is a cross-community bridge._
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `description` to the rest of the system?**
-  _160 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _173 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `blueprint-gate.mjs` be split into smaller, more focused modules?**
-  _Cohesion score 0.10344827586206896 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1032258064516129 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
 - **Should `blueprint-gate.test.mjs` be split into smaller, more focused modules?**
-  _Cohesion score 0.0796221322537112 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08571428571428572 - nodes in this community are weakly interconnected._
