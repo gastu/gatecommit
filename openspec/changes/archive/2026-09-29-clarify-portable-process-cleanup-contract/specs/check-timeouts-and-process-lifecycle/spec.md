@@ -1,55 +1,18 @@
-# check-timeouts-and-process-lifecycle Specification
+## REMOVED Requirements
 
-## Purpose
-Define configurable execution limits and reliable cleanup for every managed
-GateCommit check so a slow or hung subprocess cannot block closure indefinitely
-or leave its child processes running.
+### Requirement: Timed-out checks SHALL terminate and reap their process tree
 
-## Requirements
+**Reason**: The absolute process-tree promise includes arbitrarily detached and reparented processes, which portable process-group and snapshot mechanisms cannot guarantee.
 
-### Requirement: Managed checks SHALL use validated configurable timeouts
+**Migration**: Use the replacement managed-process cleanup requirement below. Project-owned `gatecommit.checks` scripts must remain attached and must not daemonize or deliberately escape the managed process group.
 
-GateCommit SHALL accept optional `package.json` configuration at
-`gatecommit.timeoutMs` and `gatecommit.checkTimeoutsMs`. `timeoutMs` SHALL be
-an integer number of milliseconds from 1 through 3,600,000, inclusive.
-`checkTimeoutsMs` SHALL be an object whose keys are script names declared in
-`gatecommit.checks` and whose values are integers in the same range. For a
-declared project check, GateCommit SHALL select the per-script value first,
-then the project-wide value, then the 120,000 ms default. Other managed checks
-SHALL use the project-wide value or the default. Invalid configuration SHALL
-produce BLOCKED with an actionable message and SHALL NOT silently fall back.
-When neither timeout property is present, the 120,000 ms default SHALL apply.
+### Requirement: Timed-out POSIX checks SHALL terminate escaped descendants
 
-#### Scenario: No timeout configuration uses the default
+**Reason**: A descendant may create a new session and become reparented before a portable parent-child snapshot observes it.
 
-- **WHEN** neither timeout property is configured
-- **THEN** every managed check SHALL use 120,000 ms
+**Migration**: GateCommit makes best-effort cleanup attempts for safely identified escaped descendants. Do not rely on GateCommit to clean up intentionally detached or persistent processes.
 
-#### Scenario: Project timeout overrides the default
-
-- **WHEN** `gatecommit.timeoutMs` is a valid integer
-- **THEN** managed checks without a per-script override SHALL use that value
-
-#### Scenario: Per-script timeout overrides the project timeout
-
-- **WHEN** a declared check has a valid entry in `gatecommit.checkTimeoutsMs`
-- **THEN** that check SHALL use the per-script value
-- **AND** other checks SHALL use the project timeout or default
-
-#### Scenario: Precedence resolves to the most specific configured value
-
-- **WHEN** a declared check has both `timeoutMs` and a
-  `checkTimeoutsMs[script]` value
-- **THEN** GateCommit SHALL choose per-script override, project timeout, and
-  default in that order
-
-#### Scenario: Timeout values are invalid
-
-- **WHEN** a timeout value is non-integer, non-positive, or greater than
-  3,600,000 ms, or a per-script key is not declared in `gatecommit.checks`
-- **THEN** timeout configuration SHALL report BLOCKED
-- **AND** its message SHALL identify the invalid setting and corrective range
-  or script name requirement
+## ADDED Requirements
 
 ### Requirement: Timed-out checks SHALL terminate the managed process and attempt best-effort descendant cleanup
 

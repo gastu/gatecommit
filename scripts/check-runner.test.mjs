@@ -59,21 +59,22 @@ test("a genuinely hung process is terminated after timeout", async () => {
   assert.notEqual(result.status, 0);
 });
 
-test("timed-out process cleanup also terminates and reaps descendants", async () => {
+test("timeout cleanup terminates and reaps the root and attached child tree", async () => {
   const directory = mkdtempSync(join(tmpdir(), "gatecommit-process-tree-")); roots.push(directory);
-  const pidFile = join(directory, "descendant.pid");
-  const childSource = "process.on('SIGTERM', () => {}); setInterval(() => {}, 1000)";
-  const parentSource = `const {spawn}=require('node:child_process');const fs=require('node:fs');process.on('SIGTERM',()=>{});const child=spawn(process.execPath,['-e',${JSON.stringify(childSource)}],{stdio:'ignore'});fs.writeFileSync(${JSON.stringify(pidFile)},String(child.pid));setInterval(()=>{},1000)`;
-  const result = await runCheck(process.execPath, ["-e", parentSource], { timeoutMs: 700, stdio: "ignore" });
+  const pidFile = join(directory, "pids.json");
+  const grandchildPidFile = join(directory, "grandchild.pid");
+  const grandchildSource = `const fs=require('node:fs');process.on('SIGTERM',()=>{});fs.writeFileSync(${JSON.stringify(grandchildPidFile)},String(process.pid));setInterval(()=>{},1000)`;
+  const childSource = `const{spawn}=require('node:child_process');const g=spawn(process.execPath,['-e',${JSON.stringify(grandchildSource)}],{stdio:'ignore'});g.unref();setInterval(()=>{},1000)`;
+  const rootSource = `const{spawn}=require('node:child_process');const fs=require('node:fs');process.on('SIGTERM',()=>{});const c=spawn(process.execPath,['-e',${JSON.stringify(childSource)}],{stdio:'ignore'});fs.writeFileSync(${JSON.stringify(pidFile)},JSON.stringify({root:process.pid,child:c.pid}));setInterval(()=>{},1000)`;
+  const result = await runCheck(process.execPath, ["-e", rootSource], { timeoutMs: 700, stdio: "ignore" });
   assert.equal(result.timedOut, true);
   assert.ok(existsSync(pidFile), "descendant started before timeout");
-  const descendantPid = Number(readFileSync(pidFile, "utf8"));
-  const deadline = Date.now() + 3_000;
-  while (isProcessAlive(descendantPid) && Date.now() < deadline) await new Promise((resolve) => setTimeout(resolve, 50));
-  assert.equal(isProcessAlive(descendantPid), false, `descendant ${descendantPid} is no longer running`);
+  const { root, child } = JSON.parse(readFileSync(pidFile, "utf8"));
+  const grandchild = await waitForPidFile(grandchildPidFile, 1_000);
+  for (const pid of [root, child, grandchild].filter(Boolean)) await waitUntilNotRunning(pid);
 });
 
-test("timeout cleanup kills a detached grandchild without signalling unrelated processes", { skip: process.platform === "win32" }, async () => {
+test("timeout cleanup best-effort kills an observed detached grandchild without signalling unrelated processes", { skip: process.platform === "win32" }, async () => {
   const directory = mkdtempSync(join(tmpdir(), "gatecommit-detached-tree-")); roots.push(directory);
   const pidFile = join(directory, "pids.json");
   const grandchildSource = "process.on('SIGTERM',()=>{});setInterval(()=>{},1000)";
@@ -92,6 +93,34 @@ test("timeout cleanup kills a detached grandchild without signalling unrelated p
   }
 });
 
+test("a reparented detached grandchild has best-effort cleanup and timeout remains BLOCKED", { skip: process.platform === "win32" }, async (t) => {
+  const directory = mkdtempSync(join(tmpdir(), "gatecommit-reparent-race-")); roots.push(directory);
+  const pidFile = join(directory, "detached.json");
+  const childPidFile = join(directory, "transient-child.pid");
+  const grandchildSource = `const fs=require('node:fs');fs.writeFileSync(${JSON.stringify(pidFile)},JSON.stringify({pid:process.pid,ppid:process.ppid}));setInterval(()=>{},1000)`;
+  const transientChildSource = `const{spawn}=require('node:child_process');const g=spawn(process.execPath,['-e',${JSON.stringify(grandchildSource)}],{detached:true,stdio:'ignore'});g.unref()`;
+  const rootSource = `const{spawn}=require('node:child_process');const fs=require('node:fs');setTimeout(()=>{const c=spawn(process.execPath,['-e',${JSON.stringify(transientChildSource)}],{stdio:'ignore'});fs.writeFileSync(${JSON.stringify(childPidFile)},String(c.pid))},1100);setInterval(()=>{},1000)`;
+  let escapedPid;
+  try {
+    const result = await runCheck(process.execPath, ["-e", rootSource], { timeoutMs: 2_200, stdio: "ignore" });
+    assert.equal(result.timedOut, true, "timeout remains BLOCKED even when detached cleanup is not possible");
+    const childPid = Number(readFileSync(childPidFile, "utf8"));
+    const { pid, ppid } = JSON.parse(readFileSync(pidFile, "utf8"));
+    escapedPid = pid;
+    await waitUntilNotRunning(childPid);
+    assert.notEqual(ppid, childPid, "the detached grandchild has been reparented after its short-lived parent exited");
+    t.diagnostic(await processIsRunning(pid)
+      ? "detached grandchild remained alive in this run; fixture will clean it up"
+      : "best-effort cleanup found and terminated the detached grandchild in this run");
+  } finally {
+    if (!escapedPid && existsSync(pidFile)) escapedPid = JSON.parse(readFileSync(pidFile, "utf8")).pid;
+    if (escapedPid && await processIsRunning(escapedPid)) {
+      try { process.kill(escapedPid, "SIGKILL"); } catch { /* It may already have exited. */ }
+      await waitUntilNotRunning(escapedPid);
+    }
+  }
+});
+
 function isProcessAlive(pid) {
   try { process.kill(pid, 0); return true; }
   catch (error) { if (error.code === "ESRCH") return false; throw error; }
@@ -101,6 +130,13 @@ async function waitUntilNotRunning(pid) {
   const deadline = Date.now() + 3_000;
   while (await processIsRunning(pid) && Date.now() < deadline) await new Promise((resolve) => setTimeout(resolve, 50));
   assert.equal(await processIsRunning(pid), false, `process ${pid} is no longer running`);
+}
+
+async function waitForPidFile(path, timeoutMs) {
+  const deadline = Date.now() + timeoutMs;
+  while (!existsSync(path) && Date.now() < deadline) await new Promise((resolve) => setTimeout(resolve, 10));
+  if (!existsSync(path)) throw new Error(`timed out waiting for ${path}`);
+  return Number(readFileSync(path, "utf8"));
 }
 
 async function processIsRunning(pid) {

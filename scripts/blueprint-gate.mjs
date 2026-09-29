@@ -225,7 +225,7 @@ async function run(name, command, args, options = {}) {
   delete env.NODE_TEST_CONTEXT;
   const timeoutMs = resolveCheckTimeout(packageJson.gatecommit ?? {}, options.script);
   const childResult = await runCheck(command, args, { cwd: options.cwd ?? root, stdio: "inherit", env, timeoutMs });
-  const detail = childResult.timedOut ? `check exceeded timeout of ${timeoutMs}ms and its process tree was terminated`
+  const detail = childResult.timedOut ? `check exceeded timeout of ${timeoutMs}ms; direct process termination completed and descendant cleanup was attempted`
     : childResult.error ? `${childResult.error.code === "ENOENT" ? `${command} is not installed or not on PATH` : childResult.error.message}`
       : childResult.status !== 0 && childResult.status !== options.reviewExitCode ? `${command} exited with status ${childResult.status}` : "";
   const status = childResult.timedOut ? "BLOCKED" : childResult.status === 0 ? "PASS" : childResult.status === options.reviewExitCode ? "REVIEW" : "BLOCKED";
