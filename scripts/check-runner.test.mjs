@@ -59,6 +59,45 @@ test("a genuinely hung process is terminated after timeout", async () => {
   assert.notEqual(result.status, 0);
 });
 
+test("grace period waits for an identified descendant after the root exits", async () => {
+  const directory = mkdtempSync(join(tmpdir(), "gatecommit-graceful-child-")); roots.push(directory);
+  const pidFile = join(directory, "child.pid");
+  const marker = join(directory, "graceful-close");
+  const childSource = `const fs=require('node:fs');fs.writeFileSync(${JSON.stringify(pidFile)},String(process.pid));process.on('SIGTERM',()=>setTimeout(()=>{fs.writeFileSync(${JSON.stringify(marker)},'closed');process.exit(0)},500));setInterval(()=>{},1000)`;
+  const rootSource = `require('node:child_process').spawn(process.execPath,['-e',${JSON.stringify(childSource)}],{stdio:'ignore'});setInterval(()=>{},1000)`;
+  const result = await runCheck(process.execPath, ["-e", rootSource], { timeoutMs: 500, stdio: "ignore" });
+  assert.equal(result.timedOut, true);
+  const childPid = Number(readFileSync(pidFile, "utf8"));
+  assert.equal(existsSync(marker), true, "descendant completed its graceful shutdown before any force kill");
+  await waitUntilNotRunning(childPid);
+});
+
+test("grace period ends early when the managed processes all exit immediately", async () => {
+  const directory = mkdtempSync(join(tmpdir(), "gatecommit-grace-fast-")); roots.push(directory);
+  const pidFile = join(directory, "child.pid");
+  const childSource = `const fs=require('node:fs');fs.writeFileSync(${JSON.stringify(pidFile)},String(process.pid));process.on('SIGTERM',()=>process.exit(0));setInterval(()=>{},1000)`;
+  const rootSource = `require('node:child_process').spawn(process.execPath,['-e',${JSON.stringify(childSource)}],{stdio:'ignore'});setInterval(()=>{},1000)`;
+  const started = Date.now();
+  const result = await runCheck(process.execPath, ["-e", rootSource], { timeoutMs: 400, stdio: "ignore" });
+  assert.equal(result.timedOut, true);
+  await waitUntilNotRunning(Number(readFileSync(pidFile, "utf8")));
+  assert.ok(Date.now() - started < 1_500, "cleanup should not consume the full two second grace period when all exit early");
+});
+
+test("a managed descendant still alive after two seconds is force killed", async () => {
+  const directory = mkdtempSync(join(tmpdir(), "gatecommit-grace-force-")); roots.push(directory);
+  const pidFile = join(directory, "child.pid");
+  const childSource = `const fs=require('node:fs');fs.writeFileSync(${JSON.stringify(pidFile)},String(process.pid));process.on('SIGTERM',()=>{});setInterval(()=>{},1000)`;
+  const rootSource = `require('node:child_process').spawn(process.execPath,['-e',${JSON.stringify(childSource)}],{stdio:'ignore'});setInterval(()=>{},1000)`;
+  const started = Date.now();
+  const result = await runCheck(process.execPath, ["-e", rootSource], { timeoutMs: 400, stdio: "ignore" });
+  const elapsed = Date.now() - started;
+  assert.equal(result.timedOut, true);
+  await waitUntilNotRunning(Number(readFileSync(pidFile, "utf8")));
+  assert.ok(elapsed >= 1_800, `force termination followed the grace period (${elapsed}ms)`);
+  assert.ok(elapsed < 4_500, `termination remained bounded (${elapsed}ms)`);
+});
+
 test("timeout cleanup terminates and reaps the root and attached child tree", async () => {
   const directory = mkdtempSync(join(tmpdir(), "gatecommit-process-tree-")); roots.push(directory);
   const pidFile = join(directory, "pids.json");

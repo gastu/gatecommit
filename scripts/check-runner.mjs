@@ -89,10 +89,12 @@ async function terminateProcessTree(child, treeMonitor = undefined) {
     signalProcessGroup(child.pid, "SIGTERM");
     await treeMonitor?.refresh();
     await signalKnownDescendants(treeMonitor?.known, "SIGTERM");
-    await waitForChildClose(child, TERMINATION_GRACE_MS);
+    const graceExpired = await waitForManagedProcesses(treeMonitor, child.pid, TERMINATION_GRACE_MS);
     await treeMonitor?.refresh();
-    await signalKnownDescendants(treeMonitor?.known, "SIGKILL");
-    signalProcessGroup(child.pid, "SIGKILL");
+    if (graceExpired) {
+      await signalKnownDescendants(treeMonitor?.known, "SIGKILL");
+      signalProcessGroup(child.pid, "SIGKILL");
+    }
   }
   await waitForChildClose(child);
 }
@@ -102,6 +104,7 @@ async function terminateProcessTree(child, treeMonitor = undefined) {
 // signal so PID reuse cannot normally redirect cleanup to an unrelated process.
 function monitorDescendants(rootPid) {
   const known = new Map();
+  const knownGroup = new Map();
   let rootStart;
   let stopped = false;
   let scanInFlight;
@@ -118,6 +121,9 @@ function monitorDescendants(rootPid) {
         }
         const root = processes.get(rootPid);
         if (root && rootStart === undefined) rootStart = root.start;
+        for (const process of processes.values()) {
+          if (process.pgid === rootPid && process.state !== "Z") rememberProcess(knownGroup, process);
+        }
         const queue = [];
         if (root && root.start === rootStart) queue.push(rootPid);
         for (const [pid, identity] of known) {
@@ -142,12 +148,41 @@ function monitorDescendants(rootPid) {
   void scan();
   const timer = setInterval(() => { void scan(); }, PROCESS_TREE_SCAN_MS);
   timer.unref?.();
-  return { known, refresh: scan, stop: () => { stopped = true; clearInterval(timer); } };
+  return { known, knownGroup, refresh: scan, rootStart: () => rootStart, stop: () => { stopped = true; clearInterval(timer); } };
+}
+
+function rememberProcess(processes, process) {
+  const previous = processes.get(process.pid);
+  if (!previous || previous.start === process.start) processes.set(process.pid, process);
+}
+
+// Wait for the direct process, observed descendants, and observed members of
+// the managed POSIX process group. Child close alone is insufficient: its
+// descendants may still be completing their graceful shutdown.
+async function waitForManagedProcesses(treeMonitor, rootPid, graceMs) {
+  const deadline = Date.now() + graceMs;
+  while (true) {
+    await treeMonitor?.refresh();
+    let current;
+    try { current = await readProcessSnapshot(); }
+    catch { return true; }
+    const survivors = [...(treeMonitor?.knownGroup?.values() ?? []), ...(treeMonitor?.known?.values() ?? [])]
+      .some((original) => {
+        const present = current.get(original.pid);
+        return present && present.start === original.start && present.state !== "Z";
+      });
+    const root = current.get(rootPid);
+    const rootSurvives = root && root.start === treeMonitor?.rootStart() && root.state !== "Z";
+    if (!survivors && !rootSurvives) return false;
+    const remaining = deadline - Date.now();
+    if (remaining <= 0) return true;
+    await new Promise((resolve) => setTimeout(resolve, Math.min(PROCESS_TREE_SCAN_MS, remaining)));
+  }
 }
 
 function readProcessSnapshot() {
   return new Promise((resolve, reject) => {
-    const ps = spawn("ps", ["-axo", "pid=,ppid=,lstart="], { stdio: ["ignore", "pipe", "ignore"] });
+    const ps = spawn("ps", ["-axo", "pid=,ppid=,pgid=,lstart=,stat="], { stdio: ["ignore", "pipe", "ignore"] });
     let output = "";
     ps.stdout.setEncoding("utf8").on("data", (chunk) => { output += chunk; });
     ps.once("error", reject);
@@ -155,8 +190,8 @@ function readProcessSnapshot() {
       if (status !== 0) return reject(new Error("ps process snapshot failed"));
       const processes = new Map();
       for (const line of output.split(/\r?\n/u)) {
-        const match = line.match(/^\s*(\d+)\s+(\d+)\s+(.+?)\s*$/u);
-        if (match) processes.set(Number(match[1]), { pid: Number(match[1]), ppid: Number(match[2]), start: match[3] });
+        const match = line.match(/^\s*(\d+)\s+(\d+)\s+(\d+)\s+(.+?)\s+(\S+)\s*$/u);
+        if (match) processes.set(Number(match[1]), { pid: Number(match[1]), ppid: Number(match[2]), pgid: Number(match[3]), start: match[4], state: match[5][0] });
       }
       resolve(processes);
     });

@@ -1,17 +1,17 @@
 # Graph Report - gatecommit  (2026-09-29)
 
 ## Corpus Check
-- 42 files · ~24,901 words
+- 46 files · ~26,211 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: (none) 4)
 
 ## Summary
-- 402 nodes · 542 edges · 31 communities (29 shown, 2 thin omitted)
+- 425 nodes · 564 edges · 35 communities (32 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f0dd8c28`
+- Built from commit: `e4fb2d4a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -47,6 +47,10 @@
 - Tasks
 - ADDED Requirements
 - Design
+- Requirement: The graceful termination period SHALL cover the known managed process set
+- Clarify graceful shutdown across the managed process set
+- Design: managed-process grace period
+- 2026-09-29-review-followup-managed-process-grace-period/tasks.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `syncValidatedChanges()` - 12 edges
@@ -67,35 +71,35 @@
   scripts/blueprint-gate.mjs → scripts/governance.mjs
 - `run()` --calls--> `runCheck()`  [EXTRACTED]
   scripts/blueprint-gate.mjs → scripts/check-runner.mjs
-- `captureWorktreeSnapshot()` --calls--> `readGitDelta()`  [EXTRACTED]
-  scripts/git-sync.mjs → scripts/git-delta.mjs
-- `inspectGitState()` --calls--> `readGitDelta()`  [EXTRACTED]
-  scripts/git-sync.mjs → scripts/git-delta.mjs
+- `run()` --calls--> `resolveCheckTimeout()`  [EXTRACTED]
+  scripts/blueprint-gate.mjs → scripts/check-runner.mjs
+- `report()` --calls--> `result()`  [EXTRACTED]
+  scripts/blueprint-gate.mjs → scripts/governance.mjs
 
 ## Import Cycles
 - None detected.
 
-## Communities (31 total, 2 thin omitted)
+## Communities (35 total, 3 thin omitted)
 
 ### Community 0 - "blueprint-gate.mjs"
 Cohesion: 0.10
 Nodes (25): capabilities, delta, initialSnapshot, initialState, knownCapabilities, options, PACKAGE_ROOT, packagePath (+17 more)
 
 ### Community 1 - "git-sync.mjs"
-Cohesion: 0.22
-Nodes (21): ref_node_crypto, captureWorktreeSnapshot(), checkIdentity(), count(), digest(), displayGitPath(), failure(), fileSnapshot() (+13 more)
+Cohesion: 0.18
+Nodes (24): ref_node_crypto, listVersionedFiles(), parseGitStatus(), readGitDelta(), captureWorktreeSnapshot(), checkIdentity(), count(), digest() (+16 more)
 
 ### Community 2 - "package.json"
 Cohesion: 0.14
 Nodes (13): bin, gatecommit, description, engines, node, files, license, name (+5 more)
 
 ### Community 3 - "blueprint-gate.test.mjs"
-Cohesion: 0.08
-Nodes (28): ref_node_assert, ref_node_child_process, ref_node_os, ref_node_test, ref_node_url, createDirectory(), createDocumentationProject(), createProject() (+20 more)
+Cohesion: 0.09
+Nodes (25): ref_node_assert, ref_node_child_process, ref_node_os, ref_node_test, ref_node_url, createDirectory(), createDocumentationProject(), createProject() (+17 more)
 
 ### Community 4 - "Requirement: Timed-out checks SHALL terminate the managed process and attempt best-effort descendant cleanup"
-Cohesion: 0.10
-Nodes (19): check-timeouts-and-process-lifecycle Specification, Purpose, Requirement: Managed checks SHALL use validated configurable timeouts, Requirement: Project-owned checks SHALL stay within the managed process lifecycle, Requirement: Timed-out checks SHALL terminate the managed process and attempt best-effort descendant cleanup, Requirements, Scenario: A declared check starts normal tool subprocesses, Scenario: A declared check would daemonize or detach (+11 more)
+Cohesion: 0.08
+Nodes (23): check-timeouts-and-process-lifecycle Specification, Purpose, Requirement: Managed checks SHALL use validated configurable timeouts, Requirement: Project-owned checks SHALL stay within the managed process lifecycle, Requirement: The graceful termination period SHALL cover the known managed process set, Requirement: Timed-out checks SHALL terminate the managed process and attempt best-effort descendant cleanup, Requirements, Scenario: A declared check starts normal tool subprocesses (+15 more)
 
 ### Community 5 - "Requirement: Project-owned checks SHALL run through a stable contract"
 Cohesion: 0.06
@@ -130,8 +134,8 @@ Cohesion: 0.50
 Nodes (3): 2.0.0, 2.0.1, Changelog
 
 ### Community 15 - "check-runner.mjs"
-Cohesion: 0.17
-Nodes (19): DEFAULT_TIMEOUT_MS, MAX_TIMEOUT_MS, monitorDescendants(), processDepth(), readProcessSnapshot(), resolveManagedCommand(), runCheck(), runTaskkill() (+11 more)
+Cohesion: 0.16
+Nodes (21): DEFAULT_TIMEOUT_MS, MAX_TIMEOUT_MS, monitorDescendants(), processDepth(), readProcessSnapshot(), rememberProcess(), resolveManagedCommand(), runCheck() (+13 more)
 
 ### Community 16 - "Requirement: Managed checks SHALL use validated configurable timeouts"
 Cohesion: 0.15
@@ -193,25 +197,37 @@ Nodes (3): ADDED Requirements, Requirement: Timed-out POSIX checks SHALL termina
 Cohesion: 0.50
 Nodes (3): Design, Portability analysis, Regression design
 
+### Community 31 - "Requirement: The graceful termination period SHALL cover the known managed process set"
+Cohesion: 0.33
+Nodes (5): ADDED Requirements, Requirement: The graceful termination period SHALL cover the known managed process set, Scenario: All known managed processes exit before the grace deadline, Scenario: An identified descendant survives the grace deadline, Scenario: The root exits before a descendant finishes graceful shutdown
+
+### Community 32 - "Clarify graceful shutdown across the managed process set"
+Cohesion: 0.40
+Nodes (4): Clarify graceful shutdown across the managed process set, Compatibility, What changes, Why
+
+### Community 33 - "Design: managed-process grace period"
+Cohesion: 0.50
+Nodes (3): Decision, Design: managed-process grace period, Risks
+
 ## Knowledge Gaps
-- **199 isolated node(s):** `name`, `version`, `description`, `license`, `gatecommit` (+194 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 239 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **211 isolated node(s):** `name`, `version`, `description`, `license`, `gatecommit` (+206 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 255 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `validateWranglerConfig()` connect `policy-regression.test.mjs` to `blueprint-gate.mjs`?**
-  _High betweenness centrality (0.023) - this node is a cross-community bridge._
+  _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **Why does `Context` connect `policy-regression.test.mjs` to `Design`?**
-  _High betweenness centrality (0.020) - this node is a cross-community bridge._
-- **Why does `Design` connect `Design` to `policy-regression.test.mjs`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
+- **Why does `Design` connect `Design` to `policy-regression.test.mjs`?**
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `description` to the rest of the system?**
-  _199 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _211 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `blueprint-gate.mjs` be split into smaller, more focused modules?**
   _Cohesion score 0.1032258064516129 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
 - **Should `blueprint-gate.test.mjs` be split into smaller, more focused modules?**
-  _Cohesion score 0.07948717948717948 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08571428571428572 - nodes in this community are weakly interconnected._

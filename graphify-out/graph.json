@@ -208,6 +208,42 @@
       "source_location": "L49"
     },
     {
+      "id": "scripts_git_delta_listversionedfiles",
+      "label": "listVersionedFiles()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "git-sync.mjs",
+      "file_type": "code",
+      "norm_label": "listversionedfiles()",
+      "source_file": "scripts/git-delta.mjs",
+      "source_location": "L13"
+    },
+    {
+      "id": "scripts_git_delta_parsegitstatus",
+      "label": "parseGitStatus()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "git-sync.mjs",
+      "file_type": "code",
+      "norm_label": "parsegitstatus()",
+      "source_file": "scripts/git-delta.mjs",
+      "source_location": "L19"
+    },
+    {
+      "id": "scripts_git_delta_readgitdelta",
+      "label": "readGitDelta()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "git-sync.mjs",
+      "file_type": "code",
+      "norm_label": "readgitdelta()",
+      "source_file": "scripts/git-delta.mjs",
+      "source_location": "L3"
+    },
+    {
       "id": "scripts_git_sync_captureworktreesnapshot",
       "label": "captureWorktreeSnapshot()",
       "_callable": true,
@@ -445,7 +481,7 @@
       "file_type": "code",
       "norm_label": "monitordescendants()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L103"
+      "source_location": "L105"
     },
     {
       "id": "scripts_check_runner_processdepth",
@@ -457,7 +493,7 @@
       "file_type": "code",
       "norm_label": "processdepth()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L180"
+      "source_location": "L215"
     },
     {
       "id": "scripts_check_runner_readprocesssnapshot",
@@ -469,7 +505,19 @@
       "file_type": "code",
       "norm_label": "readprocesssnapshot()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L148"
+      "source_location": "L183"
+    },
+    {
+      "id": "scripts_check_runner_rememberprocess",
+      "label": "rememberProcess()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "rememberprocess()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L154"
     },
     {
       "id": "scripts_check_runner_resolvemanagedcommand",
@@ -505,7 +553,7 @@
       "file_type": "code",
       "norm_label": "runtaskkill()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L211"
+      "source_location": "L246"
     },
     {
       "id": "scripts_check_runner_signalknowndescendants",
@@ -517,7 +565,7 @@
       "file_type": "code",
       "norm_label": "signalknowndescendants()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L166"
+      "source_location": "L201"
     },
     {
       "id": "scripts_check_runner_signalprocessgroup",
@@ -529,7 +577,7 @@
       "file_type": "code",
       "norm_label": "signalprocessgroup()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L192"
+      "source_location": "L227"
     },
     {
       "id": "scripts_check_runner_terminateprocesstree",
@@ -553,7 +601,7 @@
       "file_type": "code",
       "norm_label": "isprocessalive()",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L124"
+      "source_location": "L163"
     },
     {
       "id": "scripts_check_runner_test_processisrunning",
@@ -565,7 +613,7 @@
       "file_type": "code",
       "norm_label": "processisrunning()",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L142"
+      "source_location": "L181"
     },
     {
       "id": "scripts_check_runner_test_waitforpidfile",
@@ -577,7 +625,7 @@
       "file_type": "code",
       "norm_label": "waitforpidfile()",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L135"
+      "source_location": "L174"
     },
     {
       "id": "scripts_check_runner_test_waituntilnotrunning",
@@ -589,7 +637,7 @@
       "file_type": "code",
       "norm_label": "waituntilnotrunning()",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L129"
+      "source_location": "L168"
     },
     {
       "id": "scripts_check_runner_validatetimeoutconfiguration",
@@ -625,7 +673,19 @@
       "file_type": "code",
       "norm_label": "waitforchildclose()",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L201"
+      "source_location": "L236"
+    },
+    {
+      "id": "scripts_check_runner_waitformanagedprocesses",
+      "label": "waitForManagedProcesses()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "check-runner.mjs",
+      "file_type": "code",
+      "norm_label": "waitformanagedprocesses()",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L162"
     },
     {
       "id": "scripts_blueprint_gate_test_createdirectory",
@@ -722,42 +782,6 @@
       "norm_label": "withoutci()",
       "source_file": "scripts/blueprint-gate.test.mjs",
       "source_location": "L217"
-    },
-    {
-      "id": "scripts_git_delta_listversionedfiles",
-      "label": "listVersionedFiles()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "listversionedfiles()",
-      "source_file": "scripts/git-delta.mjs",
-      "source_location": "L13"
-    },
-    {
-      "id": "scripts_git_delta_parsegitstatus",
-      "label": "parseGitStatus()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "parsegitstatus()",
-      "source_file": "scripts/git-delta.mjs",
-      "source_location": "L19"
-    },
-    {
-      "id": "scripts_git_delta_readgitdelta",
-      "label": "readGitDelta()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "readgitdelta()",
-      "source_file": "scripts/git-delta.mjs",
-      "source_location": "L3"
     },
     {
       "id": "scripts_git_delta_test_createdirectory",
@@ -1236,6 +1260,17 @@
       "norm_label": "versioned",
       "source_file": "scripts/blueprint-gate.mjs",
       "source_location": "L30"
+    },
+    {
+      "id": "scripts_git_delta",
+      "label": "git-delta.mjs",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "git-sync.mjs",
+      "file_type": "code",
+      "norm_label": "git-delta.mjs",
+      "source_file": "scripts/git-delta.mjs",
+      "source_location": "L1"
     },
     {
       "id": "scripts_git_sync",
@@ -3211,17 +3246,6 @@
       "source_location": "L10"
     },
     {
-      "id": "scripts_git_delta",
-      "label": "git-delta.mjs",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "blueprint-gate.test.mjs",
-      "file_type": "code",
-      "norm_label": "git-delta.mjs",
-      "source_file": "scripts/git-delta.mjs",
-      "source_location": "L1"
-    },
-    {
       "id": "scripts_git_delta_test",
       "label": "git-delta.test.mjs",
       "_origin": "ast",
@@ -3391,6 +3415,210 @@
       "source_location": "L11"
     },
     {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec",
+      "label": "2026-09-29-review-followup-managed-process-grace-period/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "Requirement: The graceful termination period SHALL cover the known managed process set",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-09-29-review-followup-managed-process-grace-period/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_added_requirements",
+      "label": "ADDED Requirements",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "Requirement: The graceful termination period SHALL cover the known managed process set",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "added requirements",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_requirement_the_graceful_termination_period_shall_cover_the_known_managed_process_set",
+      "label": "Requirement: The graceful termination period SHALL cover the known managed process set",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "Requirement: The graceful termination period SHALL cover the known managed process set",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requirement: the graceful termination period shall cover the known managed process set",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_scenario_all_known_managed_processes_exit_before_the_grace_deadline",
+      "label": "Scenario: All known managed processes exit before the grace deadline",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "Requirement: The graceful termination period SHALL cover the known managed process set",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: all known managed processes exit before the grace deadline",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_scenario_an_identified_descendant_survives_the_grace_deadline",
+      "label": "Scenario: An identified descendant survives the grace deadline",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "Requirement: The graceful termination period SHALL cover the known managed process set",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: an identified descendant survives the grace deadline",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L31"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_scenario_the_root_exits_before_a_descendant_finishes_graceful_shutdown",
+      "label": "Scenario: The root exits before a descendant finishes graceful shutdown",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "Requirement: The graceful termination period SHALL cover the known managed process set",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: the root exits before a descendant finishes graceful shutdown",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L16"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_proposal",
+      "label": "2026-09-29-review-followup-managed-process-grace-period/proposal.md",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Clarify graceful shutdown across the managed process set",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-09-29-review-followup-managed-process-grace-period/proposal.md",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/proposal.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_proposal_clarify_graceful_shutdown_across_the_managed_process_set",
+      "label": "Clarify graceful shutdown across the managed process set",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Clarify graceful shutdown across the managed process set",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "clarify graceful shutdown across the managed process set",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/proposal.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_proposal_compatibility",
+      "label": "Compatibility",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Clarify graceful shutdown across the managed process set",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "compatibility",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/proposal.md",
+      "source_location": "L18"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_proposal_what_changes",
+      "label": "What changes",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Clarify graceful shutdown across the managed process set",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "what changes",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/proposal.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_proposal_why",
+      "label": "Why",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Clarify graceful shutdown across the managed process set",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "why",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/proposal.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_design",
+      "label": "2026-09-29-review-followup-managed-process-grace-period/design.md",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Design: managed-process grace period",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-09-29-review-followup-managed-process-grace-period/design.md",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/design.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_design_decision",
+      "label": "Decision",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Design: managed-process grace period",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "decision",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/design.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_design_design_managed_process_grace_period",
+      "label": "Design: managed-process grace period",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Design: managed-process grace period",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "design: managed-process grace period",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/design.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_design_risks",
+      "label": "Risks",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Design: managed-process grace period",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "risks",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/design.md",
+      "source_location": "L19"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_tasks",
+      "label": "2026-09-29-review-followup-managed-process-grace-period/tasks.md",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "2026-09-29-review-followup-managed-process-grace-period/tasks.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-09-29-review-followup-managed-process-grace-period/tasks.md",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/tasks.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_tasks_1_implementation_and_verification",
+      "label": "1. Implementation and verification",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "2026-09-29-review-followup-managed-process-grace-period/tasks.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1. implementation and verification",
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/tasks.md",
+      "source_location": "L1"
+    },
+    {
       "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec",
       "label": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
       "_origin": "ast",
@@ -3449,6 +3677,18 @@
       "norm_label": "requirement: project-owned checks shall stay within the managed process lifecycle",
       "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
       "source_location": "L90"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_the_graceful_termination_period_shall_cover_the_known_managed_process_set",
+      "label": "Requirement: The graceful termination period SHALL cover the known managed process set",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Timed-out checks SHALL terminate the managed process and attempt best-effort descendant cleanup",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "requirement: the graceful termination period shall cover the known managed process set",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L104"
     },
     {
       "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_checks_shall_terminate_the_managed_process_and_attempt_best_effort_descendant_cleanup",
@@ -3571,6 +3811,30 @@
       "source_location": "L63"
     },
     {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_all_known_managed_processes_exit_before_the_grace_deadline",
+      "label": "Scenario: All known managed processes exit before the grace deadline",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Timed-out checks SHALL terminate the managed process and attempt best-effort descendant cleanup",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: all known managed processes exit before the grace deadline",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L125"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_an_identified_descendant_survives_the_grace_deadline",
+      "label": "Scenario: An identified descendant survives the grace deadline",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Timed-out checks SHALL terminate the managed process and attempt best-effort descendant cleanup",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: an identified descendant survives the grace deadline",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L132"
+    },
+    {
       "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_no_timeout_configuration_uses_the_default",
       "label": "Scenario: No timeout configuration uses the default",
       "_origin": "ast",
@@ -3617,6 +3881,18 @@
       "norm_label": "scenario: project timeout overrides the default",
       "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
       "source_location": "L28"
+    },
+    {
+      "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_the_root_exits_before_a_descendant_finishes_graceful_shutdown",
+      "label": "Scenario: The root exits before a descendant finishes graceful shutdown",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Requirement: Timed-out checks SHALL terminate the managed process and attempt best-effort descendant cleanup",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "scenario: the root exits before a descendant finishes graceful shutdown",
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L117"
     },
     {
       "id": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_timeout_values_are_invalid",
@@ -5067,7 +5343,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L113",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_monitordescendants",
+      "target": "scripts_check_runner_rememberprocess",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L125",
       "weight": 1.0
     },
     {
@@ -5115,7 +5403,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L169",
+      "source_location": "L204",
       "weight": 1.0
     },
     {
@@ -5127,7 +5415,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L171",
+      "source_location": "L206",
       "weight": 1.0
     },
     {
@@ -5179,6 +5467,18 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_check_runner_terminateprocesstree",
+      "target": "scripts_check_runner_waitformanagedprocesses",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
       "source": "scripts_check_runner_test_processisrunning",
       "target": "scripts_check_runner_test_isprocessalive",
       "relation": "calls",
@@ -5187,7 +5487,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L143",
+      "source_location": "L182",
       "weight": 1.0
     },
     {
@@ -5199,7 +5499,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L131",
+      "source_location": "L170",
       "weight": 1.0
     },
     {
@@ -5212,6 +5512,18 @@
       "context": "call",
       "source_file": "scripts/check-runner.mjs",
       "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner_waitformanagedprocesses",
+      "target": "scripts_check_runner_readprocesssnapshot",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L167",
       "weight": 1.0
     },
     {
@@ -5883,7 +6195,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L129",
+      "source_location": "L168",
       "weight": 1.0
     },
     {
@@ -5895,7 +6207,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L135",
+      "source_location": "L174",
       "weight": 1.0
     },
     {
@@ -5907,7 +6219,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L142",
+      "source_location": "L181",
       "weight": 1.0
     },
     {
@@ -8093,6 +8405,149 @@
       "weight": 1.0
     },
     {
+      "source": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_design",
+      "target": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_design_design_managed_process_grace_period",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/design.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_design_design_managed_process_grace_period",
+      "target": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_design_risks",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/design.md",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_design_design_managed_process_grace_period",
+      "target": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_design_decision",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/design.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_proposal",
+      "target": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_proposal_clarify_graceful_shutdown_across_the_managed_process_set",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/proposal.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_proposal_clarify_graceful_shutdown_across_the_managed_process_set",
+      "target": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_proposal_compatibility",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/proposal.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_proposal_clarify_graceful_shutdown_across_the_managed_process_set",
+      "target": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_proposal_why",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/proposal.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_proposal_clarify_graceful_shutdown_across_the_managed_process_set",
+      "target": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_proposal_what_changes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/proposal.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec",
+      "target": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_added_requirements",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_added_requirements",
+      "target": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_requirement_the_graceful_termination_period_shall_cover_the_known_managed_process_set",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_requirement_the_graceful_termination_period_shall_cover_the_known_managed_process_set",
+      "target": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_scenario_the_root_exits_before_a_descendant_finishes_graceful_shutdown",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_requirement_the_graceful_termination_period_shall_cover_the_known_managed_process_set",
+      "target": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_scenario_all_known_managed_processes_exit_before_the_grace_deadline",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_requirement_the_graceful_termination_period_shall_cover_the_known_managed_process_set",
+      "target": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_specs_check_timeouts_and_process_lifecycle_spec_scenario_an_identified_descendant_survives_the_grace_deadline",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_tasks",
+      "target": "openspec_changes_archive_2026_09_29_review_followup_managed_process_grace_period_tasks_1_implementation_and_verification",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/changes/archive/2026-09-29-review-followup-managed-process-grace-period/tasks.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "openspec_changes_archive_2026_09_29_review_followup_process_tree_and_toml_boundaries_design",
       "target": "openspec_changes_archive_2026_09_29_review_followup_process_tree_and_toml_boundaries_design_design",
       "relation": "contains",
@@ -9303,6 +9758,39 @@
       "weight": 1.0
     },
     {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_the_graceful_termination_period_shall_cover_the_known_managed_process_set",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_the_root_exits_before_a_descendant_finishes_graceful_shutdown",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_the_graceful_termination_period_shall_cover_the_known_managed_process_set",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_all_known_managed_processes_exit_before_the_grace_deadline",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_the_graceful_termination_period_shall_cover_the_known_managed_process_set",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_an_identified_descendant_survives_the_grace_deadline",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
       "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_timed_out_checks_shall_terminate_the_managed_process_and_attempt_best_effort_descendant_cleanup",
       "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_scenario_a_long_suite_finishes_inside_its_selected_timeout",
       "relation": "contains",
@@ -9377,6 +9865,17 @@
       "confidence_score": 1.0,
       "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
       "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirements",
+      "target": "openspec_specs_check_timeouts_and_process_lifecycle_spec_requirement_the_graceful_termination_period_shall_cover_the_known_managed_process_set",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "openspec/specs/check-timeouts-and-process-lifecycle/spec.md",
+      "source_location": "L104",
       "weight": 1.0
     },
     {
@@ -10135,7 +10634,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L103",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_rememberprocess",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L154",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_check_runner",
+      "target": "scripts_check_runner_waitformanagedprocesses",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/check-runner.mjs",
+      "source_location": "L162",
       "weight": 1.0
     },
     {
@@ -10146,7 +10667,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L148",
+      "source_location": "L183",
       "weight": 1.0
     },
     {
@@ -10157,7 +10678,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L166",
+      "source_location": "L201",
       "weight": 1.0
     },
     {
@@ -10168,7 +10689,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L180",
+      "source_location": "L215",
       "weight": 1.0
     },
     {
@@ -10179,7 +10700,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L192",
+      "source_location": "L227",
       "weight": 1.0
     },
     {
@@ -10190,7 +10711,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L201",
+      "source_location": "L236",
       "weight": 1.0
     },
     {
@@ -10201,7 +10722,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.mjs",
-      "source_location": "L211",
+      "source_location": "L246",
       "weight": 1.0
     },
     {
@@ -10300,7 +10821,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/check-runner.test.mjs",
-      "source_location": "L124",
+      "source_location": "L163",
       "weight": 1.0
     },
     {
@@ -10944,5 +11465,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f0dd8c282cbf9505cf1b4d26d1dc8b222d66afb8"
+  "built_at_commit": "e4fb2d4a92e1bd0ec7229d8f458fa878e2c68dec"
 }
